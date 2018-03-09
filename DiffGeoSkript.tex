@@ -43,6 +43,13 @@
 	
 	\pagebreak
 	
+\section*{Einleitung}
+Das folgende Skriptum wird von einigen Studenten (oben angeführt) während der Vorlesung geschrieben und danach auf Fehler kontrolliert und bearbeitet. Natürlich schleichen sich nach Möglichkeit Fehler ein, die übersehen werden, dies ist gerne bei den schreibenden Personen anzumerken.
+Das Skriptum enthält großteils das Tafelbild der Stunden und keinenfalls die Garantie in irgendeiner Weise vollständig zu sein. (Wir geben unser Bestes.)
+
+\textbf{Viel Vergnügen mit DiffGeo}
+\pagebreak
+	
 \section{Kurven}
 \subsection{Parametrisierung und Bogenlänge}
 
@@ -75,8 +82,8 @@ Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
 
 \begin{definition}
 	\textit{Umparametrisierung} einer param. Kurve $X: I \rightarrow \mathcal{E}$ ist eine param. Kurve
-	\[\overline{X}: \overline{I} \rightarrow \mathcal{E}; s \mapsto \overline{X}(s)=X(t(s)),\]
-	wobei $t: \overline{I} \rightarrow I$ eine surjektive, reguläre Abbildung ist.
+	\[\widetilde{X}: \widetilde{I} \rightarrow \mathcal{E}; s \mapsto \widetilde{X}(s)=X(t(s)),\]
+	wobei $t: \widetilde{I} \rightarrow I$ eine surjektive, reguläre Abbildung ist.
 
 \end{definition}
 
@@ -112,9 +119,9 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 \begin{proof}
 	Wähle $o \in I$ und bemerke \[s'(t) = |X'(t)| > 0.\]
 	Also ist $t \mapsto s(t)$ streng monoton wachsend, kann also invertiert werden, um $t= t(s)$ zu erhalten: Damit erhält man für 
-	\[\overline{X}:=X\circ t\]
-	\[|\overline{X}'(s)|= |X'(t(s))|*|t'(s)| = \frac{s'(t)}{s'(t)}= 1,\]
-	d.h. $\overline{X}$ ist nach Bogenlänge parametrisiert. (nämlich durch Division mit der Inversen.)
+	\[\widetilde{X}:=X\circ t\]
+	\[|\widetilde{X}'(s)|= |X'(t(s))|*|t'(s)| = \frac{s'(t)}{s'(t)}= 1,\]
+	d.h. $\widetilde{X}$ ist nach Bogenlänge parametrisiert. (nämlich durch Division mit der Inversen.)
 \end{proof}
 
 \begin{note}
@@ -124,7 +131,7 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 \begin{example}
 	Eine Helix \[t \mapsto X(t) = O + e_1r\cos(t)+e_2r\sin(t)+ e_3ht\]
 	hat Bogenlänge \[s(t) = \int_{O}^{t} \sqrt{r^2 + h^2}dt = \sqrt{r^2+h^2}*t\]
-	und somit Bogenlängenparametrisierung \[s \mapsto \overline{X}(s)= O + e_1r\cos\frac{s}{\sqrt{r^2+h^2}}+e_2r\sin\frac{s}{\sqrt{r^2+h^2}}+ e_3\frac{hs}{\sqrt{r^2+h^2}}.\]
+	und somit Bogenlängenparametrisierung \[s \mapsto \widetilde{X}(s)= O + e_1r\cos\frac{s}{\sqrt{r^2+h^2}}+e_2r\sin\frac{s}{\sqrt{r^2+h^2}}+ e_3\frac{hs}{\sqrt{r^2+h^2}}.\]
 \end{example}
 
 \begin{note, example}
