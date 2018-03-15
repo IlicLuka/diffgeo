@@ -22,9 +22,11 @@
 
 
 \newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\E}{\mathcal E}
 
 
-\newenvironment{definition}{\textbf{Definiton.} ~~~~}{}
+\newenvironment{definition}{\textbf{Definition.} ~~~~}{}
 \newenvironment{note}{\textbf{Bemerkung.} ~~~~}{}
 \newenvironment{proposition}{\textbf{Proposition.} ~~~~}{}
 \newenvironment{lemma}{\textbf{Lemma.} ~~~~}{}
@@ -32,6 +34,8 @@
 \newenvironment{example}{\textbf{Beispiel.} ~~~~}{}
 \newenvironment{lemma, definition}{\textbf{Lemma und Definition.} ~~~~}{}
 \newenvironment{note, example}{\textbf{Bemerkung und Beispiel.} ~~~~}{}
+\newenvironment{note, definition}{\textbf{Bemerkung und Definition.} ~~~~}{}
+
 
 \begin{document}
 	
@@ -43,11 +47,21 @@
 	
 	\pagebreak
 	
-\section*{Einleitung}
-Das folgende Skriptum wird von einigen Studenten (oben angeführt) während der Vorlesung geschrieben und danach auf Fehler kontrolliert und bearbeitet. Natürlich schleichen sich nach Möglichkeit Fehler ein, die übersehen werden, dies ist gerne bei den schreibenden Personen anzumerken.
+\section*{Vorwort} \addcontentsline{toc}{section}{Vorwort}
+Das folgende Skriptum ist begleitend zur Vorlesung Differentialgeometrie gehalten von Univ.Prof. Hertrich - Jeromin und wird von einigen Studenten (oben angeführt) während der Vorlesung geschrieben und danach auf Fehler kontrolliert und bearbeitet. Natürlich schleichen sich nach Möglichkeit Fehler ein, die übersehen werden, dies ist gerne bei den schreibenden Personen anzumerken.
 Das Skriptum enthält großteils das Tafelbild der Stunden und keinenfalls die Garantie in irgendeiner Weise vollständig zu sein. (Wir geben unser Bestes.)
 
-\textbf{Viel Vergnügen mit DiffGeo}
+\textbf{Viel Vergnügen mit DiffGeo!}
+
+\begin{note}
+	\textbf{Literaturempfehlung} (zusätzlich): \begin{enumerate}
+		\item Strubecker: Differentialgeometrie I - III; Sammlung Göschen
+		\item Spivak: A comprehensive Introduction to Diffenrential Geometry I - V; Publisher Perish
+		\item O'Neil: Semi.Riemannian Geometrie; Acad. Press
+		\item Hicks: Notes on Differential Geometry (Es gibt (möglicherweise nicht legale) Versionen im Internet.)\\
+		(ersteres ist kompakter, zweiteres eher komplementär gedacht, drittes für Physik-Interessierte, letzteres vergleicht die Methoden der Differentialgeometrie)
+	\end{enumerate}
+\end{note}
 \pagebreak
 	
 \section{Kurven}
@@ -89,7 +103,7 @@ Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
 
 Motivation: Für eine Kurve $t \mapsto X(t)$ 
 \begin{enumerate}
-	\item X'(t) ist \textit{Geschwindigkeit(-svektor)} (''veloicity''),
+	\item X'(t) ist \textit{Geschwindigkeit(-svektor)} (''velocity''),
 	\item |X'(t)| ist (skalare) Geschwindigkeit (''speed'').
 \end{enumerate}
 
@@ -101,7 +115,7 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 
 \begin{definition}
 	
-	Die \textit{Bogenlänge} einer Kurve $X: I \rightarrow \mathcal{E}$ von $X(0)$ für $o \in I$, ist
+	Die \textit{Bogenlänge} einer Kurve $X: I \rightarrow \mathcal{E}$ ab $X(o)$ für $o \in I$, ist
 	\[s(t) := \int_{o}^{t}|X'(t)|dt\] (wobei $\int_{o}^{s}|X'(t)|dt$ auch als $\int_{o}^{t} ds$ geschrieben wird)
 	
 \end{definition}
@@ -142,6 +156,170 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 	dies ist ein elliptisches Integral, also nicht mit elem. Funktionen invertierbar.
 
 \end{note, example}
+
+\subsection{Streifen und Rahmen}
+
+\begin{definition}
+	
+	Sei $X: \R \supseteq I \rightarrow \E$ eine parametrisierte Kurve.
+	Die \textit{Tangente} an einem Punkt $X(t)$, wird durch den Punkt und seinen Tangentialvektor $X'(t)$ beschrieben. $\mathcal{T}(t)=X(t) + [X'(t)]$ notiert diese Gerade.
+	Die Ebene $\mathcal{N}(t)=X(t)+ \{X'(t)\}^\perp $ heißt \textit{Normalebene}.
+	
+	Alternativ können wir sagen, wir erhalten Tangente, bzw. Normalebene, durch legen des \textit{Tangentialraumes} $[X'(t)]$ bzw. \textit{Normalraumes} $\{X'(t)\}^\perp$ durch den Punkt $X(t)$.
+	
+\end{definition}
+
+\begin{definition}
+	Das \textit{Tangential-} und \textit{Normalbündel} einer Kurve $X:I \rightarrow \E^3$ werden durch die folgenden Abbildungen definiert:
+	\[I \ni t \mapsto T_tX := [X'(t)]\subseteq V \text{ bzw.}\]
+	\[I \ni t \mapsto N_tX:= \{ X'(t) \}^\perp. \]
+	
+	eine Abbildung $Y: I \rightarrow V$ heißt
+	\begin{enumerate}
+		\item ein \textit{Tangentialfeld} entlang $X$, falls \[ \forall t \in I: X(t) \in T_tX \]
+		\item ein \textit{Normalenfeld} entlang $X$, falls \[  \forall t \in I: X(t) \in N_tX \]
+	\end{enumerate}
+\end{definition}
+
+\begin{note, definition}
+
+Jede Kurve hat ein (und nur ein!) harmonisches \textit{Einheitstangentenfeld} (ETF)
+\[ T: I \rightarrow V; t \mapsto \frac{X'(t)}{|X'(t)|} \]
+
+Aber -- es gibt haufenweise Normalenfelder.
+
+\end{note, definition}
+
+\begin{definition}
+	Ein \textit{Streifen} (''ribbon'') ist ein Paar $(X,N)$, wobei $$X:I \rightarrow \E$$ eine Kurve und $$ N: I \rightarrow V $$ ein \textit{Einheitsnormalenfeld} (ENF) ist, d.h.,
+	\[N\perp T \text{ und } |N|=1. \]
+\end{definition}
+
+\begin{note, definition}
+	(Im dreidimesionalen Raum können wir folgendes sagen:)
+	Ein Streifen ist also eine Kurve mit einer ''vertikalen Richtung''.
+	Weiters erhält man eine ''seitwärts Richtung'' durch die \textit{Binormale} $$B:=T\times N : I\rightarrow V.$$ (Hier ist $T \times N$ das ''bekannte'' Kreuzprodunkt)
+	
+\end{note, definition}
+
+\begin{lemma, definition}
+	
+	Der \textit{ (angepasste) Rahmen} eines Streifens $(X,N): I\rightarrow\E^3\times S^2$ ist eine Abbildung \[ F=(T,N,B): I\rightarrow SO(V) \] seine \textit{Strukturgleichungen} sind von der Form \[ F' = F \phi \text{ mit } |X'| \begin{pmatrix}
+	0 & - \kappa_n & \kappa_g \\
+	\kappa_n & 0 & \tau\\
+	-\kappa_g & \tau & 0
+	\end{pmatrix}, \] wobei\begin{enumerate}
+		\item $\kappa_n$ die \textit{Normalkrümmung}
+		\item $\kappa_g$ die \textit{geodärische Krümmung}, und
+		\item $\tau$ die \textit{Torsion} des Streifens $(X,N)$ \\ bezeichnen.
+		
+	\end{enumerate}
+
+\begin{proof}
+	Da $F: I \rightarrow SO(V)$, gilt \[F^tF \equiv id\] und daher \[ 0 = (F^tF)' = F'^tF + F^tF' = (F\phi)^tF + F^tF\phi = \phi^tF^tF + F^tF\phi = \phi^t+ \phi ~~~~~~,\] d.h., $\phi:I \rightarrow o(V)$ ist schiefsymmetrisch. Insbesondere: Es gibt Funktionen $\kappa_n, \kappa_g, \tau$, so dass $\phi$ von der behaupteten Form ist.
+\end{proof}
+
+\textbf{Wiederholung:}
+$$O(V) = \{ A \in End(V) ~ | ~ A^tA\equiv id \}$$
+$$SO(V) = \{ A \in O(V) ~ | ~ det(A) = 1 \}$$
+$$o(V) = \{ B \in End(V) ~ | ~ B^t +A\equiv 0 \}$$
+
+\begin{note}
+	Krümmung und Torsion eines Streifens sind \textit{geometrische Invarianten} des Streifens, d.h., sie sind unabhängig von Position und (in gewisser Weise) Parametrisierung des Streifens.
+	
+	\begin{enumerate}
+		\item ist $(\widetilde{X}, \widetilde{N}) = (\widetilde{o} + A(X-o), AN)$ mit $o,\widetilde{o} \in \E$ und $A \in SO(V)$ eine Euklidsche Bewegung des Streifens $(X,N)$, so sind $\widetilde{T}= AT$ und $\widetilde{B}= AT\times AN = A(T\times N)$, also $\widetilde{F}=AF$ und damit $\widetilde{\phi} = \widetilde{F}^t\widetilde{F}'= F^tA^tAF' = \phi$
+		
+		\item ist $s \mapsto (\widetilde{X}, \widetilde{N})(t(s))$ eine \textit{orientierungstreue Umparametrisierung}, d.h., $t' >0$, von $t \mapsto (X,N)(t)$, so gilt
+		\[\widetilde{\phi}(s) = \widetilde{F}^t(s)\widetilde{F}'(s) = F^t(t(s))F'(t(s))\cdot t'(s) \] und \[ |\widetilde{X}'(s)| = |X'(t(s))|\cdot|t'(s)| =  |X'(t(s))|\cdot t'(s) \] und damit $\widetilde{\kappa_n}(s)= \kappa_n(t(s))$ usw.
+	\end{enumerate}
+\end{note}
+
+\begin{note, definition}
+	Ist ein Streifen $(\widetilde{X},\widetilde{N})$ gegeben durch eine \textit{Normalrotation} eines Streifens $(X,N)$, d.h., $\widetilde{X}, \widetilde{N} = (X,N \cos \varphi + B \sin \varphi)$ mit $\varphi: I \rightarrow \R$, so gilt
+	\begin{equation*}
+	\begin{pmatrix} 
+		\widetilde{\kappa_n}\\
+		\widetilde{\kappa_g}
+	\end{pmatrix}
+	=
+	 \begin{pmatrix} 
+	 \cos \varphi & - \sin \varphi \\
+	 \sin \varphi & \cos \varphi
+	 \end{pmatrix}
+	 \begin{pmatrix}
+	 \kappa_n\\
+	 \kappa_g
+	 \end{pmatrix}
+	\end{equation*} und
+	$$\widetilde{\tau} = \tau + \frac{\varphi'}{|X'|} ~~~~~.$$
+	
+	
+\end{note, definition}
+	
+\end{lemma, definition}
+
+\begin{example}
+	\begin{enumerate}
+		 \item \textbf {Helix}: Betrachte den Streifen $(X,N)$ mit $t \mapsto X(t) = o + e_1r\cos t + e_2r \sin t + e_3ht$ und 
+		$t \mapsto N(t) = -(e_1\cos t + e_2 \sin t)$.
+		Für $$T(t) = (-e_1r\sin t + e_2r \cos t + e_3h) \frac{1}{\sqrt{r^2 + h^2}}$$ und
+		$$N(t) = (e_1h\sin t - e_2h \cos t + e_3r) \frac{1}{\sqrt{r^2 + h^2}}$$ bekommt man
+		$F = (T,N,B): \R \rightarrow SO(V)$ und damit \[ T' = N \cdot \frac{r}{\sqrt{r^2 + h^2}} \]		\[ N' = T \cdot \frac{-r}{\sqrt{r^2 + h^2}} + B \cdot \frac{h}{\sqrt{r^2 + h^2}} \]	
+		\[B'= \frac{-h}{\sqrt{r^2 +h^2}}\]
+		also (mit $|X'|=\sqrt{r^2 + h^2}$),
+		\begin{align*}
+		\kappa_n & = \frac{r}{r^2 + h^2} \\
+		\kappa_g & = 0 \\
+		\tau & = \frac{h}{r^2+ h^2} 
+		\end{align*} 
+		
+		\item \textbf{sphärische Kurve}: Sei $s\mapsto X(s) \in \E^3$ eine bogenlängenparametrisierte Kurve, d.h., mit Mittelpunkt $o \in \E^3$ und Radius $r>0$, der Sphäre gilt:
+		\[ |X-o|^2 \equiv r^2 \text{ und } |X'|^2 \equiv 1 ~~~~~.\]
+		Bemerke:
+		$\langle X',X-o \rangle = \frac 12 (|X-o|^2)' = 0 ~~~~~.$
+		Also liefert $N :=(X-o)\frac 1r $ ein ENF. Damit berechnen wir
+		\begin{align*}
+			\kappa_n &= - \langle N', T \rangle \equiv \frac 1r\\
+			\kappa_g &= - \langle B, T' \rangle = - \frac 1r \langle X' \times (X-o), X'' \rangle = \frac{det(X-o,X',X'')}{r}\\
+			\tau &= \langle N',B\rangle = \frac{1}{r^2} \langle X',X'\times (X-o) \rangle \equiv 0 ~~~~~.
+			\end{align*}
+		 
+	\end{enumerate}
+
+\end{example}
+
+\begin{note}
+	$\kappa_g \equiv 0$ im ersten Bsp. und $\tau \equiv 0$ im zweiten Bsp.
+\end{note}
+
+\begin{theorem}[Fundamentalsatz für Streifen\\]
+	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V ~~~~~,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Kruümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
+\end{theorem}
+
+\begin{proof}
+	
+	Wähle $o \in I$ und $F_o \in SO(V)$ beliebig und fest.
+	Nach Satz von Picard-Lindelöf hat das AWP 
+		\[ F' = F\phi, ~ F(o)= F_o \] mit 
+	\[ \phi =\begin{pmatrix}
+		0 & -\kappa_n & \kappa_g \\
+		\kappa_n & 0 & -\tau \\
+		-\kappa_g & \tau & 0
+	\end{pmatrix}\]
+	eine eindeutige Lösung $F = (T,N,B) : I \rightarrow End(V)$.
+	Nun zeigen wir, dass $F$ ein Rahmen ist:
+	\begin{enumerate}
+		\item $(FF^t)' = F( \phi  + \phi^t) F^t \equiv 0 $ also $FF^t \equiv id,$ und $F:I \rightarrow O(V)$
+		\item $det: O(V) \rightarrow \{\pm1\}$ ist stetig, also $det F: I \rightarrow \{ \pm 1 \}$ konstant und somit $$det F = det F_o = 1 ~~~~~,$$ also $F: I \rightarrow SO(V).$
+	\end{enumerate}
+	
+	Insbesondere $|T| \equiv 1$ und man erhält eine bogenlängenparametrisierte Kurve
+		\[X: I \rightarrow \E^3, t \mapsto O + \int_{o}^{t} T(s) ds ~~~~~. \]
+		
+	$(X,N)$ mit $F=(T,N,B)$ liefert einen Streifen, Krümmung und Torsion wie behauptet.\\
+	Eindeutigkeit bis auf Euklid. Bewegung folgt aus der Eindeutigkeit in Picard-Lindelöf und jener der Integration.
+\end{proof}
 
 
 
