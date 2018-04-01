@@ -229,10 +229,10 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 	Krümmung und Torsion eines Streifens sind \textit{geometrische Invarianten} des Streifens, d.h., sie sind unabhängig von Position und (in gewisser Weise) Parametrisierung des Streifens.
 	
 	\begin{enumerate}
-		\item ist $(\widetilde{X}, \widetilde{N}) = (\widetilde{o} + A(X-o), AN)$ mit $o,\widetilde{o} \in \E$ und $A \in SO(V)$ eine Euklidsche Bewegung des Streifens $(X,N)$, so sind $\widetilde{T}= AT$ und $\widetilde{B}= AT\times AN = A(T\times N)$, also $\widetilde{F}=AF$ und damit $\widetilde{\phi} = \widetilde{F}^t\widetilde{F}'= F^tA^tAF' = \phi$
+		\item ist $(\widetilde{X}, \widetilde{N}) = (\widetilde{O} + A(X-O), AN)$ mit $O,\widetilde{O} \in \E$ und $A \in SO(V)$ eine Euklidsche Bewegung des Streifens $(X,N)$, so sind $\widetilde{T}= AT$ und $\widetilde{B}= AT\times AN = A(T\times N) = AB$, also $\widetilde{F}=AF$ und damit $\widetilde{\phi} = \widetilde{F}^t\widetilde{F}'= F^tA^tAF' = \phi$. (Da $A \in SO(V))$
 		
-		\item ist $s \mapsto (\widetilde{X}, \widetilde{N})(t(s))$ eine \textit{orientierungstreue Umparametrisierung}, d.h., $t' >0$, von $t \mapsto (X,N)(t)$, so gilt
-		\[\widetilde{\phi}(s) = \widetilde{F}^t(s)\widetilde{F}'(s) = F^t(t(s))F'(t(s))\cdot t'(s) \] und \[ |\widetilde{X}'(s)| = |X'(t(s))|\cdot|t'(s)| =  |X'(t(s))|\cdot t'(s) \] und damit $\widetilde{\kappa_n}(s)= \kappa_n(t(s))$ usw.
+		\item ist $s \mapsto (\widetilde{X}, \widetilde{N})(s) = (X,N)(t(s))$ eine \textit{orientierungstreue Umparametrisierung}, d.h., $t' >0$, von $t \mapsto (X,N)(t)$, so gilt
+		\[\widetilde{\phi}(s) = \widetilde{F}^t(s)\widetilde{F}'(s) = F^t(t(s))F'(t(s))\cdot t'(s) =\phi(t(s)) \cdot t'(s) \] und \[ |\widetilde{X}'(s)| = |X'(t(s))|\cdot|t'(s)| =  |X'(t(s))|\cdot t'(s) \] und damit $\widetilde{\kappa_n}(s)= \kappa_n(t(s))$ usw.
 	\end{enumerate}
 \end{note}
 
@@ -265,7 +265,7 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 		 \item \textbf {Helix}: Betrachte den Streifen $(X,N)$ mit $t \mapsto X(t) = o + e_1r\cos t + e_2r \sin t + e_3ht$ und 
 		$t \mapsto N(t) = -(e_1\cos t + e_2 \sin t)$.
 		Für $$T(t) = (-e_1r\sin t + e_2r \cos t + e_3h) \frac{1}{\sqrt{r^2 + h^2}}$$ und
-		$$N(t) = (e_1h\sin t - e_2h \cos t + e_3r) \frac{1}{\sqrt{r^2 + h^2}}$$ bekommt man
+		$$B(t) = (e_1h\sin t - e_2h \cos t + e_3r) \frac{1}{\sqrt{r^2 + h^2}}$$ bekommt man
 		$F = (T,N,B): \R \rightarrow SO(V)$ und damit \[ T' = N \cdot \frac{r}{\sqrt{r^2 + h^2}} \]		\[ N' = T \cdot \frac{-r}{\sqrt{r^2 + h^2}} + B \cdot \frac{h}{\sqrt{r^2 + h^2}} \]	
 		\[B'= \frac{-h}{\sqrt{r^2 +h^2}}\]
 		also (mit $|X'|=\sqrt{r^2 + h^2}$),
@@ -275,15 +275,15 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 		\tau & = \frac{h}{r^2+ h^2} 
 		\end{align*} 
 		
-		\item \textbf{sphärische Kurve}: Sei $s\mapsto X(s) \in \E^3$ eine bogenlängenparametrisierte Kurve, d.h., mit Mittelpunkt $o \in \E^3$ und Radius $r>0$, der Sphäre gilt:
-		\[ |X-o|^2 \equiv r^2 \text{ und } |X'|^2 \equiv 1  .\]
+		\item \textbf{sphärische Kurve}: Sei $s\mapsto X(s) \in \E^3$ eine bogenlängenparametrisierte Kurve, d.h. mit Mittelpunkt $O \in \E^3$ und Radius $r>0$, der Sphäre gilt:
+		\[ |X-O|^2 \equiv r^2 \text{ und } |X'|^2 \equiv 1  .\]
 		Bemerke:
-		$\langle X',X-o \rangle = \frac 12 (|X-o|^2)' = 0  .$
-		Also liefert $N :=(X-o)\frac 1r $ ein ENF. Damit berechnen wir
+		$\langle X',X-O \rangle = \frac 12 (|X-O|^2)' = 0  .$
+		Also liefert $N :=(X-O)\frac 1r $ ein ENF. Damit berechnen wir
 		\begin{align*}
 			\kappa_n &= - \langle N', T \rangle \equiv \frac 1r\\
-			\kappa_g &= - \langle B, T' \rangle = - \frac 1r \langle X' \times (X-o), X'' \rangle = \frac{det(X-o,X',X'')}{r}\\
-			\tau &= \langle N',B\rangle = \frac{1}{r^2} \langle X',X'\times (X-o) \rangle \equiv 0  .
+			\kappa_g &= - \langle B, T' \rangle = - \frac 1r \langle X' \times (X-O), X'' \rangle = \frac{det(X-O,X',X'')}{r}\\
+			\tau &= \langle N',B\rangle = \frac{1}{r^2} \langle X',X'\times (X-O) \rangle \equiv 0  .
 			\end{align*}
 		 
 	\end{enumerate}
@@ -295,7 +295,7 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 \end{note}
 
 \begin{theorem}[Fundamentalsatz für Streifen\\]
-	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Kruümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
+	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Krümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
 \end{theorem}
 
 \begin{proof}
