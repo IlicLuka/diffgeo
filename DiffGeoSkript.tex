@@ -26,16 +26,20 @@
 \newcommand{\N}{\mathbb N}
 \newcommand{\E}{\mathcal E}
 
+\theoremstyle{plain}
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{lemma}[theorem]{Lemma.} 
+\newtheorem{proposition}[theorem]{Proposition.}  
 
-\newenvironment{definition}{\textbf{Definition.} ~~~~}{}
-\newenvironment{note}{\textbf{Bemerkung.} ~~~~}{}
-\newenvironment{proposition}{\textbf{Proposition.} ~~~~}{}
-\newenvironment{lemma}{\textbf{Lemma.} ~~~~}{}
-\newenvironment{theorem}[1][]{\textbf{Satz.} #1~~~~}{}
-\newenvironment{example}{\textbf{Beispiel.} ~~~~}{}
-\newenvironment{lemma, definition}{\textbf{Lemma und Definition.} ~~~~}{}
-\newenvironment{note, example}{\textbf{Bemerkung und Beispiel.} ~~~~}{}
-\newenvironment{note, definition}{\textbf{Bemerkung und Definition.} ~~~~}{}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition.}
+\newtheorem{remark, definition}[theorem]{Bemerkung und Definition.}
+\newtheorem{lemma, definition}[theorem]{Lemma und Definition.}  
+
+\theoremstyle{remark}
+\newtheorem*{remark}{\textbf{Bemerkung}}
+\newtheorem*{example}{\textbf{Beispiel}}
+\newtheorem*{remark, example}{\textbf{Bemerkung und Beispiel}} 
 
 
 \begin{document}
@@ -54,7 +58,7 @@ Das Skriptum enthält großteils das Tafelbild der Stunden und keinenfalls die G
 
 \textbf{Viel Vergnügen mit DiffGeo!}
 
-\begin{note}
+\begin{remark}
 	\textbf{Literaturempfehlung} (zusätzlich): \begin{enumerate}
 		\item Strubecker: Differentialgeometrie I - III; Sammlung Göschen
 		\item Spivak: A comprehensive Introduction to Diffenrential Geometry I - V; Publisher Perish
@@ -62,7 +66,7 @@ Das Skriptum enthält großteils das Tafelbild der Stunden und keinenfalls die G
 		\item Hicks: Notes on Differential Geometry (Es gibt (möglicherweise nicht legale) Versionen im Internet.)\\
 		(ersteres ist kompakter, zweiteres eher komplementär gedacht, drittes für Physik-Interessierte, letzteres vergleicht die Methoden der Differentialgeometrie)
 	\end{enumerate}
-\end{note}
+\end{remark}
 \pagebreak
 	
 \section{Kurven}
@@ -86,9 +90,9 @@ Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
 	Wir nennen $X$ auch Parametrisierung der Kurve $\mathcal{C} = X(I)$.
 \end{definition}
 
-\begin{note}
+\begin{remark}
 	Alle Abbildungen in dieser VO sind beliebig oft differenzierbar (d.h. $C^{\infty}$).
-\end{note}
+\end{remark}
 
 \begin{example}
 	Eine \textit{(Kreis-) Helix} mit Radius $r>0$ und Ganghöhe $h$ ist die Kurve
@@ -121,11 +125,11 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 	
 \end{definition}
 
-\begin{note}
+\begin{remark}
 	Dies ist tatsächlich die Länge des Kurvenbogens zwischen $X(o)$ und $X(t)$, wie man z.B. durch polygonale Approximation beweist (s. Ana2 VO)
 	Also: Die Bogenlänge zwischen zwei Punkten ist \textit{invariant} ("ändert sich nicht")
 	unter Umparametrisierung.
-\end{note}
+\end{remark}
 
 \begin{lemma, definition}
 	Jede Kurve $t \mapsto X(t)$ kann man nach Bogenlänge (um-) parametrisieren, d.h. so, dass sie konstante Geschwindigkeit $1$ ($|X'(t)|\equiv 1$) hat.
@@ -139,9 +143,9 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 	d.h. $\widetilde{X}$ ist nach Bogenlänge parametrisiert. (nämlich durch Division mit der Inversen.)
 \end{proof}
 
-\begin{note}
+\begin{remark}
 	Eine Bogenlängenparametrisierung ist eindeutig bis auf Wahl von $o$ und Orientierung.
-\end{note}
+\end{remark}
 
 \begin{example}
 	Eine Helix \[t \mapsto X(t) = O + e_1r\cos(t)+e_2r\sin(t)+ e_3ht\]
@@ -149,14 +153,14 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 	und somit Bogenlängenparametrisierung \[s \mapsto \widetilde{X}(s)= O + e_1r\cos\frac{s}{\sqrt{r^2+h^2}}+e_2r\sin\frac{s}{\sqrt{r^2+h^2}}+ e_3\frac{hs}{\sqrt{r^2+h^2}}.\]
 \end{example}
 
-\begin{note, example}
+\begin{remark, example}
 	
 	Üblicherweise ist es nicht möglich eine Bogenlängenparam. in elem. Funktionen anzugeben: Eine Ellipse\[t \mapsto O + e_1a\cos(t)+e_2b\sin(t) ~ (a>b>0)\]
 	hat Bogenlänge
 	\[s(t) = \int_{0}^{t} \sqrt{b^2 + ( a^2-b^2)\sin(t)}dt,\]
 	dies ist ein elliptisches Integral, also nicht mit elem. Funktionen invertierbar.
 
-\end{note, example}
+\end{remark, example}
 
 \subsection{Streifen und Rahmen}
 
@@ -182,26 +186,26 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 	\end{enumerate}
 \end{definition}
 
-\begin{note, definition}
+\begin{remark, definition}
 
 Jede Kurve hat ein \textbf{(und nur ein!)} harmonisches \textit{Einheitstangentenfeld} (ETF)
 \[ T: I \rightarrow V; t \mapsto \frac{X'(t)}{|X'(t)|} \]
 
 Aber -- \textbf{es gibt haufenweise Normalenfelder.}
 
-\end{note, definition}
+\end{remark, definition}
 
 \begin{definition}
 	Ein \textit{Streifen} (''ribbon'') ist ein Paar $(X,N)$, wobei $$X:I \rightarrow \E$$ eine Kurve und $$ N: I \rightarrow V $$ ein \textit{Einheitsnormalenfeld} (ENF) ist, d.h.,
 	\[N\perp T \text{ und } |N|=1. \]
 \end{definition}
 
-\begin{note, definition}
+\begin{remark, definition}
 	(Im dreidimesionalen Raum können wir folgendes sagen:)
 	Ein Streifen ist also eine Kurve mit einer ''vertikalen Richtung''.
 	Weiters erhält man eine ''seitwärts Richtung'' durch die \textit{Binormale} $$B:=T\times N : I\rightarrow V.$$ (Hier ist $T \times N$ das ''bekannte'' Kreuzprodunkt)
 	
-\end{note, definition}
+\end{remark, definition}
 
 \begin{lemma, definition}
 	
@@ -225,7 +229,7 @@ $$O(V) = \{ A \in End(V) ~ | ~ A^tA\equiv id \}$$
 $$SO(V) = \{ A \in O(V) ~ | ~ det(A) = 1 \}$$
 $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 
-\begin{note}
+\begin{remark}
 	Krümmung und Torsion eines Streifens sind \textit{geometrische Invarianten} des Streifens, d.h., sie sind unabhängig von Position und (in gewisser Weise) Parametrisierung des Streifens.
 	
 	\begin{enumerate}
@@ -234,9 +238,9 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 		\item ist $s \mapsto (\widetilde{X}, \widetilde{N})(s) = (X,N)(t(s))$ eine \textit{orientierungstreue Umparametrisierung}, d.h., $t' >0$, von $t \mapsto (X,N)(t)$, so gilt
 		\[\widetilde{\phi}(s) = \widetilde{F}^t(s)\widetilde{F}'(s) = F^t(t(s))F'(t(s))\cdot t'(s) =\phi(t(s)) \cdot t'(s) \] und \[ |\widetilde{X}'(s)| = |X'(t(s))|\cdot|t'(s)| =  |X'(t(s))|\cdot t'(s) \] und damit $\widetilde{\kappa_n}(s)= \kappa_n(t(s))$ usw.
 	\end{enumerate}
-\end{note}
+\end{remark}
 
-\begin{note, definition}
+\begin{remark, definition}
 	Ist ein Streifen $(\widetilde{X},\widetilde{N})$ gegeben durch eine \textit{Normalrotation} eines Streifens $(X,N)$, d.h., $\widetilde{X}, \widetilde{N} = (X,N \cos \varphi + B \sin \varphi)$ mit $\varphi: I \rightarrow \R$, so gilt
 	\begin{equation*}
 	\begin{pmatrix} 
@@ -256,13 +260,14 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 	$$\widetilde{\tau} = \tau + \frac{\varphi'}{|X'|}  .$$
 	
 	
-\end{note, definition}
+\end{remark, definition}
 	
 \end{lemma, definition}
 
 \begin{example}
+	
 	\begin{enumerate}
-		 \item \textbf {Helix}: Betrachte den Streifen $(X,N)$ mit $t \mapsto X(t) = o + e_1r\cos t + e_2r \sin t + e_3ht$ und 
+		 \item \textbf{Helix}: Betrachte den Streifen $(X,N)$ mit $$t \mapsto X(t) = o + e_1r\cos t + e_2r \sin t + e_3ht$$ und 
 		$t \mapsto N(t) = -(e_1\cos t + e_2 \sin t)$.
 		Für $$T(t) = (-e_1r\sin t + e_2r \cos t + e_3h) \frac{1}{\sqrt{r^2 + h^2}}$$ und
 		$$B(t) = (e_1h\sin t - e_2h \cos t + e_3r) \frac{1}{\sqrt{r^2 + h^2}}$$ bekommt man
@@ -290,11 +295,11 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 
 \end{example}
 
-\begin{note}
+\begin{remark}
 	$\kappa_g \equiv 0$ im ersten Bsp. und $\tau \equiv 0$ im zweiten Bsp.
-\end{note}
+\end{remark}
 
-\begin{theorem}[Fundamentalsatz für Streifen\\]
+\begin{theorem}[Fundamentalsatz für Streifen]
 	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Krümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
 \end{theorem}
 
@@ -334,9 +339,9 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 	Ein Normalenfeld $N: I \rightarrow V $ entlang $X: I \rightarrow \E$ heißt \textit{parallel}, falls $\nabla^\perp N := N'-  \langle N',T\rangle = 0,$ wobei $\nabla^\perp $ den \textit{Normalzusammenhang} entlang $X$ bezeichnet.
 \end{definition}
 
-\begin{note}
+\begin{remark}
 	Hier wird \underline{nicht} $| N | = 1$ angenommen.
-\end{note}
+\end{remark}
 
 \begin{lemma}
 	Der Normalzshg. ist \textit{metrisch}, d.h., $$ \langle N_1,N_2 \rangle ' = \langle \nabla^\perp N_1,N_2 \rangle + \langle N_1, \nabla^\perp N_2 \rangle; $$
@@ -367,17 +372,17 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 \end{example}
 
 
-\begin{note}
+\begin{remark}
 	Ist $(X,N)$ ein Krümmungsstreifen, $\tau \equiv 0,$ so ist $N$ parallel : 
 	\[ N' = (-\kappa_n T + \tau B)|x'| \nabla^\perp N = B\tau|x'|= 0; \]
 	andererseits: Ist $N: I \rightarrow V$ parallel entlang $X: I \rightarrow \E$ , so ist $ (X,\frac{N}{|N|}) $ Krümmungsstreifen (falls $N \not = 0$).
-\end{note}
+\end{remark}
 
-\begin{note}
+\begin{remark}
 	Ist $N$ parallel längs $X$, so auch $B = T\times N.$
-\end{note}
+\end{remark}
 
-\begin{note}
+\begin{remark}
 	Ist $(X,N)$ durch eine Normalrotation von $(X, \widetilde{N})$ gegeben, d.h. \[ (X,N) = (X,\widetilde{N} \cos \varphi + \widetilde{B}\sin \varphi) \] mit $\varphi: I \rightarrow \R$, so gilt 
 	\[ \tau = \widetilde{\tau} + \frac{\varphi '}{|X'|}; \]
 	folglich: Man erhält einen Krümmungsstreifen bzw. ENF $N: I \rightarrow V$ einer Kurve $X: I \rightarrow \E$ durch \[ N = \widetilde{N} \cos \varphi + \widetilde{B} \sin \varphi \text{ mit } \varphi(t) = \varphi_o - \int_{o}^{t} \tau(t) ds. \]
@@ -387,7 +392,7 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 	Da konstante Skalierungen eines parallelen Normalenfeldes parallel ist, folgt:
 	
 	
-\end{note}
+\end{remark}
 
 \begin{lemma}
 	Sei $X: I \rightarrow \E$ eine Kurve, $o \in I$ und $N_o \in N_oX$. Dann existiert ein eindeutiges paralleles Normalenfeld $N: I \rightarrow V$ mit $N(o) = N_o$
@@ -408,9 +413,9 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 	Parallele Normalenfelder entlang $X: I \rightarrow \E$ definieren eine lineare Isometrie von $N_oX$ nach $N_tX$. Diese Isometrie heiüt \textit{Paralleltransport} entlang $X$.
 \end{lemma, definition}
 
-\begin{note}
+\begin{remark}
 	Dies erklärt den Begriff ''Zusammenhang'' für $\nabla^\perp$:$\nabla^\perp$ liefert einen Zusammenhang zwischen Normalräumen einer Kurve.
-\end{note}
+\end{remark}
 
 \begin{proof}
 	Wähle $N_o \in N_oX$; nach Lemma vorher gibt es ein eindeutiges(!) paralleles NF $N : I \rightarrow V$ entlang $X$ mit $N(o) = N_o$; also definiere durch 
@@ -445,13 +450,13 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	$X: I \rightarrow \E^3$ heißt \textit{Frenet Kurve}, falls \[ \forall t \in I: (X' \times X'')(t) \not = 0. \]
 \end{definition}
 
-\begin{note}
+\begin{remark}
 	In diesem Kapitel wird stets der 3-dimensionale Raum angenommen.
-\end{note}
+\end{remark}
 
-\begin{note}
+\begin{remark}
 	Die Frenet-Bedingung ist invariant unter Umparametrisierung.
-\end{note}
+\end{remark}
 
 \begin{lemma, definition}
 	Ist $X: I \rightarrow \E^3$ Frenet, so gilt \[ \forall t \in I : T'(t) \not = 0 \] und $\frac{T'}{|T'|} =: N$ definiert ein ENF: Dies ist die \textit{Hauptnormale} von $X$.
@@ -474,9 +479,9 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	 mit der \textit{Krümmung} $\kappa > 0$ und \textit{Torsion} $\tau$ der Frenet Kurve $X$.
 \end{lemma, definition}
 
-\begin{note}
+\begin{remark}
 	Für eine Frenet Kurve (mit Hauptnormale) gilt also $\kappa_n = \kappa > 0$ und $\kappa = 0$.
-\end{note}
+\end{remark}
 
 \begin{proof}
 	Für einen Frenet Rahmen \[ \kappa_g = - \frac{\langle T', B \rangle}{|X'|} = - \frac{\langle N, B \rangle |T'|}{|X'|} = 0 \]
@@ -493,11 +498,11 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	\[ \kappa \equiv \frac{r}{r^2 +h^2} \text{ bzw. } \tau \equiv \frac{h}{r^2+h^2}  \]
 \end{example}
 
-\begin{note}
+\begin{remark}
 	Krümmung und Torsion einer Frenet Kurve sind \[ \kappa = \frac{|X' \times X''|}{|X'|^3} \text{ bzw. }  \tau = \frac{\det(X',X'',X''')}{|X' \times X''|^2} \]
 	
 	Insbesondere: Krümmung und Torsion hängen nur von der Kurve ab (daher: ''Krümmung'' und ''Torsion der Kurve'')
-\end{note}
+\end{remark}
 
 \begin{theorem}[Fundamentalsatz für Frenet Kurven]
 	Für zwei Funktionen \[ s \mapsto \kappa(s), \tau(s) \text{ mit } \forall s \in I: \kappa(s) > 0 \] gibt es eine Bogenlängenparametrisierte Frenet Kurve $X: I \rightarrow \E ^3$ mit Krümmung $\kappa$ und Torsion $\tau$. 
@@ -520,9 +525,9 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	\end{enumerate}
 \end{proof}
 
-\begin{note}
+\begin{remark}
 	Einen einfacheren Fundamentalsatz gibt es für ebene Kurven. (Aufgabe: Formulieren und -- ohne Picard-Lindelöf-- beweisen!)
-\end{note}
+\end{remark}
 
 \begin{example}
 	Seien $\kappa > 0, \tau \in \R$ Zahlen. Nach dem Fundamentalsatz existiert (eind. bis auf Eukl. Bewegung) eine bogenlängenparametrisierte Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$. Andererseits: \[ \R \ni s \mapsto X(s) = O + e_1 r \cos \frac{s}{\sqrt{r^2+h^2}} + e_2 r \sin \frac{s}{\sqrt{r^2+h^2}} + e_3 \frac{hs}{\sqrt{r^2 + h^2}}\] ist bogenlängenparam. Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$ für \[ r= \frac{\kappa}{\kappa^2 + \tau^2} \text{ und } h = \frac{ \tau}{\kappa^2 + \tau^2} \].
