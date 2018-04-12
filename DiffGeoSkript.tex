@@ -503,9 +503,10 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 \end{remark}
 
 \begin{proof}
-	Für einen Frenet Rahmen \[ \kappa_g = - \frac{\langle T', B \rangle}{|X'|} = - \frac{\langle N, B \rangle |T'|}{|X'|} = 0 \]
+	Für einen Frenet Rahmen gilt 
+	\[ \kappa_g = - \frac{\langle T', B \rangle}{|X'|} = - \frac{\langle N, B \rangle |T'|}{|X'|} = 0, \]
 	
-	\[ \kappa_g = \frac{\langle T', N \rangle}{|X'|} = \frac{\langle N, N \rangle |T'|}{|X'|} >0 \]
+	\[ \kappa_g = \frac{\langle T', N \rangle}{|X'|} = \frac{\langle N, N \rangle |T'|}{|X'|} >0. \]
 \end{proof}
 
 \begin{example}
@@ -514,13 +515,13 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	\[ X = O + e_1 r \cos t + e_2 r \sin t + e_3 h \]
 	
 	hat Hauptnormalenfeld (s. Kapitel 1.2) \[ t \mapsto N(t) = - (e_1 \cos t + e_2 \sin t) \] und Krümmung und Torsion 
-	\[ \kappa \equiv \frac{r}{r^2 +h^2} \text{ bzw. } \tau \equiv \frac{h}{r^2+h^2}  \]
+	\[ \kappa \equiv \frac{r}{r^2 +h^2} \text{ bzw. } \tau \equiv \frac{h}{r^2+h^2} . \]
 \end{example}
 
 \begin{remark}
 	Krümmung und Torsion einer Frenet Kurve sind \[ \kappa = \frac{|X' \times X''|}{|X'|^3} \text{ bzw. }  \tau = \frac{\det(X',X'',X''')}{|X' \times X''|^2} \]
 	
-	Insbesondere: Krümmung und Torsion hängen nur von der Kurve ab (daher: ''Krümmung'' und ''Torsion der Kurve'')
+	Insbesondere: Krümmung und Torsion hängen nur von der Kurve ab (daher: ''Krümmung'' und ''Torsion der Kurve'').
 \end{remark}
 
 \begin{theorem}[Fundamentalsatz für Frenet Kurven]
@@ -549,7 +550,7 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 \end{remark}
 
 \begin{example}
-	Seien $\kappa > 0, \tau \in \R$ Zahlen. Nach dem Fundamentalsatz existiert (eind. bis auf Eukl. Bewegung) eine bogenlängenparametrisierte Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$. Andererseits: \[ \R \ni s \mapsto X(s) = O + e_1 r \cos \frac{s}{\sqrt{r^2+h^2}} + e_2 r \sin \frac{s}{\sqrt{r^2+h^2}} + e_3 \frac{hs}{\sqrt{r^2 + h^2}}\] ist bogenlängenparam. Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$ für \[ r= \frac{\kappa}{\kappa^2 + \tau^2} \text{ und } h = \frac{ \tau}{\kappa^2 + \tau^2} \].
+	Seien $\kappa > 0, \tau \in \R$ Zahlen. Nach dem Fundamentalsatz existiert (eind. bis auf Eukl. Bewegung) eine bogenlängenparametrisierte Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$. Andererseits: \[ \R \ni s \mapsto X(s) = O + e_1 r \cos \frac{s}{\sqrt{r^2+h^2}} + e_2 r \sin \frac{s}{\sqrt{r^2+h^2}} + e_3 \frac{hs}{\sqrt{r^2 + h^2}}\] ist bogenlängenparam. Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$ für \[ r= \frac{\kappa}{\kappa^2 + \tau^2} \text{ und } h = \frac{ \tau}{\kappa^2 + \tau^2}. \]
 	
 	Damit haben wir bewiesen:
 \end{example}
@@ -625,26 +626,32 @@ und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängi
 	Die \emph{induzierte Metrik} oder \emph{erste Fundamentalform} einer parametrisierten Fläche $ X: M \rightarrow \E$ ist definiert durch
 	\[ I := \langle dX,dX \rangle \]
 	für jeden Punkt $ (u,v) \in M $ liefert 
-	\[ \R^2 \times \R^2 \ni (\begin{pmatrix}
-	x \\
-	y
-	\end{pmatrix})  \mapsto I \big|_{(u,v)}(\begin{pmatrix}
-	x \\
-	y
+	\[ \R^2 \times \R^2 \ni \left( \pmat{x_1\\y_1}, \pmat{x_2\\y_2} \right)  \mapsto I \big|_{(u,v)}(\begin{pmatrix}
+	x_1 \\
+	y_1
 	\end{pmatrix},\begin{pmatrix}
-	x \\
-	y
-	\end{pmatrix}) := \langle d_{(u,v)}X(\begin{pmatrix}
-	x \\
-	y
+	x_2 \\
+	y_2
+	\end{pmatrix}) := \left\langle d_{(u,v)}X(\begin{pmatrix}
+	x_1 \\
+	y_1
 	\end{pmatrix}),  d_{(u,v)}X(\begin{pmatrix}
-	x \\
-	y
-	\end{pmatrix})  \rangle \]
+	x_2 \\
+	y_2
+	\end{pmatrix})  \right\rangle \]
+	eine positiv definite symmetrische Bilinearform.
 \end{lemma, definition}
 
 \begin{proof}
-	Das darf ich wohl machen.. \#getrektluka
+	%Das darf ich wohl machen.. \#getrektluka
+	Zuzeugen ist, dass $I\big| _{(u,v)}$ für jeden Punkt $(u,v)\in M$ eine positiv definite symmetrische Bilinearform ist. 
+	
+	Weil $ I\big| _{(u,v)} $ eine komposition aus linearen Funktionen und einer Bilinearform ist, ist auch $I\big| _{(u,v)}$ linear. Die Symmetrie ist ebenfalls leicht ersichtlich. Fehlt noch die positiv Definitheit.
+	
+	Sei $\pmat{x\\y} \neq 0$ beliebig, so gilt
+		\[ I\big| _{(u,v)}(\pmat{x\\y},\pmat{x\\y})
+			= \skal{d_{(u,v)}X(\pmat{x\\y}),d_{(u,v)}X(\pmat{x\\y})}> 0. \]
+	Die letzte Ungleichung gilt, weil $d_{(u,v)}X$ injektiv in linear ist, daher bildet nur $0$ auf $0$ ab. Also ist $d_{(u,v)}X(\pmat{x\\y})\neq 0$. Der Rest folgt, weil $\skal{.,.}$ positiv defint ist.
 \end{proof}
 
 \begin{remark}
