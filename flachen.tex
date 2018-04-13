@@ -1,0 +1,203 @@
+
+\subsection{Parametrisierung \& Metrik}
+\begin{definition}
+	
+
+Eine Abbildung \[ X:\R^2 \supseteq M \rightarrow \E \] heißt \emph{parametrisierte Fläche}, falls $M$ ein offen und zusammenhängend ist und $X$ regulär ist, d.h., $  \forall(u,v) \in M~:~d_{(u,v)}X: \R^2 \rightarrow V $ ist injektiv.
+Wir sagen auch: $  X  $ ist \emph{Parametrisierung} der \emph{Fläche} $ X(M) \subseteq \E $
+
+\end{definition}
+
+\begin{remark}
+	
+ Äquivalent zur letzten Forderung ist die Forderung, dass die Jacobi-Matrix maximalen Rang hat. Diese braucht aber eine Festgelegte Basis, was oft zu Schwierigkeiten bei Berechnungen führt und wird daher von Prof. Jeromin nicht empfohlen.
+
+\end{remark}
+
+\begin{remark}
+	Einmal mehr sind alle geforderten Abbildungen so oft differenzierbar, wie wir das wünschen
+\end{remark}
+
+\begin{remark}
+	
+	$ d_{(u,v)} : \R^2 \rightarrow V$ ist die Ableitung am Punkt $ (u,v) \in M $, \[X(u+x,v+y) \dot{=} X(u,v) + d_{(u,v)}  X(\begin{pmatrix}
+	x\\
+	y
+	\end{pmatrix}) = X(u,v) + X_u(u,v)\cdot x + X_v(u,v)\cdot y,  \]
+	wir können also identifizieren: \[ d_{(u,v)}X \cong (X_u,X_v)(u,v), \]
+	bzw., nach Wahl einer Basis von V, mit der Jacobi-Matrix am Punkt $ (u,v) $.
+	
+\end{remark}
+
+\begin{example}
+	
+
+
+Ein \emph{Helicoid} $ X: \R^2 \rightarrow \E^3 $ ist die \emph{(Regel-)Fläche}  
+\[ \R^2 \supseteq (r,v) \mapsto O + e_1r \cos(v) + e_2 r \sin(v) + e_3 v \in \E^3. \]
+
+Wir zeigen, dass $(X_r,X_v)(r,v))$ linear unabhängig für alle $ (r,v) \in \R^2 $ sind:
+
+\[ X_r(r,v) = e_1\cos(v) + e_2 \sin(v) \neq 0 \]
+\[ X_v(r,v) = -e_1r \sin(v) + e_2 r \cos(v) + e_3 \neq 0 \]
+
+und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängig.
+
+\end{example}
+
+\begin{example}
+	
+	Eine übliche Parametrisierung von $ \mathbb{S}^2 \subseteq \E^3 $ (mit Mittelpunkt $O \in \E^3$) ist  
+	\[ (u,v) \mapsto O + e_1\cos(u)\cos(v) + e_2\cos(u)\sin(v)+e_3\sin(u) \]
+	liefert keine parametrisierte Fläche, da die Sphäre an den Polen nicht regulär ist.
+	Dies ist also nur eine Parametrisierung auf $ M = (-\frac{\pi}{2},\frac{\pi}{2}) \times \R $
+	
+	Insbesondere kann man sogar zeigen, dass es keine (reguläre) Parametrisierung der (ganzen) Sphäre gibt (''Hairy Ball Theorem'' bzw. ''Satz vom Igel'').
+	
+	$ \mathbb{S}^2 $ ist also \textbf{keine} Fläche im Sinne der Def. Dieses ''Problem'' wird später gelöst.
+\end{example}
+
+\begin{lemma, definition}
+	
+	Die \emph{induzierte Metrik} oder \emph{erste Fundamentalform} einer parametrisierten Fläche $ X: M \rightarrow \E$ ist definiert durch
+	\[ I := \langle dX,dX \rangle \]
+	für jeden Punkt $ (u,v) \in M $ liefert 
+	\[ \R^2 \times \R^2 \ni \left( \pmat{x_1\\y_1}, \pmat{x_2\\y_2} \right)  \mapsto I \big|_{(u,v)}(\begin{pmatrix}
+	x_1 \\
+	y_1
+	\end{pmatrix},\begin{pmatrix}
+	x_2 \\
+	y_2
+	\end{pmatrix}) := \left\langle d_{(u,v)}X(\begin{pmatrix}
+	x_1 \\
+	y_1
+	\end{pmatrix}),  d_{(u,v)}X(\begin{pmatrix}
+	x_2 \\
+	y_2
+	\end{pmatrix})  \right\rangle \]
+	eine positiv definite symmetrische Bilinearform.
+\end{lemma, definition}
+
+\begin{proof}
+	%Das darf ich wohl machen.. \#getrektluka
+	Zuzeugen ist, dass $I\big| _{(u,v)}$ für jeden Punkt $(u,v)\in M$ eine positiv definite symmetrische Bilinearform ist. 
+	
+	Weil $ I\big| _{(u,v)} $ eine komposition aus linearen Funktionen und einer Bilinearform ist, ist auch $I\big| _{(u,v)}$ linear. Die Symmetrie ist ebenfalls leicht ersichtlich. Fehlt noch die positiv Definitheit.
+	
+	Sei $\pmat{x\\y} \neq 0$ beliebig, so gilt
+		\[ I\big| _{(u,v)}(\pmat{x\\y},\pmat{x\\y})
+			= \skal{d_{(u,v)}X(\pmat{x\\y}),d_{(u,v)}X(\pmat{x\\y})}> 0. \]
+	Die letzte Ungleichung gilt, weil $d_{(u,v)}X$ injektiv in linear ist, daher bildet nur $0$ auf $0$ ab. Also ist $d_{(u,v)}X(\pmat{x\\y})\neq 0$. Der Rest folgt, weil $\skal{.,.}$ positiv defint ist.
+\end{proof}
+
+\begin{remark}
+	
+	$I$ wird oft notiert mit Hilfe der \emph{Gramschen Matrix}, \[ I = \begin{pmatrix}
+	E & F\\
+	F & G
+	\end{pmatrix} = E du^2 + 2Fdudv + Gdv^2 \] mit
+	\[ E=|X_u|^2, F = \langle X_u,X_v \rangle, G = |X_v|^2  \]
+	
+
+
+Dann gilt für $ (u,v) \in M$ : \[ I \big|_{(u,v)}(\begin{pmatrix}
+x_1 \\
+y_1
+\end{pmatrix},\begin{pmatrix}
+x_2 \\
+y_2
+\end{pmatrix}) := \langle d_{(u,v)}X(\begin{pmatrix}
+x_1 \\
+y_1
+\end{pmatrix}),  d_{(u,v)}X(\begin{pmatrix}
+x_2 \\
+y_2
+\end{pmatrix})  \rangle \] \[= \langle X_u(u,v)x_1 + X_v(u,v)y_1, X_u(u,v)x_2 + X_v(u,v)y_2 \rangle \]
+\[ = E(u,v)x_1x_2 + F(u,v)(x_1y_2 + x_2y_1) + G(u,v)y_1y_2 \]
+\[ = \begin{pmatrix}
+x_1 \\
+y_1
+\end{pmatrix}^t \begin{pmatrix}
+E & F \\ 
+F & G
+\end{pmatrix}\Bigg|_{(u,v)} \begin{pmatrix}
+x_2\\
+y_2
+\end{pmatrix} \]
+
+\end{remark}
+
+\begin{example}
+	
+	\begin{enumerate}
+		
+		\item Ein \emph{Zylinder} $$ (u,v) \mapsto X(u,v) := O + e_1x(u) + e_2y(u) +e_3 $$
+		hat induzierte Metrik \[ I = (x'^2 + y'^2)du^2 + dv^2. \]
+		Insbesondere: Ist $ u \mapsto O+e_1x(u) + e_2y(u) $ bogenlängenparametrisiert, so ist $ X $ \emph{isometrisch},
+		\[I = du^2 + dv^2\]
+		
+		\item Das \emph{Helicioid} \[ (r,v) \mapsto O + e_1r\cos(v)+e_2r\sin(v) + e_3v \]
+		hat Metrik \[ I\big|_{(r,v)}=dr^2 + (1+r^2)dv^2. \]
+		Mit einer Umparametrisierung $r = r(u) = \sinh(u)$ erhält man \[ I \big|_{(u,v)}= \cosh^2(u)(du^2+dv^2), \] d.h., $X$ wird \emph{konform} (winkeltreu).
+		
+	\end{enumerate}
+	
+\end{example}
+
+\begin{definition}
+	
+	Eine Parametrisierte Fläche $ X : M \rightarrow \E $ heißt 
+	\begin{enumerate}
+		\item \emph{konform}, falls $ E = G, F = 0 $
+		\item \emph{isometrisch}, falls $ E = G = 1, F= 0 $.
+	\end{enumerate}
+	
+\end{definition}
+
+
+\begin{remark}
+	
+	Für Kurven: Jede Kurve kann isometrisch/nach Bogenlänge umparametrisiert werden(\ref{umpar}).  Für Flächen: Im Allgemeinen gibt es keine isometrische (Um-)Parametrisierung.
+	
+\end{remark}
+
+\begin{theorem}
+	
+	Jede Fläche kann lokal konform (um-)parametrisiert werden. 
+	
+\end{theorem}
+
+\begin{proof}
+	
+	Ist echt cool laut Jeromin (braucht bissi so Fana und so..)
+	Falls der Leser Zeit hat, wird ihm nahegelegt den Beweis nachzuschauen.
+	
+\end{proof}
+
+\begin{remark}
+	
+	Dieser Satz ist die Grundlage, um (reelle) Flächen als komplexe Kurve zu intepretieren. Eine weitreichende Betrachtungsweise..
+\end{remark}
+
+\begin{remark}
+	
+	Um den Satz zu verstehen:\\
+	''lokal'' heißt, dass -- für jeden Punkt $ (u,v) \in M $ -- der Definitionsbereich $M$ so eingeschränkt werden kann -- auf eine Umgebung des Punktes$ (u,v) $ -- dass die Behauptung wahr ist;
+	''Umparametrisierung'' wie für Kurven definiert:
+\end{remark}
+
+\begin{definition}
+	
+	Eine \emph{Umparametrisierung} einer parametrisierten Fläche $ X: M \rightarrow \E $ ist eine neue parametrisierte Fläche \[ \widetilde{X}=X\circ(u,v)~;~ \widetilde{M} \rightarrow \E \]
+	mit einem \emph{Diffeomorphismus}: \[ (u,v): \widetilde{M} \rightarrow M, \] d.h., eine glatte $ (C^\infty) $ Bijektion mit glatter Inverser $ (u,v)^{-1}:M \rightarrow \widetilde{M} $
+		
+\end{definition}
+
+\begin{remark}
+	
+	Für \[(x,y)\mapsto \widetilde{X}(x,y) = X(u(x,y),v(x,y)) \in \E^3  \] gilt (Kettenregel) \[ \widetilde{X}_x = (X_u\circ (u,v))\cdot u_x + (X_v \circ (u,v)) \cdot v_x \]
+	\[ \widetilde{X}_y = (X_u \circ (u,v))\cdot u_y + (Y_v \circ (u,v)) \cdot v_y \]
+	und somit 
+	\[ \widetilde{X}_x \times \widetilde{X}_y = ((X_u\times X_v)\circ (u,v))\cdot (u_xv_y - u_yv_x) \] d.h., $ \widetilde{X} $ ist regulär.
+	
+\end{remark}

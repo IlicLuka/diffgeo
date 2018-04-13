@@ -1,0 +1,482 @@
+\subsection{Parametrisierung und Bogenlänge}
+
+Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
+\begin{enumerate}
+	\item Ein affiner Raum $(\mathcal{E},V,\tau)$ 
+	\item über einem Euklid. Vektorraum $(V,<,>)$ .
+\end{enumerate}
+
+	Dabei: $\tau: V\times \mathcal{E} \rightarrow \mathcal{E}; (v,X) \mapsto \tau_v(X)=:X+v$ genügt
+	\begin{enumerate}
+		\item $\tau_0 = id_{\mathcal{E}}$ und $\forall v,w \in V ~ \tau_v \circ \tau_w = \tau_{v+w}$
+		\item $\forall X,Y \in \mathcal{E} \exists! v \in V ~ \tau_v(x) = Y$ ((d.h. $\tau  \emph{ ist einfach transitiv}$)).
+	\end{enumerate}
+	
+	
+\begin{definition}
+	Eine \emph{(parametrisierte-) Kurve} ist eine Abbildung \[X: I \rightarrow \mathcal{E}\] auf einem offenen Intervall $I \subseteq \R$, die regulär ist (d.h. $\forall t \in I ~ X'(t) \not = 0$).
+	Wir nennen $X$ auch Parametrisierung der Kurve $\mathcal{C} = X(I)$.
+\end{definition}
+
+\begin{remark}
+	Alle Abbildungen in dieser VO sind beliebig oft differenzierbar (d.h. $C^{\infty}$).
+\end{remark}
+
+\begin{example}
+	Eine \emph{(Kreis-) Helix} mit Radius $r>0$ und Ganghöhe $h$ ist die Kurve
+	\[X: \R \rightarrow \mathcal{E}^3; t \mapsto X(t) := O + e_1r\cos(t) + e_2rsin(t) + e_3ht. \]
+\end{example}
+
+\begin{definition}
+	\emph{Umparametrisierung} einer param. Kurve $X: I \rightarrow \mathcal{E}$ ist eine param. Kurve
+	\[\widetilde{X}: \widetilde{I} \rightarrow \mathcal{E}; s \mapsto \widetilde{X}(s)=X(t(s)),\]
+	wobei $t: \widetilde{I} \rightarrow I$ eine surjektive, reguläre Abbildung ist.
+
+\end{definition}
+
+Motivation: Für eine Kurve $t \mapsto X(t)$ 
+\begin{enumerate}
+	\item X'(t) ist \emph{Geschwindigkeit(-svektor)} (''velocity''),
+	\item |X'(t)| ist (skalare) Geschwindigkeit (''speed'').
+\end{enumerate}
+
+Rekonstruktion durch Integration:
+\[X(t)= X(o) + \int_{o}^{t}X'(t)dt\]
+
+und die Länge des Weges von $X(0)$ nach $X(t)$:
+\[s(t) = \int_{o}^{t}|X'(t)|dt\]
+
+\begin{definition}
+	
+	Die \emph{Bogenlänge} einer Kurve $X: I \rightarrow \mathcal{E}$ ab $X(o)$ für $o \in I$, ist
+	\[s(t) := \int_{o}^{t}|X'(t)|dt\] (wobei $\int_{o}^{s}|X'(t)|dt$ auch als $\int_{o}^{t} ds$ geschrieben wird)
+	
+\end{definition}
+
+\begin{remark}
+	Dies ist tatsächlich die Länge des Kurvenbogens zwischen $X(o)$ und $X(t)$, wie man z.B. durch polygonale Approximation beweist (s. Ana2 VO)
+	Also: Die Bogenlänge zwischen zwei Punkten ist \emph{invariant} ("ändert sich nicht")
+	unter Umparametrisierung.
+\end{remark}
+
+\begin{lemma, definition}\label{umpar}
+	Jede Kurve $t \mapsto X(t)$ kann man nach Bogenlänge (um-) parametrisieren, d.h. so, dass sie konstante Geschwindigkeit $1$ ($|X'(t)|\equiv 1$) hat.
+	Dies ist die \emph{Bogenlängenparametrisierung} und üblicherweise notiert $s \mapsto X(s)$ diesen Zusammenhang.
+\end{lemma, definition}
+\begin{proof}
+	Wähle $o \in I$ und bemerke \[s'(t) = |X'(t)| > 0.\]
+	Also ist $t \mapsto s(t)$ streng monoton wachsend, kann also invertiert werden, um $t= t(s)$ zu erhalten: Damit erhält man für 
+	\[\widetilde{X}:=X\circ t\]
+	\[|\widetilde{X}'(s)|= |X'(t(s))| \cdot |t'(s)| = \frac{s'(t)}{s'(t)}= 1,\]
+	d.h. $\widetilde{X}$ ist nach Bogenlänge parametrisiert. (nämlich durch Division mit der Inversen.)
+\end{proof}
+
+\begin{remark}
+	Eine Bogenlängenparametrisierung ist eindeutig bis auf Wahl von $o$ und Orientierung.
+\end{remark}
+
+\begin{example}
+	Eine Helix \[t \mapsto X(t) = O + e_1r\cos(t)+e_2r\sin(t)+ e_3ht\]
+	hat Bogenlänge \[s(t) = \int_{0}^{t} \sqrt{r^2 + h^2}dt = \sqrt{r^2+h^2} \cdot t\]
+	und somit Bogenlängenparametrisierung \[s \mapsto \widetilde{X}(s)= O + e_1r\cos\frac{s}{\sqrt{r^2+h^2}}+e_2r\sin\frac{s}{\sqrt{r^2+h^2}}+ e_3\frac{hs}{\sqrt{r^2+h^2}}.\]
+\end{example}
+
+\begin{remark, example}
+	
+	Üblicherweise ist es nicht möglich eine Bogenlängenparam. in elem. Funktionen anzugeben: Eine Ellipse\[t \mapsto O + e_1a\cos(t)+e_2b\sin(t) ~ (a>b>0)\]
+	hat Bogenlänge
+	\[s(t) = \int_{0}^{t} \sqrt{b^2 + ( a^2-b^2)\sin(t)}dt,\]
+	dies ist ein elliptisches Integral, also nicht mit elem. Funktionen invertierbar.
+
+\end{remark, example}
+
+\subsection{Streifen und Rahmen}
+
+\begin{definition}
+	
+	Sei $X: \R \supseteq I \rightarrow \E$ eine parametrisierte Kurve.
+	Die \emph{Tangente} an einem Punkt $X(t)$, wird durch den Punkt und seinen \emph{Tangentialvektor} $X'(t)$ beschrieben. $\mathcal{T}(t)=X(t) + [X'(t)]$ notiert diese Gerade.
+	Die Ebene $\mathcal{N}(t)=X(t)+ \{X'(t)\}^\perp $ heißt \emph{Normalebene}.
+	
+	Alternativ können wir sagen: Wir erhalten Tangente, bzw. Normalebene, durch legen des \emph{Tangentialraumes} $[X'(t)]$ bzw. \emph{Normalraumes} $\{X'(t)\}^\perp$ durch den Punkt $X(t)$.
+	
+\end{definition}
+
+\begin{definition}
+	Das \emph{Tangential-} und \emph{Normalbündel} einer Kurve $X:I \rightarrow \E^3$ werden durch die folgenden Abbildungen definiert:
+	\[I \ni t \mapsto T_tX := [X'(t)]\subseteq V \text{ bzw.}\]
+	\[I \ni t \mapsto N_tX:= \{ X'(t) \}^\perp. \]
+	
+	eine Abbildung $Y: I \rightarrow V$ heißt
+	\begin{enumerate}
+		\item \emph{Tangentialfeld} entlang $X$, falls \[ \forall t \in I: Y(t) \in T_tX \]
+		\item \emph{Normalenfeld} entlang $X$, falls \[  \forall t \in I: Y(t) \in N_tX \]
+	\end{enumerate}
+\end{definition}
+
+\begin{remark, definition}
+
+Jede Kurve hat ein \textbf{(und nur ein!)} harmonisches \emph{Einheitstangentenfeld} (ETF)
+\[ T: I \rightarrow V; t \mapsto \frac{X'(t)}{|X'(t)|} \]
+
+Aber -- \textbf{es gibt haufenweise Normalenfelder.}
+
+\end{remark, definition}
+
+\begin{definition}
+	Ein \emph{Streifen} (''ribbon'') ist ein Paar $(X,N)$, wobei $$X:I \rightarrow \E$$ eine Kurve und $$ N: I \rightarrow V $$ ein \emph{Einheitsnormalenfeld} (ENF) ist, d.h.,
+	\[N\perp T \text{ und } |N|=1. \]
+\end{definition}
+
+\begin{remark, definition}
+	(Im dreidimesionalen Raum können wir folgendes sagen:)
+	Ein Streifen ist also eine Kurve mit einer ''vertikalen Richtung''.
+	Weiters erhält man eine ''seitwärts Richtung'' durch die \emph{Binormale} $$B:=T\times N : I\rightarrow V.$$ (Hier ist $T \times N$ das ''bekannte'' Kreuzprodunkt)
+	
+\end{remark, definition}
+
+\begin{lemma, definition}
+	
+	Der \emph{(angepasste) Rahmen} eines Streifens $(X,N): I\rightarrow\E^3\times S^2$ ist eine Abbildung \[ F=(T,N,B): I\rightarrow SO(V) \] seine \emph{Strukturgleichungen} sind von der Form \[ F' = F \phi \text{ mit } \phi =|X'| \begin{pmatrix}
+	0 & - \kappa_n & \kappa_g \\
+	\kappa_n & 0 & -\tau\\
+	-\kappa_g & \tau & 0
+	\end{pmatrix}, \] wobei\begin{enumerate}
+		\item $\kappa_n$ die \emph{Normalkrümmung}
+		\item $\kappa_g$ die \emph{geodätische Krümmung}, und
+		\item $\tau$ die \emph{Torsion} des Streifens $(X,N)$ \\ bezeichnen.
+		
+	\end{enumerate}
+
+\begin{proof}
+	Da $F: I \rightarrow SO(V)$, gilt \[F^tF \equiv id\] und daher \[ 0 = (F^tF)' = F'^tF + F^tF' = (F\phi)^tF + F^tF\phi = \phi^tF^tF + F^tF\phi = \phi^t+ \phi  ~,\] d.h., $\phi:I \rightarrow o(V)$ ist schiefsymmetrisch. Insbesondere: Es gibt Funktionen $\kappa_n, \kappa_g, \tau$, so dass $\phi$ von der behaupteten Form ist.
+\end{proof}
+
+\textbf{Wiederholung:}
+$$O(V) = \{ A \in End(V) ~ | ~ A^tA\equiv id \}$$
+$$SO(V) = \{ A \in O(V) ~ | ~\det(A) = 1 \}$$
+$$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
+
+\begin{remark}
+	Krümmung und Torsion eines Streifens sind \emph{geometrische Invarianten} des Streifens, d.h., sie sind unabhängig von Position und (in gewisser Weise) Parametrisierung des Streifens.
+	
+	\begin{enumerate}
+		\item ist $(\widetilde{X}, \widetilde{N}) = (\widetilde{O} + A(X-O), AN)$ mit $O,\widetilde{O} \in \E$ und $A \in SO(V)$ eine Euklidsche Bewegung des Streifens $(X,N)$, so sind $\widetilde{T}= AT$ und $\widetilde{B}= AT\times AN = A(T\times N) = AB$, also $\widetilde{F}=AF$ und damit $\widetilde{\phi} = \widetilde{F}^t\widetilde{F}'= F^tA^tAF' = \phi$. (Da $A \in SO(V))$
+		
+		\item ist $s \mapsto (\widetilde{X}, \widetilde{N})(s) = (X,N)(t(s))$ eine \emph{orientierungstreue Umparametrisierung}, d.h., $t' >0$, von $t \mapsto (X,N)(t)$, so gilt
+		\[\widetilde{\phi}(s) = \widetilde{F}^t(s)\widetilde{F}'(s) = F^t(t(s))F'(t(s))\cdot t'(s) =\phi(t(s)) \cdot t'(s) \] und \[ |\widetilde{X}'(s)| = |X'(t(s))|\cdot|t'(s)| =  |X'(t(s))|\cdot t'(s) \] und damit $\widetilde{\kappa_n}(s)= \kappa_n(t(s))$ usw.
+	\end{enumerate}
+\end{remark}
+
+\begin{lemma}
+	Für einen Streifen $(X,N)$ gilt
+	\begin{align*}
+		\kappa_n = -\frac 1{\abs{X'}}\skal{N',T}, &&
+		\kappa_g = -\frac 1{\abs{x'}}\skal{B,T'}, &&
+		\tau = \frac 1{\abs{X'}} \skal{N',B}.
+	\end{align*}
+\end{lemma}
+\begin{proof}
+	Dies folgt sofort aus der Definiton von $\kappa_n,\kappa_g$ und $\tau$ und aus der Orthonormalität von $T,N$ und $B$.
+\end{proof}
+
+\begin{remark, definition}
+	Ist ein Streifen $(\widetilde{X},\widetilde{N})$ gegeben durch eine \emph{Normalrotation} eines Streifens $(X,N)$, d.h., $\widetilde{X}, \widetilde{N} = (X,N \cos \varphi + B \sin \varphi)$ mit $\varphi: I \rightarrow \R$, so gilt
+	\begin{equation*}
+	\begin{pmatrix} 
+		\widetilde{\kappa_n}\\
+		\widetilde{\kappa_g}
+	\end{pmatrix}
+	=
+	 \begin{pmatrix} 
+	 \cos \varphi & - \sin \varphi \\
+	 \sin \varphi & \cos \varphi
+	 \end{pmatrix}
+	 \begin{pmatrix}
+	 \kappa_n\\
+	 \kappa_g
+	 \end{pmatrix}
+	\end{equation*} und
+	$$\widetilde{\tau} = \tau + \frac{\varphi'}{|X'|}  .$$
+	
+	
+\end{remark, definition}
+	
+\end{lemma, definition}
+
+\begin{example}
+	
+	\begin{enumerate}
+		 \item \textbf{Helix}: Betrachte den Streifen $(X,N)$ mit $$t \mapsto X(t) = o + e_1r\cos t + e_2r \sin t + e_3ht$$ und 
+		$t \mapsto N(t) = -(e_1\cos t + e_2 \sin t)$.
+		Für $$T(t) = (-e_1r\sin t + e_2r \cos t + e_3h) \frac{1}{\sqrt{r^2 + h^2}}$$ und
+		$$B(t) = (e_1h\sin t - e_2h \cos t + e_3r) \frac{1}{\sqrt{r^2 + h^2}}$$ bekommt man
+		$F = (T,N,B): \R \rightarrow SO(V)$ und damit \[ T' = N \cdot \frac{r}{\sqrt{r^2 + h^2}} \]		\[ N' = T \cdot \frac{-r}{\sqrt{r^2 + h^2}} + B \cdot \frac{h}{\sqrt{r^2 + h^2}} \]	
+		\[B'= \frac{-h}{\sqrt{r^2 +h^2}}\]
+		also (mit $|X'|=\sqrt{r^2 + h^2}$),
+		\begin{align*}
+		\kappa_n  = \frac{r}{r^2 + h^2}, &&
+		\kappa_g  = 0, &&
+		\tau = \frac{h}{r^2+ h^2}. 
+		\end{align*} 
+		
+		\item \textbf{sphärische Kurve}: Sei $s\mapsto X(s) \in \E^3$ eine bogenlängenparametrisierte Kurve, d.h. mit Mittelpunkt $O \in \E^3$ und Radius $r>0$, der Sphäre gilt:
+		\[ |X-O|^2 \equiv r^2 \text{ und } |X'|^2 \equiv 1  .\]
+		Bemerke:
+		$\langle X',X-O \rangle = \frac 12 (|X-O|^2)' = 0  .$
+		Also liefert $N :=(X-O)\frac 1r $ ein ENF. Damit berechnen wir
+		\begin{align*}
+			\kappa_n &= - \langle N', T \rangle \equiv \frac 1r\\
+			\kappa_g &= - \langle B, T' \rangle = - \frac 1r \langle X' \times (X-O), X'' \rangle = \frac{det(X-O,X',X'')}{r}\\
+			\tau &= \langle N',B\rangle = \frac{1}{r^2} \langle X',X'\times (X-O) \rangle \equiv 0  .
+			\end{align*}
+		 
+	\end{enumerate}
+
+\end{example}
+
+\begin{remark}
+	$\kappa_g \equiv 0$ im ersten Bsp. und $\tau \equiv 0$ im zweiten Bsp.
+\end{remark}
+
+\begin{theorem}[Fundamentalsatz für Streifen]
+	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Krümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
+\end{theorem}
+
+\begin{proof}
+	
+	Wähle $o \in I$ und $F_o \in SO(V)$ beliebig und fest.
+	Nach Satz von Picard-Lindelöf hat das AWP 
+		\[ F' = F\phi, ~ F(o)= F_o \] mit 
+	\[ \phi =\begin{pmatrix}
+		0 & -\kappa_n & \kappa_g \\
+		\kappa_n & 0 & -\tau \\
+		-\kappa_g & \tau & 0
+	\end{pmatrix}\]
+	eine eindeutige Lösung $F = (T,N,B) : I \rightarrow End(V)$.
+	Nun zeigen wir, dass $F$ ein Rahmen ist:
+	\begin{enumerate}
+		\item $(FF^t)' = F( \phi  + \phi^t) F^t \equiv 0 $ also $FF^t \equiv id,$ und $F:I \rightarrow O(V)$
+		\item $\det: O(V) \rightarrow \{\pm1\}$ ist stetig, also $\det F: I \rightarrow \{ \pm 1 \}$ konstant und somit $$\det F =\det F_o = 1  ,$$ also $F: I \rightarrow SO(V).$
+	\end{enumerate}
+	
+	Insbesondere $|T| \equiv 1$ und man erhält eine bogenlängenparametrisierte Kurve
+		\[X: I \rightarrow \E^3, t \mapsto O + \int_{o}^{t} T(s) ds  . \]
+		
+	$(X,N)$ mit $F=(T,N,B)$ liefert einen Streifen, Krümmung und Torsion wie behauptet.\\
+	Eindeutigkeit bis auf Euklid. Bewegung folgt aus der Eindeutigkeit in Picard-Lindelöf und jener der Integration.
+\end{proof}
+
+\subsection{Normalzusammenhang \& Paralleltransport}
+
+\begin{definition}
+
+Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T  \rangle T} +  {\color{ForestGreen}\langle N',T  \rangle T} $ in {\color{red}Normal-} und {\color{ForestGreen}Tangentialanteil} zerlegen.
+
+\end{definition}
+
+\begin{definition}
+	Ein Normalenfeld $N: I \rightarrow V $ entlang $X: I \rightarrow \E$ heißt \emph{parallel}, falls $\nabla^\perp N := N'-  \langle N',T\rangle = 0,$ wobei $\nabla^\perp $ den \emph{Normalzusammenhang} entlang $X$ bezeichnet.
+\end{definition}
+
+\begin{remark}
+	Hier wird \underline{nicht} $| N | = 1$ angenommen.
+\end{remark}
+
+\begin{lemma}
+	Der Normalzshg. ist \emph{metrisch}, d.h., $$ \langle N_1,N_2 \rangle ' = \langle \nabla^\perp N_1,N_2 \rangle + \langle N_1, \nabla^\perp N_2 \rangle; $$
+	
+	parallele Normalenfelder haben konstante Länge und schließen konstante Winkel ein.
+\end{lemma}
+
+\begin{proof}
+		
+		Für Normalenfelder $N_1, N_2 : I \rightarrow V$ entlang $X: I\rightarrow \E$ gilt:
+		\[ \langle \nabla^\perp N_1,N_2 \rangle + \langle N_1,\nabla^\perp N_2 \rangle = \langle N_1'- \langle N_1,T \rangle T,N_2 \rangle + \langle N_1,N_2' - \langle N_2',T \rangle T \rangle\]
+		\[ =\langle N_1',N_2 \rangle + \langle N_1,N_2' \rangle = \langle N_1,N_2 \rangle ' .\]
+		Insbesondere sind $N_1,N_2$ parallel, so ist $\langle N_1,N_2 \rangle ' = 0$
+		
+		Damit: 
+		
+		\begin{enumerate}
+			\item  ist $N$ parallel, so gilt $$ (|N|^2)' = 2 \langle N,\nabla^\perp N \rangle = 0$$
+			
+			\item  sind $N_1, N_2$ parallel, so ist der Winkel $\alpha$ zwischen $N_1,N_2$
+			$$ \alpha = \arccos \frac{\langle N_1,N_2 \rangle}{|N_1||N_2|}= const. $$
+		\end{enumerate}
+		
+\end{proof}
+
+\begin{example}
+	Für einen Kreis $t \mapsto X(t) = O + (e_1 \cos t + e_2 \sin t)r$ ist $t\mapsto N(t) := e_1 \cos t + e_2 \sin t$ ein paralleles Normalenfeld.
+\end{example}
+
+
+\begin{remark}
+	Ist $(X,N)$ ein Krümmungsstreifen, $\tau \equiv 0,$ so ist $N$ parallel : 
+	\[ N' = (-\kappa_n T + \tau B)|x'| \nabla^\perp N = B\tau|x'|= 0; \]
+	andererseits: Ist $N: I \rightarrow V$ parallel entlang $X: I \rightarrow \E$ , so ist $ (X,\frac{N}{|N|}) $ Krümmungsstreifen (falls $N \not = 0$).
+\end{remark}
+
+\begin{remark}
+	Ist $N$ parallel längs $X$, so auch $B = T\times N.$
+\end{remark}
+
+\begin{remark}
+	Ist $(X,N)$ durch eine Normalrotation von $(X, \widetilde{N})$ gegeben, d.h. \[ (X,N) = (X,\widetilde{N} \cos \varphi + \widetilde{B}\sin \varphi) \] mit $\varphi: I \rightarrow \R$, so gilt 
+	\[ \tau = \widetilde{\tau} + \frac{\varphi '}{|X'|}; \]
+	folglich: Man erhält einen Krümmungsstreifen bzw. ENF $N: I \rightarrow V$ einer Kurve $X: I \rightarrow \E$ durch \[ N = \widetilde{N} \cos \varphi + \widetilde{B} \sin \varphi \text{ mit } \varphi(t) = \varphi_o - \int_{o}^{t} \tau(t) ds. \]
+	
+	Wobei $\varphi_o$ eine Integrationskonstante ist und eine konstante Normaldrehung liefert und $ds$ für $|X'| dt$ -- das Bogenlängenelement -- steht.
+	
+	Da konstante Skalierungen eines parallelen Normalenfeldes parallel ist, folgt:
+	
+	
+\end{remark}
+
+\begin{lemma}
+	Sei $X: I \rightarrow \E$ eine Kurve, $o \in I$ und $N_o \in N_oX$. Dann existiert ein eindeutiges paralleles Normalenfeld $N: I \rightarrow V$ mit $N(o) = N_o$
+\end{lemma}
+
+\begin{proof}
+	der Beweis folgt aus der Bemerkung darüber. Allerdings nur für Dimension 3. Der Beweis gilt auch sonst, dann braucht man allerdings Picard-Lindelöf
+\end{proof}
+
+\begin{example}
+	Für das ''radikale'' ENF $\widetilde{N} = - (e_1 \cos t + e_2 \sin t)$ der Helix
+	$$ X = O + e_1 r \cos t + e_2 r \sin t + e_3 h t$$
+	ist $\widetilde{\tau} = \frac{h}{r^2 + h^2}$. Also liefert \[ N(t) := \widetilde{N}(t) \cos (\frac{ht}{\sqrt{r^2 + h^2}}) + \widetilde{B}(t) \sin (-\frac{ht}{\sqrt{r^2 + h^2}}) \] ein paralleles Normalenfeld.
+
+\end{example}
+
+\begin{lemma, definition}
+	Parallele Normalenfelder entlang $X: I \rightarrow \E$ definieren eine lineare Isometrie von $N_oX$ nach $N_tX$. Diese Isometrie heiüt \emph{Paralleltransport} entlang $X$.
+\end{lemma, definition}
+
+\begin{remark}
+	Dies erklärt den Begriff ''Zusammenhang'' für $\nabla^\perp$:$\nabla^\perp$ liefert einen Zusammenhang zwischen Normalräumen einer Kurve.
+\end{remark}
+
+\begin{proof}
+	Wähle $N_o \in N_oX$; nach Lemma vorher gibt es ein eindeutiges(!) paralleles NF $N : I \rightarrow V$ entlang $X$ mit $N(o) = N_o$; also definiere durch 
+	\[\pi_t: N_oX \rightarrow N_t X,~ N_o \mapsto N(t)  \] eine wohldefinierte Abbildung. Da die Gleichung $\nabla^\perp N = 0$ linear ist, sind konstante(!) Linearkombinationen von Lösungen wieder Lösungen -- also ist $\pi_t$ linear.
+\end{proof}
+
+\subsection{Frenet Kurven}
+
+Wir diskutieren $\kappa_g \equiv 0$ (vorheriger Abschnitt $\tau \equiv 0$).
+
+Bemerke: ist $(\widetilde{X},\widetilde{N}) =(X,N \cos \varphi + B \sin \varphi )$ Normalrotation eines Streifens $(X,N)$, so gilt 
+\begin{equation*}
+\begin{pmatrix} 
+\widetilde{\kappa_n}\\
+\widetilde{\kappa_g}
+\end{pmatrix}
+=
+\begin{pmatrix} 
+\cos \varphi & - \sin \varphi \\
+\sin \varphi & \cos \varphi
+\end{pmatrix}
+\begin{pmatrix}
+\kappa_n\\
+\kappa_g
+\end{pmatrix}
+\end{equation*}
+
+insbesondere $\widetilde{\kappa}_n = - \kappa_g $ und  $\widetilde{\kappa}_g = \kappa_n$
+fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
+
+\begin{definition}
+	$X: I \rightarrow \E^3$ heißt \emph{Frenet Kurve}, falls \[ \forall t \in I: (X' \times X'')(t) \not = 0. \]
+\end{definition}
+
+\begin{remark}
+	In diesem Kapitel wird stets der 3-dimensionale Raum angenommen.
+\end{remark}
+
+\begin{remark}
+	Die Frenet-Bedingung ist invariant unter Umparametrisierung.
+\end{remark}
+
+\begin{lemma, definition}
+	Ist $X: I \rightarrow \E^3$ Frenet, so gilt \[ \forall t \in I : T'(t) \not = 0 \] und $\frac{T'}{|T'|} =: N$ definiert ein ENF: Dies ist die \emph{Hauptnormale} von $X$.
+\end{lemma, definition}
+
+\begin{proof}
+	Mit der Frenet-Bedingung:
+	\[0 \not = X' \times X''= X' \times (T|X'|)' = X' \times T|X'|' + X'\times T'|X'| \Rightarrow T' \not = 0 \]
+	
+	Weiters: \[ 0 = (1)' = (|T|^2)' = 2\langle T,T' \rangle, \]
+	also definiert $N = \frac{T'}{|T'|}$ ein ENF.
+\end{proof}
+
+\begin{lemma, definition}
+	Ist $X: I \rightarrow \E^3$ Frenet mit Hauptnormale $N: I \rightarrow V$, so sind die Strukturgleichungen des \emph{Frenet Rahmens} $F = (T,N,B)$ der Kurve die \emph{Frenet-Serret Gleichungen} $F' = F\phi$ mit $\mathcal{C} = |X'|\begin{pmatrix}
+	0 & - \kappa & 0\\
+	\kappa & 0 & - \tau \\
+	0 & \tau & 0
+	\end{pmatrix}$
+	 mit der \emph{Krümmung} $\kappa > 0$ und \emph{Torsion} $\tau$ der Frenet Kurve $X$.
+\end{lemma, definition}
+
+\begin{remark}
+	Für eine Frenet Kurve (mit Hauptnormale) gilt also $\kappa_n = \kappa > 0$ und $\kappa_g = 0$.
+\end{remark}
+
+\begin{proof}
+	Für einen Frenet Rahmen gilt 
+	\[ \kappa_g = - \frac{\langle T', B \rangle}{|X'|} = - \frac{\langle N, B \rangle |T'|}{|X'|} = 0, \]
+	
+	\[ \kappa_g = \frac{\langle T', N \rangle}{|X'|} = \frac{\langle N, N \rangle |T'|}{|X'|} >0. \]
+\end{proof}
+
+\begin{example}
+	Eine Helix
+	
+	\[ X = O + e_1 r \cos t + e_2 r \sin t + e_3 h \]
+	
+	hat Hauptnormalenfeld (s. Kapitel 1.2) \[ t \mapsto N(t) = - (e_1 \cos t + e_2 \sin t) \] und Krümmung und Torsion 
+	\[ \kappa \equiv \frac{r}{r^2 +h^2} \text{ bzw. } \tau \equiv \frac{h}{r^2+h^2} . \]
+\end{example}
+
+\begin{remark}
+	Krümmung und Torsion einer Frenet Kurve sind \[ \kappa = \frac{|X' \times X''|}{|X'|^3} \text{ bzw. }  \tau = \frac{\det(X',X'',X''')}{|X' \times X''|^2} \]
+	
+	Insbesondere: Krümmung und Torsion hängen nur von der Kurve ab (daher: ''Krümmung'' und ''Torsion der Kurve'').
+\end{remark}
+
+\begin{theorem}[Fundamentalsatz für Frenet Kurven]
+	Für zwei Funktionen \[ s \mapsto \kappa(s), \tau(s) \text{ mit } \forall s \in I: \kappa(s) > 0 \] gibt es eine Bogenlängenparametrisierte Frenet Kurve $X: I \rightarrow \E ^3$ mit Krümmung $\kappa$ und Torsion $\tau$. 
+	Weiters: $X$ ist eindeutig bis auf Euklid. Bewegung.
+\end{theorem}
+
+\begin{proof}
+	Nach dem Fundamentalsatz für Streifen existiert bogenlängen-parametrisierte Kurve $X: I \rightarrow \E^3$ und ENF $N: I \rightarrow V$ so dass der Streifen $ (X,N)$ Krümmung und Torsion \[  \kappa_n = \kappa, \kappa_g = 0, \tau = \tau,  \] d.h.\[F' = F\phi \text{ mit } \phi = \begin{pmatrix}
+	0 & - \kappa & 0\\
+\kappa & 0 & - \tau \\
+0 & \tau & 0
+	\end{pmatrix} \] hat.
+	
+	Insbesondere $T' = N\kappa \not = 0$, daher:
+	\begin{enumerate}
+	\item $X$ ist Frenet, da
+	\[ X' \times X'' = T \times T' = T \times N\kappa \not = 0 \]
+	und \item  $N$ ist Hauptnormalenfeld, da \[ N = T'\frac{1}{\kappa} = \frac{T'}{|T'|}. \]
+	
+	\end{enumerate}
+\end{proof}
+
+\begin{remark}
+	Einen einfacheren Fundamentalsatz gibt es für ebene Kurven. (Aufgabe: Formulieren und -- ohne Picard-Lindelöf-- beweisen!)
+\end{remark}
+
+\begin{example}
+	Seien $\kappa > 0, \tau \in \R$ Zahlen. Nach dem Fundamentalsatz existiert (eind. bis auf Eukl. Bewegung) eine bogenlängenparametrisierte Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$. Andererseits: \[ \R \ni s \mapsto X(s) = O + e_1 r \cos \frac{s}{\sqrt{r^2+h^2}} + e_2 r \sin \frac{s}{\sqrt{r^2+h^2}} + e_3 \frac{hs}{\sqrt{r^2 + h^2}}\] ist bogenlängenparam. Frenet Kurve mit Krümmung $\kappa$ und Torsion $\tau$ für \[ r= \frac{\kappa}{\kappa^2 + \tau^2} \text{ und } h = \frac{ \tau}{\kappa^2 + \tau^2}. \]
+	
+	Damit haben wir bewiesen:
+\end{example}
+
+\begin{theorem}[Klassifikation der Helices]
+	Eine Frenet Kurve ist genau dann Helix, wenn sie konstante Krümmung und Torsion hat.
+\end{theorem}
+
