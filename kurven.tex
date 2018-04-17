@@ -276,7 +276,7 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 \end{definition}
 
 \begin{definition}
-	Ein Normalenfeld $N: I \rightarrow V $ entlang $X: I \rightarrow \E$ heißt \emph{parallel}, falls $\nabla^\perp N := N'-  \langle N',T\rangle = 0,$ wobei $\nabla^\perp $ den \emph{Normalzusammenhang} entlang $X$ bezeichnet.
+	Ein Normalenfeld $N: I \rightarrow V $ entlang $X: I \rightarrow \E$ heißt \emph{parallel}, falls $\nabla^\perp N := N'-  \langle N',T\rangle T = 0,$ wobei $\nabla^\perp $ den \emph{Normalzusammenhang} entlang $X$ bezeichnet.
 \end{definition}
 
 \begin{remark}
@@ -313,9 +313,9 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 
 
 \begin{remark}
-	Ist $(X,N)$ ein Krümmungsstreifen, $\tau \equiv 0,$ so ist $N$ parallel : 
-	\[ N' = (-\kappa_n T + \tau B)|x'| \nabla^\perp N = B\tau|x'|= 0; \]
-	andererseits: Ist $N: I \rightarrow V$ parallel entlang $X: I \rightarrow \E$ , so ist $ (X,\frac{N}{|N|}) $ Krümmungsstreifen (falls $N \not = 0$).
+	Ist $(X,N)$ ein Krümmungsstreifen, $\tau \equiv 0,$ so ist $N$ parallel. Aus $ N' = (-\kappa_n T + \tau B)\abs{X'} $ folgt
+	\[  \nabla^\perp N  = (-\kappa_n T + \tau B)\abs{X'} +\kappa_nT = B\tau\abs{X'}= 0. \]
+	Andererseits: Ist $N: I \rightarrow V$ parallel entlang $X: I \rightarrow \E$ , so ist $ (X,\frac{N}{|N|}) $ Krümmungsstreifen (falls $N \not = 0$).
 \end{remark}
 
 \begin{remark}
