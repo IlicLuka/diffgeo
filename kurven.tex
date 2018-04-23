@@ -172,12 +172,12 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 	Für einen Streifen $(X,N)$ gilt
 	\begin{align*}
 		\kappa_n = -\frac 1{\abs{X'}}\skal{N',T}, &&
-		\kappa_g = -\frac 1{\abs{x'}}\skal{B,T'}, &&
+		\kappa_g = -\frac 1{\abs{X'}}\skal{B,T'}, &&
 		\tau = \frac 1{\abs{X'}} \skal{N',B}.
 	\end{align*}
 \end{lemma}
 \begin{proof}
-	Dies folgt sofort aus der Definiton von $\kappa_n,\kappa_g$ und $\tau$ und aus der Orthonormalität von $T,N$ und $B$.
+	Dies folgt sofort aus der Definition von $\kappa_n,\kappa_g$ und $\tau$ und aus der Orthonormalität von $T,N$ und $B$.
 \end{proof}
 
 \begin{remark, definition}
@@ -350,7 +350,7 @@ Für ein Normalenfeld kann man die Ableitung $N' = {\color{red}N' - \langle N',T
 \end{example}
 
 \begin{lemma, definition}
-	Parallele Normalenfelder entlang $X: I \rightarrow \E$ definieren eine lineare Isometrie von $N_oX$ nach $N_tX$. Diese Isometrie heiüt \emph{Paralleltransport} entlang $X$.
+	Parallele Normalenfelder entlang $X: I \rightarrow \E$ definieren eine lineare Isometrie von $N_oX$ nach $N_tX$. Diese Isometrie heißt \emph{Paralleltransport} entlang $X$.
 \end{lemma, definition}
 
 \begin{remark}
@@ -384,7 +384,7 @@ Bemerke: ist $(\widetilde{X},\widetilde{N}) =(X,N \cos \varphi + B \sin \varphi 
 \end{equation*}
 
 insbesondere $\widetilde{\kappa}_n = - \kappa_g $ und  $\widetilde{\kappa}_g = \kappa_n$
-fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
+für $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 
 \begin{definition}
 	$X: I \rightarrow \E^3$ heißt \emph{Frenet Kurve}, falls \[ \forall t \in I: (X' \times X'')(t) \not = 0. \]
@@ -427,7 +427,7 @@ fpr $(\widetilde{X}, \widetilde{N}) = (X,N)$.
 	Für einen Frenet Rahmen gilt 
 	\[ \kappa_g = - \frac{\langle T', B \rangle}{|X'|} = - \frac{\langle N, B \rangle |T'|}{|X'|} = 0, \]
 	
-	\[ \kappa_g = \frac{\langle T', N \rangle}{|X'|} = \frac{\langle N, N \rangle |T'|}{|X'|} >0. \]
+	\[ \kappa_n = \frac{\langle T', N \rangle}{|X'|} = \frac{\langle N, N \rangle |T'|}{|X'|} >0. \]
 \end{proof}
 
 \begin{example}
