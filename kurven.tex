@@ -6,7 +6,7 @@ Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
 	\item über einem Euklid. Vektorraum $(V,<,>)$ .
 \end{enumerate}
 
-	Dabei: $\tau: V\times \mathcal{E} \rightarrow \mathcal{E}; (v,X) \mapsto \tau_v(X)=:X+v$ genügt
+	Dabei: $\tau: V\times \mathcal{E} \rightarrow \mathcal{E}, \quad  (v,X) \mapsto \tau_v(X)=:X+v$ genügt
 	\begin{enumerate}
 		\item $\tau_0 = id_{\mathcal{E}}$ und $\forall v,w \in V ~ \tau_v \circ \tau_w = \tau_{v+w}$
 		\item $\forall X,Y \in \mathcal{E} \exists! v \in V ~ \tau_v(x) = Y$ ((d.h. $\tau  \emph{ ist einfach transitiv}$)).
@@ -24,12 +24,12 @@ Wiederholung: Ein Euklidischer Raum $\mathcal{E}$ ist:
 
 \begin{example}
 	Eine \emph{(Kreis-) Helix} mit Radius $r>0$ und Ganghöhe $h$ ist die Kurve
-	\[X: \R \rightarrow \mathcal{E}^3; t \mapsto X(t) := O + e_1r\cos(t) + e_2rsin(t) + e_3ht. \]
+	\[X: \R \rightarrow \mathcal{E}^3, \quad t \mapsto X(t) := O + e_1r\cos(t) + e_2rsin(t) + e_3ht. \]
 \end{example}
 
 \begin{definition}
 	\emph{Umparametrisierung} einer param. Kurve $X: I \rightarrow \mathcal{E}$ ist eine param. Kurve
-	\[\widetilde{X}: \widetilde{I} \rightarrow \mathcal{E}; s \mapsto \widetilde{X}(s)=X(t(s)),\]
+	\[\widetilde{X}: \widetilde{I} \rightarrow \mathcal{E}, \quad s \mapsto \widetilde{X}(s)=X(t(s)),\]
 	wobei $t: \widetilde{I} \rightarrow I$ eine surjektive, reguläre Abbildung ist.
 
 \end{definition}
@@ -117,7 +117,7 @@ und die Länge des Weges von $X(0)$ nach $X(t)$:
 \begin{remark, definition}
 
 Jede Kurve hat ein \textbf{(und nur ein!)} harmonisches \emph{Einheitstangentenfeld} (ETF)
-\[ T: I \rightarrow V; t \mapsto \frac{X'(t)}{|X'(t)|} \]
+\[ T: I \rightarrow V, \quad t \mapsto \frac{X'(t)}{|X'(t)|} \]
 
 Aber -- \textbf{es gibt haufenweise Normalenfelder.}
 
@@ -240,7 +240,7 @@ $$o(V) = \{ B \in End(V) ~ | ~ B^t +B \equiv 0 \}$$
 \end{remark}
 
 \begin{theorem}[Fundamentalsatz für Streifen]
-	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R; s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Krümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
+	Seien $$\kappa_n, \kappa_g, \tau: I \rightarrow \R, \quad s \mapsto \kappa_n(s), \kappa_g(s), \tau(s)$$ gegeben. Dann gibt es eine bogenlängenparametrisierte Kurve $$X: I \rightarrow \E$$ und ein ENF $$N: I \rightarrow V  ,$$ so dass $\kappa_n, \kappa_g, \tau$ Normal- bzw. geodätische Krümmung und Torsion des Streifens $(X,N)$ sind.\\ Dieser Streifen ist bis auf Euklid. Bewegung eindeutig.
 \end{theorem}
 
 \begin{proof}

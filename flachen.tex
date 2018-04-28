@@ -3,8 +3,10 @@
 \begin{definition}
 	
 
-Eine Abbildung \[ X:\R^2 \supseteq M \rightarrow \E \] heißt \emph{parametrisierte Fläche}, falls $M$ ein offen und zusammenhängend ist und $X$ regulär ist, d.h., $  \forall(u,v) \in M~:~d_{(u,v)}X: \R^2 \rightarrow V $ ist injektiv.
-Wir sagen auch: $  X  $ ist \emph{Parametrisierung} der \emph{Fläche} $ X(M) \subseteq \E $
+Eine Abbildung \[ X:\R^2 \supseteq M \rightarrow \E \] heißt \emph{parametrisierte Fläche}, falls $M$ offen und zusammenhängend ist und $X$ regulär ist, d.h., $  \forall(u,v) \in M~:~d_{(u,v)}X: \R^2 \rightarrow V $ ist injektiv.
+Wir sagen auch: $  X  $ ist eine \emph{Parametrisierung} der \emph{Fläche} $ X(M) \subseteq \E $.
+Wobei $ d_{(u,v)} $ definiert ist über:
+	\[d_{(u,v)}X(\pmat{x \\y})= X_u(u,v)\cdot x + X_v(u,v) \cdot y. \]
 
 \end{definition}
 
@@ -15,7 +17,7 @@ Wir sagen auch: $  X  $ ist \emph{Parametrisierung} der \emph{Fläche} $ X(M) \s
 \end{remark}
 
 \begin{remark}
-	Einmal mehr sind alle geforderten Abbildungen so oft differenzierbar, wie wir das wünschen
+	Einmal mehr sind alle geforderten Abbildungen so oft differenzierbar, wie wir das wünschen.
 \end{remark}
 
 \begin{remark}
@@ -34,14 +36,14 @@ Wir sagen auch: $  X  $ ist \emph{Parametrisierung} der \emph{Fläche} $ X(M) \s
 
 
 Ein \emph{Helicoid} $ X: \R^2 \rightarrow \E^3 $ ist die \emph{(Regel-)Fläche}  
-\[ \R^2 \supseteq (r,v) \mapsto O + e_1r \cos(v) + e_2 r \sin(v) + e_3 v \in \E^3. \]
+\[ \R^2 \ni (r,v) \mapsto O + e_1r \cos(v) + e_2 r \sin(v) + e_3 v \in \E^3. \]
 
-Wir zeigen, dass $(X_r,X_v)(r,v))$ linear unabhängig für alle $ (r,v) \in \R^2 $ sind:
+Wir zeigen, dass $(X_r,X_v)(r,v)$ linear unabhängig für alle $ (r,v) \in \R^2 $ sind:
 
 \[ X_r(r,v) = e_1\cos(v) + e_2 \sin(v) \neq 0 \]
 \[ X_v(r,v) = -e_1r \sin(v) + e_2 r \cos(v) + e_3 \neq 0 \]
 
-und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängig.
+und da $ X_v(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängig.
 
 \end{example}
 
@@ -54,15 +56,15 @@ und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängi
 	
 	Insbesondere kann man sogar zeigen, dass es keine (reguläre) Parametrisierung der (ganzen) Sphäre gibt (''Hairy Ball Theorem'' bzw. ''Satz vom Igel'').
 	
-	$ \mathbb{S}^2 $ ist also \textbf{keine} Fläche im Sinne der Def. Dieses ''Problem'' wird später gelöst.
+	$ \mathbb{S}^2 $ ist also \textbf{keine} Fläche im Sinne der Definition. Dieses ''Problem'' wird später gelöst.
 \end{example}
 
 \begin{lemma, definition}
 	
 	Die \emph{induzierte Metrik} oder \emph{erste Fundamentalform} einer parametrisierten Fläche $ X: M \rightarrow \E$ ist definiert durch
-	\[ I := \langle dX,dX \rangle \]
-	für jeden Punkt $ (u,v) \in M $ liefert 
-	\[ \R^2 \times \R^2 \ni \left( \pmat{x_1\\y_1}, \pmat{x_2\\y_2} \right)  \mapsto I \big|_{(u,v)}(\begin{pmatrix}
+	\[ \mathrm{I} := \langle dX,dX \rangle. \]
+	Für jeden Punkt $ (u,v) \in M $ liefert 
+	\[ \R^2 \times \R^2 \ni \left( \pmat{x_1\\y_1}, \pmat{x_2\\y_2} \right)  \mapsto \mathrm{I} \big|_{(u,v)}(\begin{pmatrix}
 	x_1 \\
 	y_1
 	\end{pmatrix},\begin{pmatrix}
@@ -75,7 +77,7 @@ und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängi
 	x_2 \\
 	y_2
 	\end{pmatrix})  \right\rangle \]
-	eine positiv definite symmetrische Bilinearform.
+	eine positiv definite, symmetrische Bilinearform.
 \end{lemma, definition}
 
 \begin{proof}
@@ -92,11 +94,11 @@ und da $ X_r(r,v) $ von $e_3 \neq 0$  abhängt sind die beiden linear unabhängi
 
 \begin{remark}
 	
-	$I$ wird oft notiert mit Hilfe der \emph{Gramschen Matrix}, \[ I = \begin{pmatrix}
+	$I$ wird oft mit Hilfe der \emph{Gramschen Matrix} notiert: \[ \mathrm{I} = \begin{pmatrix}
 	E & F\\
 	F & G
-	\end{pmatrix} = E du^2 + 2Fdudv + Gdv^2 \] mit
-	\[ E=|X_u|^2, F = \langle X_u,X_v \rangle, G = |X_v|^2  \]
+	\end{pmatrix} = E du^2 + 2Fdudv + Gdv^2, \] mit
+	\[ E=|X_u|^2, F = \langle X_u,X_v \rangle, G = |X_v|^2.  \]
 	
 
 
@@ -106,13 +108,13 @@ y_1
 \end{pmatrix},\begin{pmatrix}
 x_2 \\
 y_2
-\end{pmatrix}) := \langle d_{(u,v)}X(\begin{pmatrix}
+\end{pmatrix}) := \skal{ d_{(u,v)}X(\begin{pmatrix}
 x_1 \\
 y_1
 \end{pmatrix}),  d_{(u,v)}X(\begin{pmatrix}
 x_2 \\
 y_2
-\end{pmatrix})  \rangle \] \[= \langle X_u(u,v)x_1 + X_v(u,v)y_1, X_u(u,v)x_2 + X_v(u,v)y_2 \rangle \]
+\end{pmatrix}) } \] \[= \skal{ X_u(u,v)x_1 + X_v(u,v)y_1, X_u(u,v)x_2 + X_v(u,v)y_2 } \]
 \[ = E(u,v)x_1x_2 + F(u,v)(x_1y_2 + x_2y_1) + G(u,v)y_1y_2 \]
 \[ = \begin{pmatrix}
 x_1 \\
@@ -158,7 +160,7 @@ y_2
 
 \begin{remark}
 	
-	Für Kurven: Jede Kurve kann isometrisch/nach Bogenlänge umparametrisiert werden(\ref{umpar}).  Für Flächen: Im Allgemeinen gibt es keine isometrische (Um-)Parametrisierung.
+	Für Kurven: Jede Kurve kann isometrisch/nach Bogenlänge umparametrisiert werden(\ref*{umpar}).  Für Flächen: Im Allgemeinen gibt es keine isometrische (Um-)Parametrisierung.
 	
 \end{remark}
 
@@ -170,14 +172,17 @@ y_2
 
 \begin{proof}
 	
-	Ist echt cool laut Jeromin (braucht bissi so Fana und so..)
+	Ist echt cool laut Jeromin (braucht bissi so Fana und so \ldots).
 	Falls der Leser Zeit hat, wird ihm nahegelegt den Beweis nachzuschauen.
-	
-\end{proof}
+	Hier ein Link zu einem Beweis dieser Tatsache:
+
+ 	\href{https://thibaultlefeuvre.files.wordpress.com/2017/02/coord_isotherm.pdf}{Link zu PDF hier klicken.}
+ 	
+	\end{proof}
 
 \begin{remark}
 	
-	Dieser Satz ist die Grundlage, um (reelle) Flächen als komplexe Kurve zu intepretieren. Eine weitreichende Betrachtungsweise..
+	Dieser Satz ist die Grundlage, um (reelle) Flächen als komplexe Kurve zu intepretieren. Eine weitreichende Betrachtungsweise \ldots
 \end{remark}
 
 \begin{remark}
@@ -189,8 +194,11 @@ y_2
 
 \begin{definition}
 	
-	Eine \emph{Umparametrisierung} einer parametrisierten Fläche $ X: M \rightarrow \E $ ist eine neue parametrisierte Fläche \[ \widetilde{X}=X\circ(u,v)~;~ \widetilde{M} \rightarrow \E \]
-	mit einem \emph{Diffeomorphismus}: \[ (u,v): \widetilde{M} \rightarrow M, \] d.h., eine glatte $ (C^\infty) $ Bijektion mit glatter Inverser $ (u,v)^{-1}:M \rightarrow \widetilde{M} $
+	Eine \emph{Umparametrisierung} einer parametrisierten Fläche $ X: M \rightarrow \E $ ist eine neue parametrisierte Fläche 
+		\[ \widetilde{X}=X\circ(u,v), \quad \widetilde{M} \rightarrow \E, \]
+	mit einem \emph{Diffeomorphismus}: 
+		\[ (u,v): \widetilde{M} \rightarrow M, \] 
+	d.h., eine glatte $ (C^\infty) $ Bijektion mit glatter Inverser $ (u,v)^{-1}:M \rightarrow \widetilde{M}. $
 		
 \end{definition}
 
@@ -199,7 +207,8 @@ y_2
 	Für \[(x,y)\mapsto \widetilde{X}(x,y) = X(u(x,y),v(x,y)) \in \E^3  \] gilt (Kettenregel) \[ \widetilde{X}_x = (X_u\circ (u,v))\cdot u_x + (X_v \circ (u,v)) \cdot v_x \]
 	\[ \widetilde{X}_y = (X_u \circ (u,v))\cdot u_y + (Y_v \circ (u,v)) \cdot v_y \]
 	und somit 
-	\[ \widetilde{X}_x \times \widetilde{X}_y = ((X_u\times X_v)\circ (u,v))\cdot (u_xv_y - u_yv_x) \] d.h., $ \widetilde{X} $ ist regulär.
+		\[ \widetilde{X}_x \times \widetilde{X}_y = ((X_u\times X_v)\circ (u,v))\cdot (u_xv_y - u_yv_x), \]
+	d.h., $ \widetilde{X} $ ist regulär.
 	
 \end{remark}
 
@@ -212,15 +221,15 @@ y_2
 		\[ \mathcal{N}(u,v) := X(u,v) + [ \{ (X_u \times X_v)(u,v) \} ]; \]
 	dies entspricht einer orthogonalen Zerlegung
 		\[ V= [ \{ X_u(u,v),X_v(u,v) \} ] \oplus_\perp [ \{ (X_u \times X_v)(u,v) \} ] \]
-	von $ V $ in einen \emph{Tangentialraum} und einen \emph{Normalraum} von X am Punkt X(u,v).
+	von $ V $ in einen \emph{Tangentialraum} und einen \emph{Normalraum} von $X$ am Punkt $X(u,v).$
 	
 \end{definition}
 	
 \begin{definition}
 	
 	Das \emph{Tangential-} bzw. \emph{Normalenbündel} einer Fläche $ X: M \rightarrow \E $ ist gegeben durch die Abbildung 
-		\[ (u,v) \mapsto T_{(u,v)}X := [ \{X_u,X_v\} ](u,v), \]
-		\[ (u,v) \mapsto N_{(u,v)}X := \{ X_u,X_v \}^{\perp}(u,v). \]
+		\[ (u,v) \mapsto T_{(u,v)}X := [ \{X_u(u,v),X_v(u,v)\} ], \]
+		\[ (u,v) \mapsto N_{(u,v)}X := \{ X_u(u,v),X_v(u,v) \}^{\perp}. \]
 	Eine Abbildung $ Y : M \rightarrow V $ heißt 
 	
 	\begin{itemize}
@@ -239,28 +248,30 @@ y_2
 \end{definition}
 	
 \begin{example}
-	\textbf{Roationsfläche}
+	\textbf{Roationsfläche:}
+	Für jede Rotationsfläche
 		\[ (u,v) \mapsto X(u,v) := O + e_1r(u)\cos(v) + e_2 r(u) \sin(v) + e_3h(u) \]
-	jede Profilkurve $ v \equiv \mathrm{const} $ ist der orthogonale Schnitt der Fläche mit der Ebene $ x\sin(v) = y \cos(v) $ der Meridiankurve; die Gaußabbildung erhält man also durch $ \dfrac{\pi}{2} $ Drehung des ETF (''Einheitstangentialfel'') in der Ebene der Kurve 
-		\[ N(u,v) = \{ -(e_1\cos(v) + e_2\sin(v))h'(u)+e_3r'(u) \} \dfrac{1}{\sqrt{(r'^2 + h'^2)}(u)} \]
+	ist jede Profilkurve $ v \equiv \mathrm{const} $ der orthogonale Schnitt der Fläche mit der Ebene $ x\sin(v) = y \cos(v) $ der Meridiankurve; die Gaußabbildung erhält man also durch $ \dfrac{\pi}{2} $ Drehung des ETFs (''Einheitstangentialfeldes'') in der Ebene der Kurve 
+		\[ N(u,v) = \{ -(e_1\cos(v) + e_2\sin(v))h'(u)+e_3r'(u) \} \dfrac{1}{\sqrt{(r'^2 + h'^2)}(u)}. \]
 	Überprüfung des Vorzeichens:
-	\[ \det \pmat{r'\cos & -r\sin & -h'\cos \\ r'\sin & r\cos & -h'\sin \\ h' & 0 & r'} = h'^2r + r'^2r = r(r'^2 + h'^2) > 0 \]
+	\[ \det \pmat{r'\cos & -r\sin & -h'\cos \\ r'\sin & r\cos & -h'\sin \\ h' & 0 & r'} = h'^2r + r'^2r = r(r'^2 + h'^2) > 0. \]
 	
 \end{example}
 	
 \begin{remark}
 	
-	Die Gaußabbildund einer Fläche ist ein geometrisches Objekt:
-	Nach einer Euklid. Bewegung
+	Die Gaußabbildung einer Fläche ist ein geometrisches Objekt, d.h.,
+	nach einer Euklid. Bewegung $ \widetilde{X} = \widetilde{O} + A(X-O), $ liefert
 		\[ \widetilde{N}=\dfrac{\widetilde{X}_u \times \widetilde{X}_v}{|\widetilde{X}_u \times \widetilde{X}_v|} = \dfrac{AX_u \times A X_v}{\abs{AX_u \times AX_v}} = \dfrac{A(X_u \times X_v)}{\abs{A(X_u \times X_v)}} = A \dfrac{X_u \times  X_v}{\abs{X_u \times X_v}} = AN. \]
-	Eine Spiegelung liefert $ \widetilde{N} = -AN, $ d.h., wechselt das Vorzeichen -- was auch einer (ordnungsumkehrende) Umparametrisierung tut, z.B.: $ (u,v) \mapsto(v,u) $.
-	Demnach; $ N $ ist ''geometrisch'' bis auf Vorzeichen.
+	Das vorletzte Gleichheitszeichen gilt, weil für $A \in \mathrm{SO}(3)$ gilt $ \abs{A}=1 $. 
+	Eine Spiegelung liefert $ \widetilde{N}~=~-AN, $ d.h., wechselt das Vorzeichen -- was auch eine (ordnungsumkehrende) Umparametrisierung tut, z.B.: $ (u,v) \mapsto(v,u) $.
+	Demnach ist $ N $ ''geometrisch'' bis auf Vorzeichen.
 	
 \end{remark}
 
 \begin{remark}
 	
-	Ordnungsprobleme tauchen in unserem Setting mit parametrisierten (!) Flächen nicht auf: Die Gaußabbildung einer parametrisierten Fläche ist wohldefiniert; eine nicht-orientierbare Fläche (e.g. Möbiusband) kann durch eine doppelt überlagerte Parametrisierung beschrieben werden,
+	Ordnungsprobleme tauchen in unserem Setting mit parametrisierten (!) Flächen nicht auf: Die Gaußabbildung einer parametrisierten Fläche ist wohldefiniert; eine nicht-orientierbare Fläche (e.g. Möbiusband) kann durch eine doppelt überlagerte Parametrisierung beschrieben werden.
 	
 \end{remark}
 
@@ -268,14 +279,14 @@ y_2
 \textbf{Erinnerung:} Die Normalkrümmung $ \kappa_n $ eines Streifens $(X,N) $ ist definiert durch 
 	\[ 0=N'^T + T\abs{X'} \kappa_n = N'^T + X'\kappa_n, \]
 wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet, i.e.
-	\[ N'^T = N' - \nabla^\perp N = T\skal{T,N'} \]
+	\[ N'^T = N' - \nabla^\perp N = T\skal{T,N'}. \]
 
 \begin{lemma, definition}
 	
-	Die Ableitung der Gaußabbildung ist tangential-wertig,
+	Die Ableitung der Gaußabbildung ist tangentialwertig,
 	\[ \forall (u,v) \in M : ~ d_{(u,v)}N : \R^2 \rightarrow T_{(u,v)}X. \]
 	Damit können wir den \emph{Formoperator} von $ X $ am Punkt $ (u,v) \in M $ definieren:
-	\[ \s\big|_{(u,v)}:= - d_{(u,v)N}= (d_{(u,v)X})^{-1} \in \mathrm{End(T_{(u,v)}X)}. \]
+	\[ \s\big|_{(u,v)}:= - d_{(u,v)}N \circ (d_{(u,v)}X)^{-1} \in \mathrm{End(T_{(u,v)}X)}. \]
 	
 \end{lemma, definition}
 
@@ -283,7 +294,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	
 	\begin{enumerate}
 		
-		\item Die Abbildung von N ist tangentialwertig. Nämlich:
+		\item Die Ableitung von N ist tangentialwertig. Nämlich:
 			\[ 1 \equiv \abs{N}^2 \Rightarrow 0 = 2 \skal{N,dN} \Rightarrow \forall (u,v) \in M \forall \pmat{x \\y} \in \R^2 : d_{(u,v)}N(\pmat{x \\y}) \in T_{(u,v)X}. \]
 		
 		\item  $\s$ ist wohldefiniert:
@@ -304,11 +315,11 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \end{proof}
 
 \begin{remark}
-	Die Abbildung $\mapsto \s \big|_{(u,v)} \in End(T(u,v),X)$ liefert ein Endomorphismenfeld $\s$, welches man auch \emph{Weingartentensorfeld} nennt.
+	Die Abbildung $\mapsto \s \big|_{(u,v)} \in End(T_{(u,v)}X)$ liefert ein Endomorphismenfeld $\s$, welches man auch \emph{Weingartentensorfeld} nennt.
 \end{remark}
 
 \begin{remark}
-	Da $\left( X_u(u,v) , X_v(u,v) \right)$ eine Basis von $T(u,v)X$ ist, kann $\s \big|_{(u,v)}$ durch die Werte auf der Basis bestimmt werden
+	Da $\left( X_u(u,v) , X_v(u,v) \right)$ eine Basis von $T_{(u,v)}X$ ist, kann $\s \big|_{(u,v)}$ durch die Werte auf der Basis bestimmt werden:
 	\[ \s X_u = -dN \circ (dX)^{-1}(X_u)= 
 	-dN \circ \pmat{1\\0} = -N_u \]
 	und 
@@ -316,11 +327,11 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \end{remark}
 
 \begin{lemma}
-	$\s \big|_{(u,v)} \in End(T(u,v),X)$ ist symmetrisch für jedes $(u,v) \in M$.
+	$\s \big|_{(u,v)} \in End(T_{(u,v)}X)$ ist symmetrisch für jedes $(u,v) \in M$.
 \end{lemma}
 
 \begin{proof}
-	Wir verifizieren Symmetrie auf der Basis $(X_u(u,v),X_v(u,v))$ von $T(u,v)X$:
+	Wir verifizieren Symmetrie auf der Basis $(X_u(u,v),X_v(u,v))$ von $T_{(u,v)}X$:
 	
 	Da $N \perp X_u,X_v$ erhalten wir 
 	\[ 0=\skal{X_u,N}_v = \skal{X_{uv}, N} + \skal{X_u,N_v}
@@ -334,22 +345,22 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 
 \begin{remark}
-	Wie bei Streifen kann der Formoperator wie $\kappa_n$ durch die Gleichung 
-	\[ 0=dN + \s \circ dX = dN^T + S\circ dX. \]
-	Der Formoperator "kodiert" also die Krümmung einer Fläche.
+	Wie bei Streifen kann der Formoperator analog zu $\kappa_n$ durch die Gleichung 
+	\[ 0=dN + \s \circ dX = dN^T + S\circ dX \] beschrieben werden.
+	Der Formoperator ''kodiert'' also die Krümmung einer Fläche.
 \end{remark}
 
 \begin{definition}
 	Sei $\s$ der Formoperator der Fläche $X : M \to \E^3$, dann heißt
-	\begin{enumerate}[$\circ$]
-		\item $H=\frac 12 \mathrm{tr} \s = \frac 12 \mathrm{spur}$ die \emph{mittlere Krümmung} von $X$,
+	\begin{itemize}
+		\item $H=\frac 12 \mathrm{tr} \s $ die \emph{mittlere Krümmung} von $X$,
 		\item $K=\det S$ die \emph{Gauß Krümmung} von $X$ und 
 		\item die Eigenwerte $\kappa^\pm = H \pm \sqrt{H^2-K}$ und die \emph{Eigenrichtungen} von $\s$ sind die \emph{Hauptkrümmungen} bzw. \emph{Hauptrichtungen} von $X$. 
-	\end{enumerate}
+	\end{itemize}
 \end{definition}
 
 \begin{remark} Es gilt
-	$H=\frac 12 (\kappa^+ +\kappa^-)$, daher auch der Name \emph{mittlere Krümmung}.
+	$H=\frac 12 (\kappa^+ +\kappa^-)$ -- daher auch der Name \emph{mittlere Krümmung}.
 \end{remark}
 
 \begin{example}
@@ -361,25 +372,25 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	\[ N_v + X_v\frac {h'}r = (e_1\sin v - e_2\cos v)\left( h' - r\frac {h'}r \right)=0, \]
 	\[ N_u + X_u\left( r'h''-r''h' \right)\]
 	\[= (e_1 \cos v +e_2\sin v ) \left( h''+r'(r'h''-r''h') \right) + e_3 (r''+h'(r'h''-r''h'))
-	= 0 \]
-	Also liefert $X_u$ und $X_v$ Krümmungsrichtungen zu Hauptrichtungen
+	= 0. \]
+	Also liefern $X_u$ und $X_v$ Krümmungsrichtungen zu Hauptrichtungen
 	\[ \kappa^+ = r'h''-r''h' \quad \text{ und }\quad
-	\kappa^- \frac {h'}r. \]		
+	\kappa^- = \frac {h'}r. \]		
 \end{example}
 
 
 \begin{remark}
 	Formoperatoren und Krümmungen sind geometrische Objekte:
-	\begin{enumerate}[$\circ$]
+	\begin{itemize}
 		\item Ist $\tilde X = X \circ (u,v)$ eine Umparametrisierung und $\tilde N = N \circ (u,v)$ so ist 
-		\[ \tilde{\s}= -d\tilde N \circ (d\tilde X)^{-1} = -\left( d_{(u,v)}N \circ d(u,v) \right) \circ \left( d_{(u,v)X} \circ d(u,v)  \right)^{-1} \]
+		\[ \tilde{\s} = -d\tilde N \circ (d\tilde X)^{-1} = -\left( d_{(u,v)}N \circ d(u,v) \right) \circ \left( d_{(u,v)X} \circ d(u,v)  \right)^{-1} \]
 		\[ = -d_{(u,v)}N \circ d(u,v) \circ d(u,v)^{-1} \circ \left( d_{(u,v)}X \right)^{-1}
 		= \s\big |_{(u,v)}, \]
 		also insbesondere
 		\[ \tilde H = H \circ (u,v), \quad \text{ und }\quad
 		\tilde K = K \circ (u,v), \quad \text{ etc.} \]
 		
-		\item Ist $\tilde X=\tilde O+A(x-O)$ mit $A \in SO(3)$ so bekommt man 
+		\item Ist $\tilde X=\tilde O+A(X-O)$ mit $A \in SO(3)$ so bekommt man 
 		\[ \tilde{\s}= -d\tilde N \circ \left( d\tilde X \right)^{-1}
 		= -A\circ dN \circ (dX)^{-1} \circ A^{-1}
 		= A\circ \s \circ A^{-1}, \]
@@ -387,8 +398,8 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 		\[ \tilde H = H, \quad \text{ und }\quad
 		\tilde K = K, \quad \text{ etc.} \]
 		Die Krümmungsrichtungen werden mit der Fläche gedreht:
-		\[ \ker (id \kappa^\pm -\tilde{\s}) = A\ker (id \kappa^\pm-\s). \]
-	\end{enumerate}
+		\[ \ker (\mathrm{id} \kappa^\pm -\tilde{\s}) = A\ker (\mathrm{id} \kappa^\pm-\s). \]
+	\end{itemize}
 \end{remark}	
 	
 \begin{definition}
@@ -396,8 +407,8 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	Ein Punkt $X(u,v)$ einer Fläche heißt 
 	\begin{itemize}
 		
-		\item \emph{Nabelpunkt} (umbilic), falls $\kappa^+(u,v) = \kappa^-(u,v) (\leftrightarrow (H^2- K)(u,v)=0) $
-		\item \emph{Flachpunkt} (flatpoint), falls $\kappa^+(u,v) = \kappa^-(u,v)=0$
+		\item \emph{Nabelpunkt} (umbilic), falls $\kappa^+(u,v) = \kappa^-(u,v) \quad (\Longleftrightarrow (H^2- K)(u,v)=0), $
+		\item \emph{Flachpunkt} (flatpoint), falls $\kappa^+(u,v) = \kappa^-(u,v)=0.$
 		
 	\end{itemize}
 
@@ -406,22 +417,24 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{remark}
 	
-	Ein Punkt $X(u,v)$ ist Nabelpunkt oder Flachpunkt, falls
-	\[ \mathcal{S}\big|_{(u,v)} = H(u,v)id_{T_{(u,v)}X} \text{ bzw. } \mathcal{S}\big|{(u,v)}=0 \]
+	Ein Punkt $X(u,v)$ ist Nabelpunkt bzw. Flachpunkt, falls
+	\[ \mathcal{S}\big|_{(u,v)} = H(u,v)\mathrm{id}_{T_{(u,v)}X} \text{ bzw. } \mathcal{S}\big|{(u,v)}=0. \]
 	
 \end{remark}
 
 \begin{example}
 	
-	Falls $  (u,v) \mapsto X(u,v) $ Werte in einer (festen) Ebene annimmt,
-	\[ \pi = \{ X \in \E^3 ~|~ \skal{X-0,n} = d \} \] d.h., $ \skal{dX,n}=0 $, so ist $ N \equiv \pm n $, demnach also $\S \equiv 0$ und jeder Punkt der Fläche ist Flachpunkt.\\
-	Umgekehrt; Ist jeder Punkt einer Fläche $ X $ ein Flachpunkt, $ \s \equiv 0 $, so folgt $ N \equiv \mathrm{const.} $, also nimmt $ X $ Werte in einer (festen) Ebene an: Mit $ O \in \E^3 $ beliebig \[ 0 = \skal{dX,N} = d\skal{X-O,N} - \skal{X-O,dN} \Rightarrow \mathrm{const.} \equiv \skal{X-O,N}, \] wobei $ \skal{dX,N} $ eine Abbildung $ ((u,v), \pmat{x \\ y}) \mapsto \skal{d_{(u,v)}X\pmat{x\\y},N(u,v)} $ ist.
+	Falls $  (u,v) \mapsto X(u,v) $ Werte in einer (festen) Ebene
+		\[ \pi = \{ X \in \E^3 ~|~ \skal{X-0,n} = d \} \] 
+	annimmt, d.h., $ \skal{dX,n}=0 $. Also ist $ N \equiv \pm n $, weshalb $\s \equiv 0$ und jeder Punkt der Fläche ist ein Flachpunkt.\\
+	Umgekehrt: Ist jeder Punkt einer Fläche $ X $ ein Flachpunkt, $ \s \equiv 0 $, so folgt $ N \equiv \mathrm{const.} $, also nimmt $ X $ Werte in einer (festen) Ebene an: Mit $ O \in \E^3 $ beliebig \[ 0 = \skal{dX,N} = d\skal{X-O,N} - \skal{X-O,dN} \Rightarrow \mathrm{const.} \equiv \skal{X-O,N}, \] wobei $ \skal{dX,N} $ eine Abbildung $ ((u,v), \pmat{x \\ y}) \mapsto \skal{d_{(u,v)}X\pmat{x\\y},N(u,v)} $ ist.
 
 	\textbf{Matrixdarstellung}: Mit $(X_u,X_v)$ als tangentiales Basisfeld kann der Weingartentensor als Matrix geschrieben werden:
-	$ (\s X_u, \s X_v) = (-N_u, -N_v) = (X_u,X_v) \pmat{\s_{11} & \s_{12} \\ \s_{21} & \s_{22}} $
+	$ (\s X_u, \s X_v) = (-N_u, -N_v) = (X_u,X_v) \pmat{s_{11} & s_{12} \\ s_{21} & s_{22}} $
 	
 	also, vermittels der Skalarprodukte der Basisvektoren $ X_u,X_v $, 
-	\[\pmat{-\skal{X_u,N_u} & - \skal{X_u,N_v} \\ - \skal{X_v,N_u} & - \skal{X_v,N_v} } = \pmat{E &F \\ F &G} \pmat{s_{11} & s_{12} \\ s_{21} & s_{22}}, \] d.h., die Gram Matrix der zweiten Fundamentalform:
+	\[\pmat{-\skal{X_u,N_u} & - \skal{X_u,N_v} \\ - \skal{X_v,N_u} & - \skal{X_v,N_v} } = \pmat{E &F \\ F &G} \pmat{s_{11} & s_{12} \\ s_{21} & s_{22}}, \] d.h., als die Gram Matrix der zweiten Fundamentalform:
+	
 	
 \end{example}
 
@@ -429,13 +442,13 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	 Die \emph{zweite Fundamentalform} einer Fläche $ X: M \rightarrow \E^3 $ ist definiert als \[ \mathrm{II} := \skal{dX,dN}, \] wobei $ \mathrm{II}: ((u,v), \pmat{x \\ y},\pmat{\widetilde{x} \\ \widetilde{y}}) \mapsto \skal{d_{(u,v)}X \pmat{x\\y},d_{(u,v)}N \pmat{\widetilde{x}\\\widetilde{y}}}; $
 	 an jedem Punkt $ (u,v) $ erhält man so eine symmetrische Bilinearform 
 	 
-	 \[ \mathrm{II}\big|_{(u,v)}: \R^2 \times \R^2 \rightarrow \R, (\pmat{x_1 \\ y_1},\pmat{x_2 \\ y_2}) \mapsto - \skal{d_{(u,v)}X\pmat{x_1 \\ y_1},d_{(u,v)}N\pmat{x_2 \\ y_2}}. \]
+	 \[ \mathrm{II}\big|_{(u,v)}: \R^2 \times \R^2 \rightarrow \R, \quad (\pmat{x_1 \\ y_1},\pmat{x_2 \\ y_2}) \mapsto - \skal{d_{(u,v)}X\pmat{x_1 \\ y_1},d_{(u,v)}N\pmat{x_2 \\ y_2}}. \]
 	 
 \end{lemma, definition}
 
 \begin{proof}
-	Dass $ \mathrm{II}\big|_{(u,v)} $ Bilinearform ist, ist klar. Weiters: 
-		\[ {\color{Maroon} \mathrm{II}(\pmat{1 \\ 0},\pmat{0 \\ 1}) = }-\skal{X_u,N_v}= \skal{X_{uv},N}= \skal{X_{vu},N} = -\skal{X_v,N_u} {\color{Maroon} = \mathrm{II}(\pmat{0 \\ 1},\pmat{1 \\ 0}) }, \] 
+	Dass $ \mathrm{II}\big|_{(u,v)} $ Bilinearform ist, ist klar. Weiters gilt mit der Leibniz-Regel: 
+		\[ {\color{ForestGreen} \mathrm{II}(\pmat{1 \\ 0},\pmat{0 \\ 1}) = }-\skal{X_u,N_v}= \skal{X_{uv},N}= \skal{X_{vu},N} {=} -\skal{X_v,N_u} {\color{ForestGreen} = \mathrm{II}(\pmat{0 \\ 1},\pmat{1 \\ 0}) }, \] 
 	also ist $ \mathrm{II} $ symmetrisch an jedem Punkt. 
 \end{proof}
 
@@ -465,8 +478,10 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \begin{remark}
 	
 	Wegen $ \skal{X_{uu},N}= -\skal{X_u,N_u}= e $ usw. bekommt man 
-		\[ \nabla_{\dfrac{\partial}{\partial u}}Xu = X_{uu}-Ne \text{ und } \nabla_{\dfrac{\partial}{\partial v}} = X_{uv}-Nf \]
-		\[ \nabla_{\dfrac{\partial}{\partial v}}Xv = X_{vv}-Ng \text{ und } \nabla_{\dfrac{\partial}{\partial u}} = X_{uv}-Nf \]
+		\[ \nabla_{\dfrac{\partial}{\partial u}}X_u = X_{uu}-Ne \text{ und } \nabla_{\dfrac{\partial}{\partial v}} = X_{uv}-Nf \]
+		\[ \nabla_{\dfrac{\partial}{\partial v}}X_v = X_{vv}-Ng \text{ und } \nabla_{\dfrac{\partial}{\partial u}} = X_{uv}-Nf \]
+	
+	Wobei $$ \nabla_{\dfrac{\partial}{\partial u}}Y := Y_u - \skal{Y_u,N}N $$
 	
 \end{remark}
 
@@ -481,24 +496,39 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{proof}
 	
-	gemma Jojo
+	Die Leibniz-Regel gilt, da für $x \in C^\infty(M)$:
+		\[ \nabla(Yx) = dYx + Ydx- \skal{dYx,N}N - \skal{Ydx,N}N = (\nabla Y)x + Ydx, \]
+	weil $ Y $ ein Tangentialfeld ist, ist $ \skal{Ydx,N} = 0. $ 
+	
+	Er ist metrisch, da:
+		\[  \skal{\nabla Y,Z} + \skal{Y,\nabla Z} = \skal{dY,Z} -\skal{dY,N}\skal{N,Z} + \skal{Y,dZ} - \skal{Y,N}\skal{dZ,N} \]
+		\[ = \skal{dY,Z} + \skal{Y,dZ} = d\skal{Y,Z}. \]
 	
 \end{proof}
 
-\textbf{Matrixdarstellung:} Da die kovariante Ableitung eines TVfs $ Y $ tangential ist, erhält man für $ Y = X_v :$
+\textbf{Matrixdarstellung:} Da die kovariante Ableitung eines TVFs $ Y $ tangential ist, erhält man für $ Y = X_v :$
 
-		\[ \left(\nabla_{\dfrac{\partial}{\partial u}}X_u,\nabla_{\dfrac{\partial}{\partial u}}X_v \right) = (X_u,X_v)\Gamma_1 \] 
-		\[ \left(\nabla_{\dfrac{\partial}{\partial u}}X_u,\nabla_{\dfrac{\partial}{\partial u}}X_v \right) = (X_u,X_v)\Gamma_2 \] 
+\begin{equation} \label{Eq:Gamma}
+\begin{split}
+		 \left(\nabla_{\dfrac{\partial}{\partial u}}X_u,\nabla_{\dfrac{\partial}{\partial u}}X_v \right) &= (X_u,X_v)\Gamma_1  \\
+		 \left(\nabla_{\dfrac{\partial}{\partial v}}X_u,\nabla_{\dfrac{\partial}{\partial v}}X_v \right) &= (X_u,X_v)\Gamma_2 
+\end{split}
+\end{equation} 
 	mit 
 		\[ \Gamma_i = \pmat{\Gamma_{i1}^1 & \Gamma_{i2}^1 \\ \Gamma_{i1}^2 & \Gamma_{i2}^2}. \]
 		
-	Also, für eine allgemeine TVf $ Y=X_ux+X_vy=dX\pmat{x \\ y} $, 
+	Also gilt für eine allgemeine TVF $ Y=X_ux+X_vy=dX\pmat{x \\ y} $, 
 		\[ \nabla_{\dfrac{\partial}{\partial u}}Y= \nabla_{\dfrac{\partial}{\partial u}}\left ( \left( X_u,X_v \right) \pmat{x \\y}    \right ) = \left( \nabla_{\dfrac{\partial}{\partial u}}X_u,\nabla_{\dfrac{\partial}{\partial u}}X_v \right) \pmat{x \\y} + X_u,X_v \pmat{x_u \\ y_u} \]
 
-		\[ = \left( X_u, X_v \right) \Gamma_1\pmat{x \\ y} + \left( X_u, X_v \right) \pmat{x_u \\ y_u} = \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial u} +\Gamma_1 \right) \pmat{x \\ y}    \]
+		\[ = \left( X_u, X_v \right) \Gamma_1\pmat{x \\ y} + \left( X_u, X_v \right) \pmat{x_u \\ y_u} \] 
 		
-	und ebenso 
-		\[ \nabla_{\dfrac{\partial}{\partial v}} = \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial v} +\Gamma_2 \right) \pmat{x \\ y},  \] 
+		\begin{equation} \label{Eq:Gammaallg}
+		\begin{split}
+			&= \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial u} +\Gamma_1 \right) \pmat{x \\ y}  \quad \text{ und ebenso }
+		 \\ 
+		 \nabla_{\dfrac{\partial}{\partial v}}Y &= \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial v} +\Gamma_2 \right) \pmat{x \\ y}, 
+		 \end{split}
+		\end{equation} 
 	oder, anders gesagt:
 		\[ \nabla_{\dfrac{\partial}{\partial u}} \circ dX = dX \circ \left( \dfrac{\partial}{\partial u} + \Gamma_1 \right)  \]
 	und genauso
@@ -508,7 +538,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 		\[ \nabla_{\dfrac{\partial}{\partial u}}\left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \nabla_{\dfrac{\partial}{\partial u}}X_u = X_u \Gamma_{11}^1 + X_v\Gamma_{11}^2 = \left( X_u,X_v \right) \Gamma_1\pmat{1 \\ 0}   \] 
 	und
 		\[ \nabla_{\dfrac{\partial}{\partial v}} \left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \nabla_{\dfrac{\partial}{\partial v}}X_u = \left( X_u,X_v \right) \Gamma_2\pmat{1 \\ 0} \]
-	und ebenso für  $ \pmat{x \\ y} = \pmat{0 \\ 1} \cong \dfrac{\partial}{\partial v} $, also ist {\color{Cyan} STERN EIN SPEZIALFALL VON STERNSTERN}
+	und ebenso für  $ \pmat{x \\ y} = \pmat{0 \\ 1} \cong \dfrac{\partial}{\partial v} $, also ist \ref*{Eq:Gamma} ein Spezialfall von \ref*{Eq:Gammaallg}
 	
 	\begin{remark}
 		\textbf{WARUNUNG:} $ \nabla_{\dfrac{\partial}{\partial u}} $ und $ \nabla_{\dfrac{\partial}{\partial v}} $ sind \emph{Differentialoperatoren} (keine Endomorphismen) - trotzdem benutzen wir Matrizen, um sie zu beschreiben.
