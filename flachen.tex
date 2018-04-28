@@ -302,7 +302,94 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	\end{enumerate}
 	
 \end{proof}
+
+\begin{remark}
+	Die Abbildung $\mapsto \s \big|_{(u,v)} \in End(T(u,v),X)$ liefert ein Endomorphismenfeld $\s$, welches man auch \emph{Weingartentensorfeld} nennt.
+\end{remark}
+
+\begin{remark}
+	Da $\left( X_u(u,v) , X_v(u,v) \right)$ eine Basis von $T(u,v)X$ ist, kann $\s \big|_{(u,v)}$ durch die Werte auf der Basis bestimmt werden
+	\[ \s X_u = -dN \circ (dX)^{-1}(X_u)= 
+	-dN \circ \pmat{1\\0} = -N_u \]
+	und 
+	\[ \s X_v = -N_v. \]
+\end{remark}
+
+\begin{lemma}
+	$\s \big|_{(u,v)} \in End(T(u,v),X)$ ist symmetrisch für jedes $(u,v) \in M$.
+\end{lemma}
+
+\begin{proof}
+	Wir verifizieren Symmetrie auf der Basis $(X_u(u,v),X_v(u,v))$ von $T(u,v)X$:
 	
+	Da $N \perp X_u,X_v$ erhalten wir 
+	\[ 0=\skal{X_u,N}_v = \skal{X_{uv}, N} + \skal{X_u,N_v}
+	= \skal{X_{vu},N}- \skal{X_u,\s X_v}. \]
+	Ebenfalls
+	\[ 0=\skal{X_v,N}_u 
+	= \skal{X_{vu},N}- \skal{X_v, \s X_u}. \]
+	Also 
+	\[ \skal{X_u,\s X_v} = \skal{\s X_u,X_v}. \]
+\end{proof}
+
+
+\begin{remark}
+	Wie bei Streifen kann der Formoperator wie $\kappa_n$ durch die Gleichung 
+	\[ 0=dN + \s \circ dX = dN^T + S\circ dX. \]
+	Der Formoperator "kodiert" also die Krümmung einer Fläche.
+\end{remark}
+
+\begin{definition}
+	Sei $\s$ der Formoperator der Fläche $X : M \to \E^3$, dann heißt
+	\begin{enumerate}[$\circ$]
+		\item $H=\frac 12 \mathrm{tr} \s = \frac 12 \mathrm{spur}$ die \emph{mittlere Krümmung} von $X$,
+		\item $K=\det S$ die \emph{Gauß Krümmung} von $X$ und 
+		\item die Eigenwerte $\kappa^\pm = H \pm \sqrt{H^2-K}$ und die \emph{Eigenrichtungen} von $\s$ sind die \emph{Hauptkrümmungen} bzw. \emph{Hauptrichtungen} von $X$. 
+	\end{enumerate}
+\end{definition}
+
+\begin{remark} Es gilt
+	$H=\frac 12 (\kappa^+ +\kappa^-)$, daher auch der Name \emph{mittlere Krümmung}.
+\end{remark}
+
+\begin{example}
+	Eine Rotationsfläche parametrisiert nach Bogenlänge ist
+	\[ X(u,v)= O+e_1r(u)\cos v +e_2 r(u) \sin v + e_3h(v), \]
+	mit $r'^2+h'^2=1$. Damit folgt $r'r''+h'h''=0$. Mit der Gaußabbildung
+	\[ N(u,v)= -e_1h'(u)\cos v - e_2h'(u) \sin v + e_3v'(u) \]
+	bekommt man
+	\[ N_v + X_v\frac {h'}r = (e_1\sin v - e_2\cos v)\left( h' - r\frac {h'}r \right)=0, \]
+	\[ N_u + X_u\left( r'h''-r''h' \right)\]
+	\[= (e_1 \cos v +e_2\sin v ) \left( h''+r'(r'h''-r''h') \right) + e_3 (r''+h'(r'h''-r''h'))
+	= 0 \]
+	Also liefert $X_u$ und $X_v$ Krümmungsrichtungen zu Hauptrichtungen
+	\[ \kappa^+ = r'h''-r''h' \quad \text{ und }\quad
+	\kappa^- \frac {h'}r. \]		
+\end{example}
+
+
+\begin{remark}
+	Formoperatoren und Krümmungen sind geometrische Objekte:
+	\begin{enumerate}[$\circ$]
+		\item Ist $\tilde X = X \circ (u,v)$ eine Umparametrisierung und $\tilde N = N \circ (u,v)$ so ist 
+		\[ \tilde{\s}= -d\tilde N \circ (d\tilde X)^{-1} = -\left( d_{(u,v)}N \circ d(u,v) \right) \circ \left( d_{(u,v)X} \circ d(u,v)  \right)^{-1} \]
+		\[ = -d_{(u,v)}N \circ d(u,v) \circ d(u,v)^{-1} \circ \left( d_{(u,v)}X \right)^{-1}
+		= \s\big |_{(u,v)}, \]
+		also insbesondere
+		\[ \tilde H = H \circ (u,v), \quad \text{ und }\quad
+		\tilde K = K \circ (u,v), \quad \text{ etc.} \]
+		
+		\item Ist $\tilde X=\tilde O+A(x-O)$ mit $A \in SO(3)$ so bekommt man 
+		\[ \tilde{\s}= -d\tilde N \circ \left( d\tilde X \right)^{-1}
+		= -A\circ dN \circ (dX)^{-1} \circ A^{-1}
+		= A\circ \s \circ A^{-1}, \]
+		insbesondere also
+		\[ \tilde H = H, \quad \text{ und }\quad
+		\tilde K = K, \quad \text{ etc.} \]
+		Die Krümmungsrichtungen werden mit der Fläche gedreht:
+		\[ \ker (id \kappa^\pm -\tilde{\s}) = A\ker (id \kappa^\pm-\s). \]
+	\end{enumerate}
+\end{remark}	
 	
 \begin{definition}
 	
