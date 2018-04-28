@@ -203,10 +203,107 @@ y_2
 	
 \end{remark}
 
+\subsection{Gaußabbildung und Weingartentensor}
+
+\begin{definition}
+	
+	Eine Fläche $ X : M \rightarrow \E^3 $ hat an jedem Punkt $ X(u,v) $ eine \emph{Tangentialebene} und eine \emph{Normalgerade}:
+		\[ \mathcal{T}(u,v) := X(u,v) + [ \{ X_u(u,v), X_v(u,v) \} ], \]
+		\[ \mathcal{N}(u,v) := X(u,v) + [ \{ (X_u \times X_v)(u,v) \} ]; \]
+	dies entspricht einer orthogonalen Zerlegung
+		\[ V= [ \{ X_u(u,v),X_v(u,v) \} ] \oplus_\perp [ \{ (X_u \times X_v)(u,v) \} ] \]
+	von $ V $ in einen \emph{Tangentialraum} und einen \emph{Normalraum} von X am Punkt X(u,v).
+	
+\end{definition}
+	
+\begin{definition}
+	
+	Das \emph{Tangential-} bzw. \emph{Normalenbündel} einer Fläche $ X: M \rightarrow \E $ ist gegeben durch die Abbildung 
+		\[ (u,v) \mapsto T_{(u,v)}X := [ \{X_u,X_v\} ](u,v), \]
+		\[ (u,v) \mapsto N_{(u,v)}X := \{ X_u,X_v \}^{\perp}(u,v). \]
+	Eine Abbildung $ Y : M \rightarrow V $ heißt 
+	
+	\begin{itemize}
+		
+		\item \emph{Tangentialfeld} entlang $ X $, falls 
+			\[ \forall (u,v) \in M: ~ Y(u,v) \in T_{(u,v)}X \],
+			
+		\item \emph{Normalenfeld} entlang $ X $, falls
+			\[ \forall(u,v) \in M: ~ Y(u,v) \in N_{(u,v)}X. \]
+		
+	\end{itemize}
+
+	Die \emph{Gaußabbildung} einer Fläche $ X: M \rightarrow \E^3 $ ist das Einheitsnormalenfeld (ENF):
+		\[ N:= \dfrac{X_u \times X_v}{\abs{X_u \times X_v}}: M \rightarrow V. \]
+	
+\end{definition}
+	
+\begin{example}
+	\textbf{Roationsfläche}
+		\[ (u,v) \mapsto X(u,v) := O + e_1r(u)\cos(v) + e_2 r(u) \sin(v) + e_3h(u) \]
+	jede Profilkurve $ v \equiv \mathrm{const} $ ist der orthogonale Schnitt der Fläche mit der Ebene $ x\sin(v) = y \cos(v) $ der Meridiankurve; die Gaußabbildung erhält man also durch $ \dfrac{\pi}{2} $ Drehung des ETF (''Einheitstangentialfel'') in der Ebene der Kurve 
+		\[ N(u,v) = \{ -(e_1\cos(v) + e_2\sin(v))h'(u)+e_3r'(u) \} \dfrac{1}{\sqrt{(r'^2 + h'^2)}(u)} \]
+	Überprüfung des Vorzeichens:
+	\[ \det \pmat{r'\cos & -r\sin & -h'\cos \\ r'\sin & r\cos & -h'\sin \\ h' & 0 & r'} = h'^2r + r'^2r = r(r'^2 + h'^2) > 0 \]
+	
+\end{example}
+	
+\begin{remark}
+	
+	Die Gaußabbildund einer Fläche ist ein geometrisches Objekt:
+	Nach einer Euklid. Bewegung
+		\[ \widetilde{N}=\dfrac{\widetilde{X}_u \times \widetilde{X}_v}{|\widetilde{X}_u \times \widetilde{X}_v|} = \dfrac{AX_u \times A X_v}{\abs{AX_u \times AX_v}} = \dfrac{A(X_u \times X_v)}{\abs{A(X_u \times X_v)}} = A \dfrac{X_u \times  X_v}{\abs{X_u \times X_v}} = AN. \]
+	Eine Spiegelung liefert $ \widetilde{N} = -AN, $ d.h., wechselt das Vorzeichen -- was auch einer (ordnungsumkehrende) Umparametrisierung tut, z.B.: $ (u,v) \mapsto(v,u) $.
+	Demnach; $ N $ ist ''geometrisch'' bis auf Vorzeichen.
+	
+\end{remark}
+
+\begin{remark}
+	
+	Ordnungsprobleme tauchen in unserem Setting mit parametrisierten (!) Flächen nicht auf: Die Gaußabbildung einer parametrisierten Fläche ist wohldefiniert; eine nicht-orientierbare Fläche (e.g. Möbiusband) kann durch eine doppelt überlagerte Parametrisierung beschrieben werden,
+	
+\end{remark}
 
 
-\textbf{HIER FEHLT EINIGES  GANZE VO.. Mach ich heute Abend oder morgen -- FUUUUUUU \dots}
+\textbf{Erinnerung:} Die Normalkrümmung $ \kappa_n $ eines Streifens $(X,N) $ ist definiert durch 
+	\[ 0=N'^T + T\abs{X'} \kappa_n = N'^T + X'\kappa_n, \]
+wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet, i.e.
+	\[ N'^T = N' - \nabla^\perp N = T\skal{T,N'} \]
 
+\begin{lemma, definition}
+	
+	Die Ableitung der Gaußabbildung ist tangential-wertig,
+	\[ \forall (u,v) \in M : ~ d_{(u,v)}N : \R^2 \rightarrow T_{(u,v)}X. \]
+	Damit können wir den \emph{Formoperator} von $ X $ am Punkt $ (u,v) \in M $ definieren:
+	\[ \s\big|_{(u,v)}:= - d_{(u,v)N}= (d_{(u,v)X})^{-1} \in \mathrm{End(T_{(u,v)}X)}. \]
+	
+\end{lemma, definition}
+
+\begin{proof}
+	
+	\begin{enumerate}
+		
+		\item Die Abbildung von N ist tangentialwertig. Nämlich:
+			\[ 1 \equiv \abs{N}^2 \Rightarrow 0 = 2 \skal{N,dN} \Rightarrow \forall (u,v) \in M \forall \pmat{x \\y} \in \R^2 : d_{(u,v)}N(\pmat{x \\y}) \in T_{(u,v)X}. \]
+		
+		\item  $\s$ ist wohldefiniert:
+		Da für $ (u,v) \in M, d_{(u,v)}X: \R^2 \rightarrow V $ injektiv ist, liefert dies einen Isomorphismus
+			\[ d_{(u,v)}X: \R^2 \rightarrow T_{(u,v)}X \subseteq V, \]
+		der invertiert werden kann, um eine lineare Abbildung
+		
+			\[ (d_{(u,v)}X)^{-1}: T_{(u,v)}X \rightarrow \R^2 \]
+		
+		zu erhalten.
+		
+		\item $ \s\big|_{(u,v)} $ ist Endomorphismus:
+		Als Verkettung linearer Abbildungen
+			\[ T_{(u,v)}X \xrightarrow{(d_{(u,v)}X)^{-1}} \R^2 \xrightarrow{-d_{(u,v)}N} T_{(u,v)}X \]
+		
+	\end{enumerate}
+	
+\end{proof}
+	
+	
 \begin{definition}
 	
 	Ein Punkt $X(u,v)$ einer Fläche heißt 
