@@ -1,4 +1,3 @@
-
 \subsection{Parametrisierung \& Metrik}
 \begin{definition}
 	
@@ -422,7 +421,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	
 \end{remark}
 
-\begin{example}
+\begin{example}\label{Ex:Flachpunkt}
 	
 	Falls $  (u,v) \mapsto X(u,v) $ Werte in einer (festen) Ebene
 		\[ \pi = \{ X \in \E^3 ~|~ \skal{X-0,n} = d \} \] 
@@ -478,10 +477,10 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \begin{remark}
 	
 	Wegen $ \skal{X_{uu},N}= -\skal{X_u,N_u}= e $ usw. bekommt man 
-		\[ \nabla_{\!\!{\partial\over \partial u}}X_u = X_{uu}-Ne \text{ und } \nabla_{\!\!{\partial\over \partial v}} = X_{uv}-Nf \]
-		\[ \nabla_{\!\!{\partial\over \partial v}}X_v = X_{vv}-Ng \text{ und } \nabla_{\!\!{\partial\over \partial u}} = X_{uv}-Nf \]
+		\[ \D{u}X_u = X_{uu}-Ne \text{ und } \D v = X_{uv}-Nf \]
+		\[ \D vX_v = X_{vv}-Ng \text{ und } \D{u} = X_{uv}-Nf \]
 	
-	Wobei $$ \nabla_{\!\!{\partial\over \partial u}}Y := Y_u - \skal{Y_u,N}N $$
+	Wobei $$ \D{u}Y := Y_u - \skal{Y_u,N}N $$
 	
 \end{remark}
 
@@ -510,15 +509,15 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{equation} \label{Eq:Gamma}
 \begin{split}
-		 \left(\nabla_{\!\!{\partial\over \partial u}}X_u,\nabla_{\!\!{\partial\over \partial u}}X_v \right) &= (X_u,X_v)\Gamma_1  \\
-		 \left(\nabla_{\!\!{\partial\over \partial v}}X_u,\nabla_{\!\!{\partial\over \partial v}}X_v \right) &= (X_u,X_v)\Gamma_2 
+		 \left(\D{u}X_u,\D{u}X_v \right) &= (X_u,X_v)\Gamma_1  \\
+		 \left(\D vX_u,\D vX_v \right) &= (X_u,X_v)\Gamma_2 
 \end{split}
 \end{equation} 
 	mit 
 		\[ \Gamma_i = \pmat{\Gamma_{i1}^1 & \Gamma_{i2}^1 \\ \Gamma_{i1}^2 & \Gamma_{i2}^2}. \]
 		
 	Also gilt für eine allgemeine TVF $ Y=X_ux+X_vy=dX\pmat{x \\ y} $, 
-		\[ \nabla_{\!\!{\partial\over \partial u}}Y= \nabla_{\!\!{\partial\over \partial u}}\left ( \left( X_u,X_v \right) \pmat{x \\y}    \right ) = \left( \nabla_{\!\!{\partial\over \partial u}}X_u,\nabla_{\!\!{\partial\over \partial u}}X_v \right) \pmat{x \\y} + X_u,X_v \pmat{x_u \\ y_u} \]
+		\[ \D{u}Y= \D{u}\left ( \left( X_u,X_v \right) \pmat{x \\y}    \right ) = \left( \D{u}X_u,\D{u}X_v \right) \pmat{x \\y} + X_u,X_v \pmat{x_u \\ y_u} \]
 
 		\[ = \left( X_u, X_v \right) \Gamma_1\pmat{x \\ y} + \left( X_u, X_v \right) \pmat{x_u \\ y_u} \] 
 		
@@ -526,22 +525,22 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 		\begin{split}
 			&= \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial u} +\Gamma_1 \right) \pmat{x \\ y}  \quad \text{ und ebenso }
 		 \\ 
-		 \nabla_{\!\!{\partial\over \partial v}}Y &= \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial v} +\Gamma_2 \right) \pmat{x \\ y}, 
+		 \D vY &= \left( X_u, X_v \right) \left( \dfrac{\partial}{\partial v} +\Gamma_2 \right) \pmat{x \\ y}, 
 		 \end{split}
 		\end{equation} 
 	oder, anders gesagt:
-		\[ \nabla_{\!\!{\partial\over \partial u}} \circ dX = dX \circ \left( \dfrac{\partial}{\partial u} + \Gamma_1 \right)  \]
+		\[ \D{u} \circ dX = dX \circ \left( \dfrac{\partial}{\partial u} + \Gamma_1 \right)  \]
 	und genauso
-		\[  \nabla_{\!\!{\partial\over \partial v}} \circ dX = dX \circ \left( \dfrac{\partial}{\partial v} + \Gamma_2 \right).   \]	
+		\[  \D v \circ dX = dX \circ \left( \dfrac{\partial}{\partial v} + \Gamma_2 \right).   \]	
 	
 	Man bemerke: mit $ \pmat{x \\ y} = \pmat{1 \\ 0} \cong \dfrac{\partial}{\partial u} $ erhält man
-		\[ \nabla_{\!\!{\partial\over \partial u}}\left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \nabla_{\!\!{\partial\over \partial u}}X_u = X_u \Gamma_{11}^1 + X_v\Gamma_{11}^2 = \left( X_u,X_v \right) \Gamma_1\pmat{1 \\ 0}   \] 
+		\[ \D{u}\left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \D{u}X_u = X_u \Gamma_{11}^1 + X_v\Gamma_{11}^2 = \left( X_u,X_v \right) \Gamma_1\pmat{1 \\ 0}   \] 
 	und
-		\[ \nabla_{\!\!{\partial\over \partial v}} \left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \nabla_{\!\!{\partial\over \partial v}}X_u = \left( X_u,X_v \right) \Gamma_2\pmat{1 \\ 0} \]
+		\[ \D v \left( \left( X_u,X_v \right) \pmat{1 \\ 0} \right) = \D vX_u = \left( X_u,X_v \right) \Gamma_2\pmat{1 \\ 0} \]
 	und ebenso für  $ \pmat{x \\ y} = \pmat{0 \\ 1} \cong \dfrac{\partial}{\partial v} $, also ist \ref*{Eq:Gamma} ein Spezialfall von \ref*{Eq:Gammaallg}
 	
 	\begin{remark}
-		\textbf{WARUNUNG:} $ \nabla_{\!\!{\partial\over \partial u}} $ und $ \nabla_{\!\!{\partial\over \partial v}} $ sind \emph{Differentialoperatoren} (keine Endomorphismen) - trotzdem benutzen wir Matrizen, um sie zu beschreiben.
+		\textbf{WARUNUNG:} $ \D{u} $ und $ \D v $ sind \emph{Differentialoperatoren} (keine Endomorphismen) - trotzdem benutzen wir Matrizen, um sie zu beschreiben.
 	\end{remark}
 
 \begin{lemma, definition}
@@ -553,7 +552,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{proof}
 	
-		\[ X_u\Gamma_{12}^1 + X_v \Gamma_{12}^2 = \nabla_{\!\!{\partial\over \partial u}}X_v = \left( X_{vu} \right)^T = \left( X_{uv} \right)^T = \nabla_{\!\!{\partial\over \partial v}}X_u = X_u\Gamma_{21}^1 + X_v\Gamma_{21}^2   \]
+		\[ X_u\Gamma_{12}^1 + X_v \Gamma_{12}^2 = \D{u}X_v = \left( X_{vu} \right)^T = \left( X_{uv} \right)^T = \D vX_u = X_u\Gamma_{21}^1 + X_v\Gamma_{21}^2   \]
 	also $ \Gamma_{12}^1 = \Gamma_{21}^1 $ und $ \Gamma_{12}^2 = \Gamma_{21}^2 $.
 \end{proof}
 
@@ -569,10 +568,10 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{proof}
 	
-	Multipliziere $ \nabla_{\!\!{\partial\over \partial u}}X_u = X_u\Gamma_{11}^1 + X_v\Gamma_{11}^2 $ mit $ Y_u $ und $ X_v $, um zu erhalten:
-		\[ E \Gamma_{11}^1 + F \Gamma_{11}^2 = \skal{X_u, \nabla_{\!\!{\partial\over \partial u}}X_u} = \frac12 \skal{X_u,X_u}_u = \frac12 E \]
+	Multipliziere $ \D{u}X_u = X_u\Gamma_{11}^1 + X_v\Gamma_{11}^2 $ mit $ Y_u $ und $ X_v $, um zu erhalten:
+		\[ E \Gamma_{11}^1 + F \Gamma_{11}^2 = \skal{X_u, \D{u}X_u} = \frac12 \skal{X_u,X_u}_u = \frac12 E \]
 	
-		\[ F\Gamma_{11}^1 + G \Gamma_{11}^2 = \skal{X_v, \nabla_{\!\!{\partial\over \partial u}}X_u} = \skal{X_v,X_u}_u - \skal{\nabla_{\!\!{\partial\over \partial u}}X_v,X_u} = \skal{X_v,X_u}_u - \skal{\nabla_{\!\!{\partial\over \partial v}}X_u,X_u} \]
+		\[ F\Gamma_{11}^1 + G \Gamma_{11}^2 = \skal{X_v, \D{u}X_u} = \skal{X_v,X_u}_u - \skal{\D{u}X_v,X_u} = \skal{X_v,X_u}_u - \skal{\D vX_u,X_u} \]
 		\[ = F_u - \frac12 E_v. \]
 	
 	Insgesamt also
@@ -597,7 +596,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \begin{definition}
 	
 	Für ein TVf $ Y : M \rightarrow V $ entlang $ X: M \rightarrow \E $ definieren wir den \emph{(Riemannschen) Krümmungstensor} $ R $ von $X$ durch 
-		\[ RY := \nabla_{\!\!{\partial\over \partial u}}\nabla_{\!\!{\partial\over \partial v}}Y - \nabla_{\!\!{\partial\over \partial v}}\nabla_{\!\!{\partial\over \partial u}}Y. \]
+		\[ RY := \D{u}\D vY - \D v\D{u}Y. \]
 	
 \end{definition}
 
@@ -619,12 +618,12 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	
 	$R\big|_{(u,v)} \in \mathrm{End(T_{(u,v)}X)}$ ist klar.
 	Schiefsymmetrie:
-		\[\frac12 (\abs{Y}^2)_{uv} = \skal{Y \nabla_{\!\!{\partial\over \partial u}}Y}_v = \skal{Y, \nabla_{\!\!{\partial\over \partial v}}\nabla_{\!\!{\partial\over \partial u}}Y} + \skal{\nabla_{\!\!{\partial\over \partial v}}Y,\nabla_{\!\!{\partial\over \partial u}}Y} \]
-		\[ = \skal{Y, \nabla_{\!\!{\partial\over \partial u}}\nabla_{\!\!{\partial\over \partial v}}Y} + \skal{\nabla_{\!\!{\partial\over \partial u}}Y, \nabla_{\!\!{\partial\over \partial v}}Y} = \frac12 \left( \abs{Y}^2\right)  \]
+		\[\frac12 (\abs{Y}^2)_{uv} = \skal{Y \D{u}Y}_v = \skal{Y, \D v\D{u}Y} + \skal{\D vY,\D{u}Y} \]
+		\[ = \skal{Y, \D{u}\D vY} + \skal{\D{u}Y, \D vY} = \frac12 \left( \abs{Y}^2\right)  \]
 		\[ \Rightarrow \skal{Y,RY} = \frac12 \left(\abs{Y}^2\right)_{vu}- \frac12\left(\abs{Y}^2\right)_{uv}=0 \]
 	Tensoreigenschaft:
-		\[ \nabla_{\!\!{\partial\over \partial u}}\nabla_{\!\!{\partial\over \partial v}}(Yx)= \nabla_{\!\!{\partial\over \partial u}}\left(\left( \nabla_{\!\!{\partial\over \partial v}}Y \right)x + Yx_v\right) \]
-		\[ = \left( \nabla_{\!\!{\partial\over \partial u}} \nabla_{\!\!{\partial\over \partial v}} Y \right)x + \underbrace{\left( \nabla_{\!\!{\partial\over \partial v}}Y \right)x_u + \left( \nabla_{\!\!{\partial\over \partial u}}Y \right)x_v + Yx_{uv}}_{\text{symmetrisch in } \dfrac{\partial}{\partial u} \text{ und } \dfrac{\partial}{\partial v}} \]
+		\[ \D{u}\D v(Yx)= \D{u}\left(\left( \D vY \right)x + Yx_v\right) \]
+		\[ = \left( \D{u} \D v Y \right)x + \underbrace{\left( \D vY \right)x_u + \left( \D{u}Y \right)x_v + Yx_{uv}}_{\text{symmetrisch in } \dfrac{\partial}{\partial u} \text{ und } \dfrac{\partial}{\partial v}} \]
 	also
 		\[ R(Yx)=(RY)x. \]
 	
@@ -632,25 +631,29 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \textbf{Matrixdarstellung:}
 	
-	Wir arbeiten mit $ (X_u,X_v) $ als Tangentiales Basisfeld. Damit 
-		\[ \nabla_{\!\!{\partial\over \partial u}} \circ dX = dX \circ ( \dfrac{\partial}{\partial u} + \Gamma_{1} ) \] 
+	Wir arbeiten mit $ (X_u,X_v) $ als tangentiales Basisfeld. Damit erhält man
+		\[ \D{u} \circ dX = dX \circ \left( \dfrac{\partial}{\partial u} + \Gamma_{1} \right) \] 
 	und 
-		\[ \nabla_{\!\!{\partial\over \partial v}}  \circ dX = dX \circ ( \dfrac{\partial}{\partial u} + \Gamma_{2}) \]
+		\[ \D v  \circ dX = dX \circ \left( \dfrac{\partial}{\partial u} + \Gamma_{2}\right) \]
 		
 	und somit, für $ X_u = dX(\pmat{1 \\ 0}) $ und $ X_v = dX(\pmat{0 \\ 1}) $,
 	
-		\[ RX_u = \nabla_{\!\!{\partial\over \partial u}}\nabla_{\!\!{\partial\over \partial v}} dX(\pmat{1 \\ 0}) - \dots \]
-		\[ = \nabla_{\!\!{\partial\over \partial u}} dX((\Gamma_2) \pmat{1 \\ 0}) - \dots \]
-		\[ = dX((\dfrac{\partial}{\partial u} + \Gamma_1)(\dfrac{\partial}{\partial v} + \Gamma_2)-(\dfrac{\partial}{\partial v} + \Gamma_2) ( \dfrac{\partial}{\partial u} + \Gamma_{1} )) \pmat{1 \\ 0} \]
-		\[ = dX( \Gamma_{2u} + \Gamma_1\Gamma_2 - \Gamma_{1u} - \Gamma_{2}\Gamma_{1} ) \pmat{1 \\ 0} \]
-		\[ = dX (\Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]) \pmat{1 \\ 0} \] 
-	und ebenso:
+		\[ RX_u = \D{u}\D v dX(\pmat{1 \\ 0}) - \D v \D u dX(\pmat{1\\0}) \]
+		\[ = \D u dX\left((\D v + \Gamma_2) \pmat{1 \\ 0}\right) - \D v dX \left( (\D u + \Gamma_1)\pmat{1\\0}  \right) \]
+		\[ = dX\left((\D u + \Gamma_1)(\D v + \Gamma_2)-(\D v + \Gamma_2) (\D u + \Gamma_{1} )\right) \pmat{1 \\ 0} \]
+		\[ = dX\left( \Gamma_{2u} + \Gamma_1\Gamma_2 - \Gamma_{1u} - \Gamma_{2}\Gamma_{1} \right) \pmat{1 \\ 0} \]
+		\[ = dX (\Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]) \pmat{1 \\ 0}, \]
+	wobei 
+		\[ [\Gamma_1 , \Gamma_2] := \Gamma_1 \Gamma_2 - \Gamma_2 \Gamma_1 \]
+	der Kommutator von $\Gamma_1 $ und $\Gamma_2$ ist.  
+	
+	Weil die vorige Rechnung unabhängig von $(1,0)^t$ ist, erhalten wir analog
 		\[ RX_v = X (\Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}])\pmat{0 \\ 1}. \]
 		
 	Also: 
 		\[ (RX_u,RX_v) = ( X_U,X_v )(\Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]). \]
-	Andererseits: $R$ ist schiefsymmetrisch.
-		\[ \exists \rho \in C^\infty(M): \pmat{0 & -\rho \\ \rho & 0} = \pmat{\skal{X_u,RX_u} &\skal{X_u,RX_v} \\ \skal{X_v,RX_u} & \skal{X_v,RX_v} } = \pmat{E & F \\ F & G}(\Gamma_{2u}-\Gamma_{1v} + [ \Gamma_{1},\Gamma_{2} ]). \]
+	Andererseits ist $R$ schiefsymmetrisch, weshalb ein $ \rho \in C^\infty(M) $ existiert, sodass
+		\[ \pmat{0 & -\rho \\ \rho & 0} = \pmat{\skal{X_u,RX_u} &\skal{X_u,RX_v} \\ \skal{X_v,RX_u} & \skal{X_v,RX_v} } = \pmat{E & F \\ F & G}(\Gamma_{2u}-\Gamma_{1v} + [ \Gamma_{1},\Gamma_{2} ]). \]
 	Man bemerke:
 	$ \rho $ hängt nur von der induzierten Metrik ab.
 	
@@ -695,14 +698,34 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	
 	Klassischer werden die Gauß-Weingarten Gleichungen ausgeschrieben:
 	
-		{\color{ForestGreen} Einfügen}
-	
-	\[ X_{uu} = \nabla_{\!\!{\partial\over \partial u}}X_u + N_e = X_u\Gamma_{11}^1 + X_v\Gamma_{11}^2 + N_e \]
+	\begin{align*}
+		X_{uu} 
+			&= \D{u}X_u + N_e 
+				= X_u\Gamma_{11}^1 + X_v\Gamma_{11}^2 + N_e\\[2mm]
+		X_{uv} 
+			&=  \D v X_u + Nf 
+				= X_u \Gamma_{12}^1 + X_v \Gamma_{12}^2 + Nf\\[2mm]
+		X_{vv}
+			&= \D v X_v + Ng 
+				= X_u \Gamma_{22}^1 + X_v \Gamma_{22}^2 + Ng
+	\end{align*}
+	und 
+	\begin{align*}
+		N_u 
+			&= -\s X_u 
+				= -\left( X_u s_{11} + X_v s_{21} \right)\\
+		N_v
+			&= -\s X_v
+				-\left( X_u s_{12} + X_v s_{22} \right)
+	\end{align*}
+	mit
+		\[ \pmat{s_{11} & s_{12}\\ s_{21} & s_{22}}
+			= \frac 1{EG-F^2}\pmat{Ge-fF & Gf-Fg\\
+									Ef-Fe & Eg-Ff}. \]
 		
 \end{remark}
 	
-	Integrierbarkeit: 
-		$ F_{uv}= F_{vu} $ - dies liefert die zentralen Gleichungen der Flächentheorie:
+	Die Integrierbarkeitsbedingung $ F_{uv}= F_{vu} $ liefert die zentralen Gleichungen der Flächentheorie:
 
 \begin{definition}
 	
@@ -711,7 +734,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	\begin{itemize}
 		
 		\item $\skal{X_u,RX_v}=K(EG-F^2)$ die \emph{Gauß-Gleichung};
-		\item $ (\nabla_{\!\!{\partial\over \partial u}} \s)X_v = (\nabla_{\!\!{\partial\over \partial v}} \s)X_u $ die \emph{Codazzi -Gleichung}.
+		\item $ (\D{u} \s)X_v = (\D v \s)X_u $ die \emph{Codazzi -Gleichung}.
 		
 	\end{itemize}
 	Hierbei ist $ \nabla \s $ die \emph{kovariante Ableitung des Weingartentensorfeldes};
@@ -723,37 +746,38 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{remark}
 	
-	Die \emph{partiellen kovarianten Ableitungen} $ \nabla_{\!\!{\partial\over \partial u}} \s $ und $ \nabla_{\!\!{\partial\over \partial v}} \s $ sind Tensorfelder, e.g.,
-		\[ \nabla_{\!\!{\partial\over \partial u}} \s\big|_{(u,v)} \in \mathrm{End(T_{(u,v)}X)} \] und
-		\[ ( \nabla_{\!\!{\partial\over \partial u}}\s )(Y_x) = ((\nabla_{\!\!{\partial\over \partial u}} \s) (Y))x \text{ für } x \in C^\infty(M) \]
+	Die \emph{partiellen kovarianten Ableitungen} $ \D{u} \s $ und $ \D v \s $ sind Tensorfelder, e.g.,
+		\[ \D{u} \s\big|_{(u,v)} \in \mathrm{End(T_{(u,v)}X)} \] und
+		\[ ( \D{u}\s )(Y_x) = ((\D{u} \s) (Y))x \text{ für } x \in C^\infty(M) \]
 	
 \end{remark}
 
 \begin{proof}
 	
 	Mit $ f = - \skal{N_v,X_u} $ und $ e= - \skal{N_u,X_u} $ berechnen wir
-		\[ (X_u)_{vu} = (\nabla_{\!\!{\partial\over \partial u}}X_u + Nf)_u \]
-		\[ = \nabla_{\!\!{\partial\over \partial u}} \nabla_{\!\!{\partial\over \partial v}} X_u + N_{u}f + N\left (f_u+\skal{N,(\nabla_{\!\!{\partial\over \partial v}}X_u)_u}\right ) \]
-		\[ = \nabla_{\!\!{\partial\over \partial u}} \nabla_{\!\!{\partial\over \partial v}} X_u + N_{u}f + N\left (f_u-\skal{N_u,(\nabla_{\!\!{\partial\over \partial v}}X_u)}\right ) \] 
+		\[ (X_u)_{vu} = (\D{u}X_u + Nf)_u \]
+		\[ = \D{u} \D v X_u + N_{u}f + N\left (f_u+\skal{N,(\D vX_u)_u}\right ) \]
+		\[ = \D{u} \D v X_u + N_{u}f + N\left (f_u-\skal{N_u,(\D vX_u)}\right ) \] 
 	und genauso
-		\[ (X_u)_{uv} = \nabla_{\!\!{\partial\over \partial v}} \nabla_{\!\!{\partial\over \partial u}} X_u + N_{v}e + N\left (e_v - \skal{N_v,(\nabla_{\!\!{\partial\over \partial u}}X_u)}\right ). \]
+		\[ (X_u)_{uv} = \D v \D{u} X_u + N_{v}e + N\left (e_v - \skal{N_v,(\D{u}X_u)}\right ). \]
 	Insgesamt also,
-		\[ 0 = (X_u)_{vu} - (X_u)_{uv} = (RX_u - (N_ve - N_uf)) = N(( f_u + \skal{N_v,\nabla_{\!\!{\partial\over \partial u}}X_u} ) - ( e_v + \skal{ N_u, \nabla_{\!\!{\partial\over \partial v}}X_u} ) \]
-		\[ = (RX_u - (N_ve -N_uf) ) + N \skal{ \nabla_{\!\!{\partial\over \partial v}} N_u - \nabla_{\!\!{\partial\over \partial u}}N_v, X_u}. \]
+		\[ 0 = (X_u)_{vu} - (X_u)_{uv} = (RX_u - (N_ve - N_uf)) = N(( f_u + \skal{N_v,\D{u}X_u} ) - ( e_v + \skal{ N_u, \D vX_u} ) \]
+		\[ = (RX_u - (N_ve -N_uf) ) + N \skal{ \D v N_u - \D{u}N_v, X_u}. \]
 	Skalarprodukt mit $ X_u $ und $ X_v $ liefert:
-		\[ \skal{X_u,RX_u} = \skal{X_u,N_v}e - \skal{X_u,N_u}f = 0 \]
+		\[ \skal{X_u,RX_u} = \underbrace{\skal{X_u,N_v}}_{-f}e - \underbrace{\skal{X_u,N_u}}_{-e}f = 0 \]
 		\[ \skal{X_v,RX_u} = -eg + f^2 = - K(EG - F^2), \]
 	wobei die erste Gleichung trivial ist (Schiefsymmetrie von $ R $) und die zweite Gleichung liefert uns die Gauß-Gleichung.
 	
 	Der Normalteil liefert 
-		\[ 0 = \skal{\nabla_{\!\!{\partial\over \partial v}}(\s X_u) - \nabla_{\!\!{\partial\over \partial u}}(\s X_v),X_u } \]
-		\[= - \skal{(\nabla_{\!\!{\partial\over \partial v}}\s)X_u - (\nabla_{\!\!{\partial\over \partial u}}\s)X_v,X_u} - \skal{\s \nabla_{\!\!{\partial\over \partial v}}X_u- \s \nabla_{\!\!{\partial\over \partial u}} X_v,X_u } = - \skal{(\nabla_{\!\!{\partial\over \partial v}}\s)X_u - (\nabla_{\!\!{\partial\over \partial u}}\s)X_v,X_u}. \]
-	Genau so:
-		$ (X_v)_{vu}=(X_v)_{uv} $ reproduziert die Gauß-Gleichung (tangentialer Teil) und liefert zusätzlich (normaler Teil):
-			\[ 0 = \skal{(\nabla_{\!\!{\partial\over \partial u}} \s)X_v - (\nabla_{\!\!{\partial\over \partial v}}\s)X_u,X_v}. \]
+		\[ 0 = \skal{\D v(\s X_u) - \D{u}(\s X_v),X_u } \]
+		\[= - \skal{(\D v\s)X_u - (\D{u}\s)X_v,X_u} - \underbrace{\skal{\s \D vX_u- \s \D{u} X_v,X_u }}_{=0} \]
+		\[= - \skal{(\D v\s)X_u - (\D{u}\s)X_v,X_u}. \]
+	Genauso reproduziert $ (X_v)_{vu}=(X_v)_{uv} $ die Gauß-Gleichung (tangentialer Teil) und liefert zusätzlich (normaler Teil):
+			\[ 0 = \skal{(\D{u} \s)X_v - (\D v\s)X_u,X_v}. \]
 		Damit folgt
-			\[ (\nabla_{\!\!{\partial\over \partial u}} \s)X_v - (\nabla_{\!\!{\partial\over \partial v}}\s)X_u +\perp X_u,X_v \]
-			\[ \Rightarrow (\nabla_{\!\!{\partial\over \partial u}} \s) X_u - (\nabla_{\!\!{\partial\over \partial v}}\s)X_u = 0, \]
+			\[ (\D{u} \s)X_v - (\D v\s)X_u  \]
+		und aus $\perp X_u,X_v$ folgt
+			\[ (\D{u} \s) X_u - (\D v\s)X_u = 0, \]
 		also die Codazzi-Gleichung.
 		
 	
@@ -769,7 +793,8 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \textbf{Matrixdarstellung:} Mit 
 		\[ (RX_u,RX_v)= (X_u,X_v)(\Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]) \] 
 	erhält man für die Gauß-Gleichung 
-		\[ K(EG-F^2) = \skal{X_u,RX_v} = \pmat{1 \\ 0}^t\pmat{E & F \\ F & G} ( \Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]) \pmat{0 \\ 1} = \pmat{1 \\ 0}^t \pmat{ 0 &- \rho \\ \rho & 0} \pmat{0 \\ 1} = -\rho. \] 
+		\[ K(EG-F^2) = \skal{X_u,RX_v} = \pmat{1 \\ 0}^t\pmat{E & F \\ F & G} ( \Gamma_{2u}-\Gamma_{1v} + [\Gamma_{1},\Gamma_{2}]) \pmat{0 \\ 1} \]
+		\[= \pmat{1 \\ 0}^t \pmat{ 0 &- \rho \\ \rho & 0} \pmat{0 \\ 1} = -\rho. \] 
 	Die Codazzi-Gleichungen kann man schreiben als 
 		\[ \sigma_{2u}+\Gamma_{1}\sigma_{2} = \sigma_{1v}+\Gamma_{2}\sigma_{1} \]
 	mit den Spalten $ (\sigma_{1},\sigma_{2}) = \pmat{s_{11} & s_{21} \\ s_{12} & s_{22} } $ der Matrix des Weingartentensors.
@@ -780,7 +805,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 
 \begin{proof}
 	
-	Mit der Gauß-Gleichung:
+	Mit der Gauß-Gleichung folgt
 		\[K = -\dfrac{\rho}{EG-F^2}, \]
 	wobei $ \rho $ nur von $ \mathrm{I} $ abhängt.
 	
@@ -825,14 +850,14 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	Ist $ X $ total nabelsch, so gilt:
 		\[ \s\big|_{(u,v)} = H(u,v) \mathrm{id}_{T_{(u,v)}X}; \]
 	damit liefert die Codazzi-Gleichung
-		\[ 0 = (\nabla_{\!\!{\partial\over \partial u}}\s)X_v - (\nabla_{\!\!{\partial\over \partial v}}\s)X_v = H_uX_v - H_vX_u. \]
+		\[ 0 = (\D{u}\s)X_v - (\D v\s)X_v = H_uX_v - H_vX_u. \]
 	Insgesamt also,
 		\[H_u = H_v=0, \text{ also ist } H \equiv \mathrm{const.}  \]
 	
 	\begin{enumerate}
 		
 		\item Fall, $ H \equiv 0 $:\\
-		Dann ist $ N \equiv \mathrm{const.} $ und $ X $ ist Teil einer Ebene (s. ref {\color{ForestGreen} EINFÜÜÜÜGEN!!!!})
+		Dann ist $ N \equiv \mathrm{const.} $ und $ X $ ist Teil einer Ebene (siehe \ref*{Ex:Flachpunkt})
 		
 		\item Fall, $ H \equiv \mathrm{const.} \neq 0 $: \\
 		Dann ist $ Z := X + \frac{1}{H}N \equiv \mathrm{const.}, $ da
@@ -846,16 +871,19 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \end{proof}
 
 \textbf{Zur Erinnerung:} Die Gauß-Codazzi-Gleichungen sind die Integrierbarkeitsbedingungen der Gauß-Weingarten Gleichungen
-	\[F_u = F \phi, F_v = F \psi \text{ für } F = (X_u,X_v,N), \] wobei $ \phi,\psi $ und von erster und zweiter Fundamentalform abhängen. Die Gauß-Codazzi Gleichungen lassen sich dann schreiben als:
+	\begin{equation}\label{Eq:GausWeingarten}
+		F_u = F \phi, F_v = F \psi \text{ für } F = (X_u,X_v,N),
+	\end{equation}
+	wobei $ \phi,\psi $ und von erster und zweiter Fundamentalform abhängen. Die Gauß-Codazzi Gleichungen lassen sich dann schreiben als:
 	\[ 0 = F_{uv}-F_{vu} = (F\phi)_v - (F\psi)_u = F(\phi_v + \psi\phi -\psi_u - \phi\psi ) = (\phi_v - \psi_u -[ \phi,\psi ]). \]
 Das heißt, da $ F:M\rightarrow \mathrm{Gl}(3), $
-	\begin{equation}
+	\begin{equation}\label{Eq:GausWeingarten2}
 		0 = \psi_u - \phi_v + [\phi,\psi]
 	\end{equation}
-	
-	{\color{ForestGreen} REF EINFÜÜÜÜGEN!!!!!}
+%	
+%	{\color{ForestGreen} REF EINFÜÜÜÜGEN!!!!!}
 
-Damit kann man den Fundamentalsatz von Bonnet formulieren:
+Damit kann man den Fundamentalsatz von Bounet formulieren:
 
 \begin{theorem}
 	Gegeben seien zwei Bilinearformen
