@@ -1,0 +1,154 @@
+\section{Natural ribbon \& special lines on surfaces}
+
+\begin{definition}
+	Let $X: \R^2 \supset M \to \E^3$ a surface and $I \ni t \mapsto X(u(t),v(t))$ with a map $(u,v):I \to M$ defines a curve on the surface $X$ as soon as $X \circ (u,v)$ is regular:
+		\[ \forall t \in I: (X_uu' + X_vv') (t) \neq 0 \quad \Longleftrightarrow \quad
+			\pmat{u'\\v'}(t) \neq 0 \]
+	since $d_{(u,v)} X: \R^2 \to \R^3$ injects.
+\end{definition}
+
+\begin{example}
+	The parameter lines of a surface are the curves
+		\[ t \mapsto X(u,v+t), t \mapsto X(u+t,v) \]
+\end{example}
+
+\begin{remark} %and Def
+	If $t \mapsto X(u(t),v(t))$ is a curve on a surface $X: M \to \E^3$ than $T_t(X \circ (u,v)) \subset T_{(u(t),v(t))}X$
+	or equivalently, the unit tangent field is always tangential to the surface
+		\[ T= \frac {X_uu' + X_vv'}{\sqrt{Eu'^2 + 2Fu'v' + Gv'^2}}. \]
+	Thus the Gauss map $N$ of $X$ yields a unit normal vectorfield for $X_0(u,v)$ 
+		\[ I \ni t \mapsto N(u(t),v(t)) \]
+	Hence this defines the \emph{natural ribbon} or the curve. The corresponding frame is called the \emph{Darboux frame}.
+\end{remark}
+
+\begin{definition}
+	A curve $t \mapsto X(u(t),v(t))$ on a surface $X: M \to \E^3$ is called
+	\begin{itemize}
+		\item a \emph{curvature line} if its natural ribbon is a curvature ribbon, i.e., $\tau = 0$,
+		\item  an \emph{asymtotic line} if its natural ribbon is an asymtotic ribbon, i.e., $\kappa_n = 0$.
+		\item  an \emph{per-geodesic line} if its natural ribbon is an geodesic ribbon, i.e., $\kappa_g = 0$.
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	A curve is a curvature line iff the Gauss map of $X$ is parallel along the curve.
+\end{remark}
+
+\begin{theorem}[Joachimsthal's theorem]
+	Suppose two surfaces intersect along a curve thet is a curvature line for one of the two surfaces. Then it is a curvature line for the other surface iff the two surfaces intersect at a constant angle.
+\end{theorem}
+
+\begin{proof}
+	Exercise.
+\end{proof}
+
+\begin{definition}
+	Rodriges' equation: The curve $t \mapsto X(u(t),v(t))$ is a curvature line iff 
+		\[ 0 = (dN + \kappa  dX) \pmat{u'\\v'} \]
+	where $\kappa$ is a principle curvature od $X$ at $(u,v)= (u(t),v(t))$ and $dX \pmat{u'\\v'}$ is the corresponding curve direction.
+\end{definition}
+
+\begin{proof}
+	The structure equation of the natural ribbon yield
+		\[ \nabla^\perp (N \circ (u,v)) = (N \circ (u,v))' - \skal{N \circ (u,v)',T}T
+			= N_uu' + N_vv'+ \kappa_n\circ (u,v)(X_uu' + X_vv') \]
+		\[ = (dN + \kappa_n dX)\pmat{u'\\v'}. \]
+	Therefore $t \mapsto (X,N)(u(t),v(t))$ is a curvature ribbon iff $(dN + \kappa_n dX) \pmat{u'\\v'}=0$.
+	On the other hand $dN = -\s \circ dX$. Therefore
+		\[ (dN + \kappa_n dX)\pmat{u'\\v'} = (-\s + \kappa_n id ) \circ dX \pmat{u'\\v'} =0 \]
+	iff $\kappa_n$ is a principle curvature and $dX \pmat{u'\\v'}$ is the corresponding curve direction. 
+\end{proof}
+
+\begin{example}
+	Let $X$ be a surface of revolution with Gauss map $N$ (sec 2.2)
+		\[ X(u,v)= O + e_1 r(u) \cos v + e_2 r(u) \sin v + e_3 h(u). \]
+	and 
+		\[ N(u,v) = -e_1 h'(u) \cos v - e_2 h'(u) \sin v + e_3 r'(u) \]
+	we deduce
+		\[ N_u || X_u \ and \ N_v || X_v \]
+	Hence the parameter line of $X$ are curvature lines.
+\end{example}
+
+\begin{definition} (and thm)
+	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form unbilics, a curvature line (rep-)parametrisation.
+\end{definition}
+
+\begin{remark}
+	Suppose $X$ is a curvature line parametrisation then $(X_u,X_v)$ diagonalizes the shape operator, cause these are the Eigenvalues,
+		\[ \s X_u || X_u \quad \s X_v || X_v. \]
+	Hence, as $\s$ is symetric, $X_u \perp X_v$ and $N_u = -\s X_u \perp X_v$, or equivalently, $F = f=0$ where
+		\[ I = Edu^2 + 2Fdudv + Gdv^2 \]
+	and
+		\[ II = edu^2 + 2fdudv + gdv^2. \]
+	Conversely, if $f=F=0$, then $X$ is a curvature line parametrisation. Look at the matrix representation of $\s$.
+\end{remark}
+
+\begin{lemma}
+	The normal curvature of a curve $t \mapsto X(u(t),v(t))$ on a surface is given by 
+		\[ \kappa_n = \frac {II(\pmat{u'\\v'},\pmat{u'\\v'})}{I (\pmat{u'\\v'},\pmat{u'\\v'})}. \]
+\end{lemma}
+
+\begin{proof}
+	The normal curvature of a ribbon $(X,N)$ is given by
+		\[ \kappa_n = \frac 1{\abs{X'}} \skal{T',N} = \frac 1{\abs{X'}^2} \skal{X'',N} = -\frac 1{\abs{X'}^2} \skal{X',N'}. \]
+	Applying the chain rule yields the result
+		\[ X' = X_uu' + X_vv', \quad N' = N_uu' + N_vv'. \]
+\end{proof}
+
+\begin{remark}(and def)
+	The normal curvature $\kappa_n$ for a curve on a surface depends only on tthe tangent direction and (not on $u'', v''$). Thus we also call it the '' normal curvature $\kappa_n$ of a tangent direction''.
+\end{remark}
+
+\begin{theorem}(Euler's theorem)
+	The normal curvatures $\kappa_n$ at a point on a surface satisfy 
+		\[ \min \{ \kappa^+,\kappa^- \} \leq \kappa_n (\theta) = \kappa^+ \cos^2 \theta + \kappa^- \sin^2\theta \leq \max \{\kappa^+,\kappa^- \},  \]
+	where $\kappa^\pm$ are the principle curvatures and $\theta$ is the angle between the tangent direction of $\kappa_n(\theta)$ and the curvature direction of $\kappa^+$.
+\end{theorem}
+
+\begin{proof}
+	Exercise.
+\end{proof}
+
+\begin{corollary}
+	The principle curvatures can be characterised as the extremal values of the normal curvature at a point on a surface.
+\end{corollary}
+
+\begin{corollary}
+	If $t \mapsto (\pmat{u'\\v'},\pmat{u'\\v'})$ is an asymtotic line, i.e. $\kappa_n = 0$, of $X$ iff 
+		\[ eu'^2 + 2fu'v' + gv'^2 = 0. \]
+\end{corollary}
+
+\begin{example}
+	The helicoid
+		\[ X(u,v) = O + e_1 \sinh u \cos v + e_2 \sinh u \sin v + e_3 v. \]
+	Then
+		\[ II = -2dudv. \]
+	Hence the parameter line of $X$ are asymtotic lines 
+		\[ (II(\pmat{1\\0}, \pmat{1\\0})) = II(\pmat{0\\1}, \pmat{0\\1}) = 0 \]
+		\[ t \mapsto X(u,t) = O + e_1r \cos t ü e_2 r \sin t + e_3 t, \]
+	where $r=\sinh u$.
+\end{example}
+
+\begin{lemma}
+	Fix a point $X(u,v)$ on a parametrised surface that an asymptotic line pas through $X(u,v)$  in two, one or no directions, depending on the sign of the Gaus curvature $K(u,v)$
+\end{lemma}
+
+\section{Geodesic and exponential map}
+
+\begin{definition}
+	The \emph{covariant derivative} of a tangent fiel $Y: I \to R^3$ along a curve $t \mapsto X(u(t),v(t))$ on a surface $X:M \to \E^3$ is the tangential part of its derivative 
+		\[ \frac {D}{dt} Y : = Y' - N \skal{Y',N}.  \]
+	A geodesic is an acceleration free curve $t \mapsto C(t)=X(u(t),v(t))$ on a surface ,i.e,
+		\[ \frac D{dt} C' = 0 \]
+\end{definition}
+
+\begin{example}
+	Cicular helices as geodesies a cicular cylinders
+		\[ t \mapsto C(t)= O+ e_1 r \cos t e_2 r\sin t + e_3 h t = X(ht,t)  \]
+	is a geodesic on the cylinder of radius $r>0$, $h\in \R$ constant.
+	
+		\[ C'(t) = -e_1 r\sin t + e_2 r \cos t +e_3 h \]
+		\[ C''(t)= -e_1 r\cos t - e_2 r\sin t \perp X_u(ht,t), X_v(ht,t) \]
+	Therefore
+		\[ \frac D{dt} C' = 0 \]
+\end{example}
