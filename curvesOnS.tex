@@ -152,3 +152,61 @@
 	Therefore
 		\[ \frac D{dt} C' = 0 \]
 \end{example}
+
+\begin{theorem}
+	
+	Geodesics are the constant speed pre-geodesic lines ($ \kappa_g \equiv 0 $)
+	
+\end{theorem}
+
+\begin{proof}
+	Firstly, every geodesic has constant speed by the Leibniz' rule.
+	
+		\[ \skal{C',C'}' = 2\skal{C'',C'}= 2\skal{\dfrac{D}{dt}C',C'} \equiv 0. \]
+		
+	Secondly, assume $ |C'|= \mathrm{const.} $, then
+		\[ \dfrac{C''}{|C'|^2} = \dfrac{T'}{|C'|}= \dfrac{1}{|C'|}(|C'|\kappa_nN - |C'| \kappa_gB) || N \Leftrightarrow \kappa_g = 0 \Leftrightarrow C \text{ is pre-geodesic line. } \]
+		
+\end{proof}
+
+\begin{theorem}[Clairaut's theorem]
+	For a geodesic on a surface of revolution the product $ r\sin(\theta) \equiv \mathrm{const.} $ where $ r = r(s) $ is the distance from the axis and $ \theta(s) $ is the angle the geodesic makes with the profile curves.
+	
+\end{theorem}
+
+\begin{proof}
+	
+	$ C(s) = O + e_1r(s)\cos(v(s)) + e_2r(s)\sin(v(s)) + e_3r(s)$ be a geodesic on a surface of revolution , wlog, arc length parameterized.
+	Set $ C_t(s) = O + A(t)(C(s)-O) $ where $ A(t) $ is given in matrix form by
+		\[ \pmat{\cos(t) & -\sin(t) & 0 \\ \sin(t) & \cos(t) & 0 \\ 0 & 0 & 1 } \in \mathrm{SO}(3). \]
+	Set $ Y(s) := \dfrac{\partial}{\partial t}\big|_{t=0}C_t(s). $ Notem that $ \forall t, C(t)$ is an arclength parameterized geodesic.
+	Observe that, $ Y(s) = (-e_1 \sin(v(s)) + e_2\cos(v(s)))r(s) $.
+	Thus
+		\[ r\sin(\phi) = r \cos(\dfrac{\pi}{2} - \theta) = r\dfrac{\skal{C',Y}}{|C'|||Y}= \skal{C',Y} = \skal{\dfrac{\partial}{\partial s}C_t,\dfrac{\partial}{\partial t}C_t}\big|_{t=0}. \]
+	Since each $ C_t(s) $ is arc length parameterized
+		\[ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = \skal{ \dfrac{\partial^2}{\partial^2 s} C_t , \dfrac{\partial}{\partial t} C_t} + \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial s} \dfrac{\partial}{\partial t} C_t } \]
+	Because $ \dfrac{D}{\partial s} C_t \equiv 0 $ we obtain $ \dfrac{\partial^2}{\partial^2s}C_t || N $ and $ \dfrac{\partial}{\partial t}C_t \perp N. $ thus   
+		\[ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = 0 \]
+\end{proof}
+
+\begin{remark}
+	
+	The proof can be generalized for surfaces invariant with respect to 1-parameter families of isometries.
+	
+\end{remark}
+
+\begin{remark, example}
+	Clairaut's theorem only provides a necessary condition for a geodesic, not a sufficient one.
+	For example: one sheeted hyperboloid
+		\[ (uv) \mapsto O + e_1\cosh(u) \cos(v) + e_2 \cosh(u) \sin(v) + e_3 \sinh(u) \]
+	Straight line $ C(t) = O + e_1 + (e_2 +e_3)t $ is a geodesic in $ X $
+		\[r \sin (\theta) = \skal{\dfrac{C'}{|C'|},Y} = \dfrac{\cosh(u) \cos(v)}{\sqrt{2}}= \dfrac{1}{\sqrt{2}}. \]
+	$ Y(s) = (-e_1\sin(v(s)) + e_2\cos(v(s)))\cosh(u) $
+	On the other hand, every circle of latitude in $ X $ satisfies $ r\sin(\theta) \equiv \cosh(u) \equiv \mathrm{const.} $
+	but in general these are not geodesic.	
+\end{remark, example}
+
+
+
+
+
