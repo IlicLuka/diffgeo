@@ -220,10 +220,14 @@
 	
 	Let $ Y(t) = X_u(u(t),v(t))x(t) + X_v(u(t),v(t))y(t) $ be a tangent field along a curve $ t \mapsto C(t) = X(u(t),v(t)). $
 	Compute the covariant derivative
-		\[ \dfrac{D}{\partial t} = X_ux' + (\nabla_{\!\!{\partial\over \partial u}} X_u u' + \nabla_{\!\!{\partial\over \partial v}} X_u v')x + X_vy' +  (\nabla_{\!\!{\partial\over \partial u}} X_v u' + \nabla_{\!\!{\partial\over \partial v}} X_v v')y \]
-		\[ = X_ux' + (X_u\Gamma_{11}^1 u' + X_v\Gamma_{11}^2u' + X_u \Gamma_{21}^1v' + X_v \Gamma_{21}^2v')x +  X_vy' + (X_u\Gamma_{12}^1 u' + X_v\Gamma_{12}^2u' + X_u \Gamma_{22}^1v' + X_v \Gamma_{22}^1v')y \]
-		\[ = X_u(x' + (\Gamma_{11}^1u' + \Gamma_{21}^1v')x + (\Gamma_{12}^1 u' + \Gamma_{22}^2v')y) + X_v(y' + (\Gamma_{11}^2u' + \Gamma_{21}^2v')x + (\Gamma_{12}^2 u' + \Gamma_{22}^2v')y)  \]
-	Now, let $ Y = C' = X_u u' + X_v v' $
+	\begin{align*}
+		\dfrac{D}{\partial t} 
+			&= X_ux' + (\nabla_{\!\!{\partial\over \partial u}} X_u u' + \nabla_{\!\!{\partial\over \partial v}} X_u v')x + X_vy' +  (\nabla_{\!\!{\partial\over \partial u}} X_v u' + \nabla_{\!\!{\partial\over \partial v}} X_v v')y \\[2mm]
+		 &= X_ux' + (X_u\Gamma_{11}^1 u' + X_v\Gamma_{11}^2u' + X_u \Gamma_{21}^1v' + X_v \Gamma_{21}^2v')x \\
+		 &\phantom{=} +  X_vy' + (X_u\Gamma_{12}^1 u' + X_v\Gamma_{12}^2u' + X_u \Gamma_{22}^1v' + X_v \Gamma_{22}^1v')y \\[2mm]
+		 &= X_u(x' + (\Gamma_{11}^1u' + \Gamma_{21}^1v')x + (\Gamma_{12}^1 u' + \Gamma_{22}^2v')y) + X_v(y' + (\Gamma_{11}^2u' + \Gamma_{21}^2v')x + (\Gamma_{12}^2 u' + \Gamma_{22}^2v')y)
+	\end{align*}
+	Now, let $ Y = C' = X_u u' + X_v v' $, we get
 		\[ \dfrac{D}{\partial t} C' = X_u(u'' + \Gamma_{11}^1u'^2 + 2 \Gamma_{12}^1 u'v' +\Gamma_{22}^1 v'^2) + X_v(v'' + \Gamma_{11}^2u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2). \]
 	Then we learn that :
 	
@@ -234,7 +238,14 @@
 		and
 		\[ 0 = v'' + \Gamma_{11}^2u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2. \]
 		
-		We can also write \dots
+		We can also write as
+		\begin{align*}
+			0&= u'' +(u',v')\Gamma^1\pmat{u'\\v'}\\[2mm]
+			0&= v'' +(u',v')\Gamma^2\pmat{u'\\v'}
+		\end{align*}
+		with
+			\[ \Gamma^i = \pmat{\Gamma_{11}^i & \Gamma_{12}^i\\
+								\Gamma_{21}^i & \Gamma_{22}^i}. \]
 		
 \end{definition}
 
@@ -249,7 +260,7 @@
 		
 		\[ \kappa_g = \frac {\sqrt{EG-F^2}}{\sqrt{Eu'^2+2Fu'v'+Gv'^2}} \det \pmat{
 			u' & u'' + \Gamma_{11}^1 u'^2 + 2\Gamma_{12}^1u'v' + \Gamma_{22}^1v'^2\\
-			v' & v'' + \Gamma_{11}^2 u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2}
+			v' & v'' + \Gamma_{11}^2 u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2}.
 		\]
 		
 	
@@ -309,3 +320,70 @@
 		\[ C_Y(S0) = C_Y(0). \]
 	By the uniqueness, $ C_{Ys}(t) = C_Y(st) $ for $ t \in I $
 \end{proof}
+
+\begin{remark}
+	By the smooth dependence of solutions $C_Y$ of the initial value problem, we obtain a smooth map 
+		\[ R \times T_{(u_0,v_0)}X \ni (t,Y) \mapsto C_Y(t) \in \E^3, \]
+	which is defined on an open neighbourhood $I \times U$ of $(0,0) \in R \times T_{(u_0,v_0)}X$ with star shaped $U$ and , w.l.o.g., $I \supset [0,1]$.
+	
+	Consider all unit tangent vectors $Y \in T_{(u_0,v_0)}X$. Then by Picard-Lindelöf theorem there exists a $\varepsilon_Y>0$ such that $C_Y$ is defined on $(-\varepsilon_Y, \varepsilon_Y)$.
+	Let $Y_{min}$ be the direction for witch $\varepsilon_{Y_{min}}$ is the smallest possible $\varepsilon_Y$. 
+	
+	If $\varepsilon_{Y_{min}}<1$, then $C_{Y\frac {\varepsilon_min}2} = C_Y(\frac {\varepsilon_min}2 t)$ is defined on $[0,1]$, for all $Y$. let $ U \subset B_{\frac {\varepsilon_min}2}(0)$.
+	\end{remark}
+
+\begin{lemma} (und def)
+	Given a point $X(u_0,v_0)$ on a surface $X:M \to \E^3$
+		\[ Y \mapsto \exp(Y):= C_Y(1) \]
+		
+	defines a smooth map on an open neighbourhood $U$ of $O \in T_{(u_0,v_0)}X$ with 		
+		\[d_0\exp = id_{T_{(u_0,v_0)}X},\]
+	with $d_0= \frac d{dt} \big |_{t=0} $.
+	$\exp$ is called the exponential map of $X$ at $X(u_0,v_0)$.
+\end{lemma}
+
+\begin{proof}
+	$\exp$ is a smooth dependence of solutions of $IVP$s. Now we compute $d_0\exp$ using directional derivatives. Ler $Y \in T_{(u_0,v_0)}X$
+		\[ d_0\exp(Y) 
+			= \frac d{dt} \big |_{t=0} \exp(tY) 
+			= \frac d{dt}\big |_{t=0} C_{Yt}(1) 
+			= \frac d{dt}\big |_{t=0} C_Y(t) 
+			= Y. \]
+	Therefore $d_0\exp = id_{T_{(u_0,v_0)}X}$.
+\end{proof}
+
+\begin{remark}
+	Thus $\exp : T_{(u_0,v_0)}X \supset U \to X(M)$ yields a local diffeomorphism and in particular a reparametrisation of $X$ around $X(u_0,v_0)$.  
+\end{remark}
+
+\subsection{Geodesic polar coordinates and Minding's Theorem}
+
+\begin{definition}
+	A reparametrisation of a surface by geodesic polar coordinates $(r,\theta)$ around a point $X(0,0)$ of a surfaceis given by themap
+		\[ (r,\theta) \mapsto \exp(e_1 r \cos\theta + e_2 r \sin \theta)
+			=C_{e_1 r \cos\theta + e_2 r \sin \theta}(1), \]
+	where $(e_1,e_2)$ form an orthonormal basis of $T_{(0,0)}X$.
+	
+	For fixed $\theta$, $r \mapsto X(r,\theta) = C_{e_1 r \cos\theta + e_2 r \sin \theta}(1) = C_{e_1 \cos\theta + e_2 \sin \theta}(r)$ and $r <1$.
+	So parameter lines $\theta = const$ are geodesic.
+\end{definition}
+
+\begin{remark}
+	This parametrisation is regular at $r=0$, however it is regular on $(0,\varepsilon) \times \R$ for some $\varepsilon>0$.
+\end{remark}
+
+\begin{lemma}
+	In geodesic polar coordinates $(r,\theta)$ the induced metric is given by 
+		\[ \mathrm I = dr^2 + Gd\theta^2  \]
+	where 
+		\[ \sqrt{G}\big |_{r=0} = 0 \text{ and }\frac {\partial \sqrt G}{\partial r} \big |_{r=0} = 1. \]
+\end{lemma}
+
+\begin{proof}
+	This proof is technical, see the notes.
+\end{proof}
+
+\begin{example}
+	In geodesic polar coordinates $(r,\theta)$ the Gauss curvature is 
+		\[ K= - \frac {(\sqrt{G})_{rr}}{\sqrt G}. \]
+\end{example}
