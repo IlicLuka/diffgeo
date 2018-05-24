@@ -70,7 +70,7 @@
 \end{example}
 
 \begin{definition} (and thm)
-	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form umbilics, a curvature line (rep-)parametrisation.
+	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form umbilics, a curvature line (re-)parametrisation.
 \end{definition}
 
 \begin{remark}
@@ -96,7 +96,7 @@
 \end{proof}
 
 \begin{remark}(and def)
-	The normal curvature $\kappa_n$ for a curve on a surface depends only on the tangent direction and (not on $u'', v''$). Thus we also call it the '' normal curvature $\kappa_n$ of a tangent direction''.
+	The normal curvature $\kappa_n$ for a curve on a surface depends only on the tangent direction (and not on $u'', v''$). Thus we also call it the ''normal curvature $\kappa_n$ of a tangent direction''.
 \end{remark}
 
 \begin{theorem}(Euler's theorem)
@@ -123,14 +123,14 @@
 		\[ X(u,v) = O + e_1 \sinh u \cos v + e_2 \sinh u \sin v + e_3 v. \]
 	Then
 		\[ II = -2dudv. \]
-	Hence the parameter line of $X$ are asymptotic lines 
+	Hence the parameter lines of $X$ are asymptotic lines 
 		\[ (II(\pmat{1\\0}, \pmat{1\\0})) = II(\pmat{0\\1}, \pmat{0\\1}) = 0 \]
-		\[ t \mapsto X(u,t) = O + e_1r \cos t ü e_2 r \sin t + e_3 t, \]
+		\[ t \mapsto X(u,t) = O + e_1r \cos t + e_2 r \sin t + e_3 t, \]
 	where $r=\sinh u$.
 \end{example}
 
 \begin{lemma}
-	Fix a point $X(u,v)$ on a parametrised surface that an asymptotic line pas through $X(u,v)$  in two, one or no directions, depending on the sign of the Gauss curvature $K(u,v)$
+	Fix a point $X(u,v)$ on a parametrised surface that an asymptotic line passes through $X(u,v)$  in two, one or no directions, depending on the sign of the Gauss curvature $K(u,v)$
 \end{lemma}
 
 \subsection{Geodesic and exponential map}
@@ -144,7 +144,7 @@
 
 \begin{example}
 	Circular helices as geodesies a circular cylinders
-		\[ t \mapsto C(t)= O+ e_1 r \cos t e_2 r\sin t + e_3 h t = X(ht,t)  \]
+		\[ t \mapsto C(t)= O+ e_1 r \cos t + e_2 r\sin t + e_3 h t = X(ht,t)  \]
 	is a geodesic on the cylinder of radius $r>0$, $h\in \R$ constant.
 	
 		\[ C'(t) = -e_1 r\sin t + e_2 r \cos t +e_3 h \]
@@ -208,7 +208,7 @@
 \begin{remark, example}
 	Clairaut's theorem only provides a necessary condition for a geodesic, not a sufficient one.
 	For example: one sheeted hyperboloid
-		\[ (uv) \mapsto O + e_1\cosh(u) \cos(v) + e_2 \cosh(u) \sin(v) + e_3 \sinh(u) \]
+		\[ (u,v) \mapsto O + e_1\cosh(u) \cos(v) + e_2 \cosh(u) \sin(v) + e_3 \sinh(u) \]
 	Straight line $ C(t) = O + e_1 + (e_2 +e_3)t $ is a geodesic in $ X $
 		\[r \sin (\theta) = \skal{\dfrac{C'}{|C'|},Y} = \dfrac{\cosh(u) \cos(v)}{\sqrt{2}}= \dfrac{1}{\sqrt{2}}. \]
 	$ Y(s) = (-e_1\sin(v(s)) + e_2\cos(v(s)))\cosh(u) $
