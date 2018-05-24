@@ -9,7 +9,7 @@
 
 \begin{example}
 	The parameter lines of a surface are the curves
-		\[ t \mapsto X(u,v+t), t \mapsto X(u+t,v) \]
+		\[ t \mapsto X(u,v+t), t \mapsto X(u+t,v). \]
 \end{example}
 
 \begin{remark} %and Def
@@ -17,7 +17,7 @@
 	or equivalently, the unit tangent field is always tangential to the surface
 		\[ T= \frac {X_uu' + X_vv'}{\sqrt{Eu'^2 + 2Fu'v' + Gv'^2}}. \]
 	Thus the Gauss map $N$ of $X$ yields a unit normal vectorfield for $X_0(u,v)$ 
-		\[ I \ni t \mapsto N(u(t),v(t)) \]
+		\[ I \ni t \mapsto N(u(t),v(t)). \]
 	Hence this defines the \emph{natural ribbon} or the curve. The corresponding frame is called the \emph{Darboux frame}.
 \end{remark}
 
@@ -25,7 +25,7 @@
 	A curve $t \mapsto X(u(t),v(t))$ on a surface $X: M \to \E^3$ is called
 	\begin{itemize}
 		\item a \emph{curvature line} if its natural ribbon is a curvature ribbon, i.e., $\tau = 0$,
-		\item  an \emph{asymtotic line} if its natural ribbon is an asymtotic ribbon, i.e., $\kappa_n = 0$.
+		\item  an \emph{asymptotic line} if its natural ribbon is an asymtotic ribbon, i.e., $\kappa_n = 0$.
 		\item  an \emph{per-geodesic line} if its natural ribbon is an geodesic ribbon, i.e., $\kappa_g = 0$.
 	\end{itemize}
 \end{definition}
@@ -35,7 +35,7 @@
 \end{remark}
 
 \begin{theorem}[Joachimsthal's theorem]
-	Suppose two surfaces intersect along a curve thet is a curvature line for one of the two surfaces. Then it is a curvature line for the other surface iff the two surfaces intersect at a constant angle.
+	Suppose two surfaces intersect along a curve that is a curvature line for one of the two surfaces. Then it is a curvature line for the other surface iff the two surfaces intersect at a constant angle.
 \end{theorem}
 
 \begin{proof}
@@ -70,13 +70,13 @@
 \end{example}
 
 \begin{definition} (and thm)
-	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form unbilics, a curvature line (rep-)parametrisation.
+	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form umbilics, a curvature line (rep-)parametrisation.
 \end{definition}
 
 \begin{remark}
 	Suppose $X$ is a curvature line parametrisation then $(X_u,X_v)$ diagonalizes the shape operator, cause these are the Eigenvalues,
 		\[ \s X_u || X_u \quad \s X_v || X_v. \]
-	Hence, as $\s$ is symetric, $X_u \perp X_v$ and $N_u = -\s X_u \perp X_v$, or equivalently, $F = f=0$ where
+	Hence, as $\s$ is symmetric, $X_u \perp X_v$ and $N_u = -\s X_u \perp X_v$, or equivalently, $F = f=0$ where
 		\[ I = Edu^2 + 2Fdudv + Gdv^2 \]
 	and
 		\[ II = edu^2 + 2fdudv + gdv^2. \]
@@ -96,7 +96,7 @@
 \end{proof}
 
 \begin{remark}(and def)
-	The normal curvature $\kappa_n$ for a curve on a surface depends only on tthe tangent direction and (not on $u'', v''$). Thus we also call it the '' normal curvature $\kappa_n$ of a tangent direction''.
+	The normal curvature $\kappa_n$ for a curve on a surface depends only on the tangent direction and (not on $u'', v''$). Thus we also call it the '' normal curvature $\kappa_n$ of a tangent direction''.
 \end{remark}
 
 \begin{theorem}(Euler's theorem)
@@ -114,7 +114,7 @@
 \end{corollary}
 
 \begin{corollary}
-	If $t \mapsto (\pmat{u'\\v'},\pmat{u'\\v'})$ is an asymtotic line, i.e. $\kappa_n = 0$, of $X$ iff 
+	If $t \mapsto (\pmat{u'\\v'},\pmat{u'\\v'})$ is an asymptotic line, i.e. $\kappa_n = 0$, of $X$ iff 
 		\[ eu'^2 + 2fu'v' + gv'^2 = 0. \]
 \end{corollary}
 
@@ -123,27 +123,27 @@
 		\[ X(u,v) = O + e_1 \sinh u \cos v + e_2 \sinh u \sin v + e_3 v. \]
 	Then
 		\[ II = -2dudv. \]
-	Hence the parameter line of $X$ are asymtotic lines 
+	Hence the parameter line of $X$ are asymptotic lines 
 		\[ (II(\pmat{1\\0}, \pmat{1\\0})) = II(\pmat{0\\1}, \pmat{0\\1}) = 0 \]
 		\[ t \mapsto X(u,t) = O + e_1r \cos t ü e_2 r \sin t + e_3 t, \]
 	where $r=\sinh u$.
 \end{example}
 
 \begin{lemma}
-	Fix a point $X(u,v)$ on a parametrised surface that an asymptotic line pas through $X(u,v)$  in two, one or no directions, depending on the sign of the Gaus curvature $K(u,v)$
+	Fix a point $X(u,v)$ on a parametrised surface that an asymptotic line pas through $X(u,v)$  in two, one or no directions, depending on the sign of the Gauss curvature $K(u,v)$
 \end{lemma}
 
 \subsection{Geodesic and exponential map}
 
 \begin{definition}
-	The \emph{covariant derivative} of a tangent fiel $Y: I \to R^3$ along a curve $t \mapsto X(u(t),v(t))$ on a surface $X:M \to \E^3$ is the tangential part of its derivative 
+	The \emph{covariant derivative} of a tangent field $Y: I \to R^3$ along a curve $t \mapsto X(u(t),v(t))$ on a surface $X:M \to \E^3$ is the tangential part of its derivative 
 		\[ \frac {D}{dt} Y : = Y' - N \skal{Y',N}.  \]
 	A geodesic is an acceleration free curve $t \mapsto C(t)=X(u(t),v(t))$ on a surface ,i.e,
 		\[ \frac D{dt} C' = 0 \]
 \end{definition}
 
 \begin{example}
-	Cicular helices as geodesies a cicular cylinders
+	Circular helices as geodesies a circular cylinders
 		\[ t \mapsto C(t)= O+ e_1 r \cos t e_2 r\sin t + e_3 h t = X(ht,t)  \]
 	is a geodesic on the cylinder of radius $r>0$, $h\in \R$ constant.
 	
@@ -174,13 +174,13 @@
 	
 \end{theorem}
 
-\begin{proof}Consider the surface of recolution:
+\begin{proof}Consider the surface of revolution:
 		$$ X(u,v) = O +  e_1r(u)\cos(v) + e_2r(u)\sin(v) + e_3h(u); $$
 	$$ N(u,v) = -e_1g'(u)\cos(v) - e_2h'(u)\sin(v) +e_3r'(u) $$
-	$ C(s) = X(u(s),v(s))$ be a geodesic on a surface of revolution , w.l.o.g., arc length parameterized.
+	$ C(s) = X(u(s),v(s))$ be a geodesic on a surface of revolution , w.l.o.g., arc length parametrized.
 	Set $ C_t(s) = O + A(t)(C(s)-O) = X(u(s),v(s)+t) $ where $ A(t) $ is given in matrix form by
 		\[ A(t) = \pmat{\cos(t) & -\sin(t) & 0 \\ \sin(t) & \cos(t) & 0 \\ 0 & 0 & 1 } \in \mathrm{SO}(3). \]
-	Note that $ \forall t \in \R, C_t$ is an arclength parameterized geodesic and
+	Note that $ \forall t \in \R, C_t$ is an arclength parametrized geodesic and
 			\[ \dfrac{\partial}{\partial t} C_t(s) = \dfrac{\partial}{\partial t}X(u(s),v(s)+t) = X_v(u(s),v(s)+t \] and the normal of the normal ribbon for $ C_t $ is $ s \mapsto N(u(s),v(s)+t $.
 	Set $ Y(s) := \dfrac{\partial}{\partial t}\big|_{t=0}C_t(s) = X_v(u(s),v(s)). $
 	\[|Y(s)| = \widetilde{r}(u(s)) = r(s). \] 
@@ -216,7 +216,7 @@
 	but in general these are not geodesic.	
 \end{remark, example}
 
-\subsection{Differential equations of a geodesic}
+\textbf{Differential equations of a geodesic:}
 	
 	Let $ Y(t) = X_u(u(t),v(t))x(t) + X_v(u(t),v(t))y(t) $ be a tangent field along a curve $ t \mapsto C(t) = X(u(t),v(t)). $
 	Compute the covariant derivative
@@ -343,7 +343,7 @@
 \end{lemma}
 
 \begin{proof}
-	$\exp$ is a smooth dependence of solutions of $IVP$s. Now we compute $d_0\exp$ using directional derivatives. Ler $Y \in T_{(u_0,v_0)}X$
+	$\exp$ is a smooth dependence of solutions of $IVP$s. Now we compute $d_0\exp$ using directional derivatives. Let $Y \in T_{(u_0,v_0)}X$
 		\[ d_0\exp(Y) 
 			= \frac d{dt} \big |_{t=0} \exp(tY) 
 			= \frac d{dt}\big |_{t=0} C_{Yt}(1) 
@@ -359,7 +359,7 @@
 \subsection{Geodesic polar coordinates and Minding's Theorem}
 
 \begin{definition}
-	A reparametrisation of a surface by geodesic polar coordinates $(r,\theta)$ around a point $X(0,0)$ of a surfaceis given by themap
+	A reparametrisation of a surface by geodesic polar coordinates $(r,\theta)$ around a point $X(0,0)$ of a surface is given by the map
 		\[ (r,\theta) \mapsto \exp(e_1 r \cos\theta + e_2 r \sin \theta)
 			=C_{e_1 r \cos\theta + e_2 r \sin \theta}(1), \]
 	where $(e_1,e_2)$ form an orthonormal basis of $T_{(0,0)}X$.
