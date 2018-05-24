@@ -170,23 +170,33 @@
 \end{proof}
 
 \begin{theorem}[Clairaut's theorem]
-	For a geodesic on a surface of revolution the product $ r\sin(\theta) \equiv \mathrm{const.} $ where $ r = r(s) $ is the distance from the axis and $ \theta(s) $ is the angle the geodesic makes with the profile curves.
+	For a geodesic on a surface of revolution the quantity $ r\sin(\theta) \equiv \mathrm{const.} $ where $ r = r(s) $ is the distance from the axis and $ \theta(s) $ is the angle the geodesic makes with the profile curves.
 	
 \end{theorem}
 
-\begin{proof}
-	
-	$ C(s) = O + e_1r(s)\cos(v(s)) + e_2r(s)\sin(v(s)) + e_3r(s)$ be a geodesic on a surface of revolution , wlog, arc length parameterized.
-	Set $ C_t(s) = O + A(t)(C(s)-O) $ where $ A(t) $ is given in matrix form by
-		\[ \pmat{\cos(t) & -\sin(t) & 0 \\ \sin(t) & \cos(t) & 0 \\ 0 & 0 & 1 } \in \mathrm{SO}(3). \]
-	Set $ Y(s) := \dfrac{\partial}{\partial t}\big|_{t=0}C_t(s). $ Notem that $ \forall t, C(t)$ is an arclength parameterized geodesic.
-	Observe that, $ Y(s) = (-e_1 \sin(v(s)) + e_2\cos(v(s)))r(s) $.
-	Thus
-		\[ r\sin(\phi) = r \cos(\dfrac{\pi}{2} - \theta) = r\dfrac{\skal{C',Y}}{|C'|||Y}= \skal{C',Y} = \skal{\dfrac{\partial}{\partial s}C_t,\dfrac{\partial}{\partial t}C_t}\big|_{t=0}. \]
-	Since each $ C_t(s) $ is arc length parameterized
+\begin{proof}Consider the surface of recolution:
+		$$ X(u,v) = O +  e_1r(u)\cos(v) + e_2r(u)\sin(v) + e_3h(u); $$
+	$$ N(u,v) = -e_1g'(u)\cos(v) - e_2h'(u)\sin(v) +e_3r'(u) $$
+	$ C(s) = X(u(s),v(s))$ be a geodesic on a surface of revolution , w.l.o.g., arc length parameterized.
+	Set $ C_t(s) = O + A(t)(C(s)-O) = X(u(s),v(s)+t) $ where $ A(t) $ is given in matrix form by
+		\[ A(t) = \pmat{\cos(t) & -\sin(t) & 0 \\ \sin(t) & \cos(t) & 0 \\ 0 & 0 & 1 } \in \mathrm{SO}(3). \]
+	Note that $ \forall t \in \R, C_t$ is an arclength parameterized geodesic and
+			\[ \dfrac{\partial}{\partial t} C_t(s) = \dfrac{\partial}{\partial t}X(u(s),v(s)+t) = X_v(u(s),v(s)+t \] and the normal of the normal ribbon for $ C_t $ is $ s \mapsto N(u(s),v(s)+t $.
+	Set $ Y(s) := \dfrac{\partial}{\partial t}\big|_{t=0}C_t(s) = X_v(u(s),v(s)). $
+	\[|Y(s)| = \widetilde{r}(u(s)) = r(s). \] 
+	%Observe that, $ Y(s) = (-e_1 \sin(v(s)) + e_2\cos(v(s)))r(s) $.
+	Therefore the angle $ \theta = \theta(s) $ between $ C $ and the profile curve satisfies
+		\[ r\sin(\phi) = r \cos(\dfrac{\pi}{2} - \theta) = r\dfrac{\skal{C',Y}}{|C'||Y|}= \skal{C',Y} = \skal{\dfrac{\partial}{\partial s}C_t,\dfrac{\partial}{\partial t}C_t}\bigg|_{t=0}. \]
+	We want to show $ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = 0: $
 		\[ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = \skal{ \dfrac{\partial^2}{\partial^2 s} C_t , \dfrac{\partial}{\partial t} C_t} + \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial s} \dfrac{\partial}{\partial t} C_t } \]
-	Because $ \dfrac{D}{\partial s} C_t \equiv 0 $ we obtain $ \dfrac{\partial^2}{\partial^2s}C_t || N $ and $ \dfrac{\partial}{\partial t}C_t \perp N. $ thus   
-		\[ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = 0 \]
+%	Because $ \dfrac{D}{\partial s} C_t \equiv 0 $ we obtain $ \dfrac{\partial^2}{\partial^2s}C_t || N $ and $ \dfrac{\partial}{\partial t}C_t \perp N. $ Hence   
+	$ C_t $ is geodesic and thus $ \dfrac{\partial^2}{\partial^2s} C_t || N(u(s),v(s)+t) $ and $ \dfrac{\partial}{\partial t} C_t(s)=X_v(u(s),v(s)+t). $ 
+	Hence
+		\[ \skal{ \dfrac{\partial^2}{\partial^2 s} C_t , \dfrac{\partial}{\partial t} C_t } = 0 \] 
+	and furthermore
+		\[ \dfrac{\partial}{\partial s} \skal{ \dfrac{\partial}{\partial s} C_t , \dfrac{\partial}{\partial t} C_t } = 0 \text{ fot all $t \in \R$} \] 
+	and
+		\[ \dfrac{\partial}{\partial s}(r \sin(\theta)) = 0. \]
 \end{proof}
 
 \begin{remark}
@@ -206,7 +216,93 @@
 	but in general these are not geodesic.	
 \end{remark, example}
 
+\subsection{Differential equations of a geodesic}
+	
+	Let $ Y(t) = X_u(u(t),v(t))x(t) + X_v(u(t),v(t))y(t) $ be a tangent field along a curve $ t \mapsto C(t) = X(u(t),v(t)). $
+	Compute the covariant derivative
+		\[ \dfrac{D}{\partial t} = X_ux' + (\nabla_{\!\!{\partial\over \partial u}} X_u u' + \nabla_{\!\!{\partial\over \partial v}} X_u v')x + X_vy' +  (\nabla_{\!\!{\partial\over \partial u}} X_v u' + \nabla_{\!\!{\partial\over \partial v}} X_v v')y \]
+		\[ = X_ux' + (X_u\Gamma_{11}^1 u' + X_v\Gamma_{11}^2u' + X_u \Gamma_{21}^1v' + X_v \Gamma_{21}^2v')x +  X_vy' + (X_u\Gamma_{12}^1 u' + X_v\Gamma_{12}^2u' + X_u \Gamma_{22}^1v' + X_v \Gamma_{22}^1v')y \]
+		\[ = X_u(x' + (\Gamma_{11}^1u' + \Gamma_{21}^1v')x + (\Gamma_{12}^1 u' + \Gamma_{22}^2v')y) + X_v(y' + (\Gamma_{11}^2u' + \Gamma_{21}^2v')x + (\Gamma_{12}^2 u' + \Gamma_{22}^2v')y)  \]
+	Now, let $ Y = C' = X_u u' + X_v v' $
+		\[ \dfrac{D}{\partial t} C' = X_u(u'' + \Gamma_{11}^1u'^2 + 2 \Gamma_{12}^1 u'v' +\Gamma_{22}^1 v'^2) + X_v(v'' + \Gamma_{11}^2u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2). \]
+	Then we learn that :
+	
+\begin{definition}
+	\emph{Geodesic Equation:} \label{Eq: geodesic}
+		$ t \mapsto C(t) = X(u(t),v(t)) $ is a geodesic if and only if
+			\[ 0 = u'' + \Gamma_{11}^1u'^2 + 2 \Gamma_{12}^1 u'v' +\Gamma_{22}^1 v'^2 \]
+		and
+		\[ 0 = v'' + \Gamma_{11}^2u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2. \]
+		
+		We can also write \dots
+		
+\end{definition}
 
+\begin{remark}
+	
+	For a geodesic curve $ t \mapsto C(t) = X(u(t),v(t)) $ we can compute the geodesic curvature of the Darboux frame
+		\[ \dfrac{d}{\partial t} \dfrac{C'}{|C'|} = - B |C'|\kappa_g. \]
+	Take the cross product of this with $ T = \dfrac{C'}{|C'|} $
+		\[ - N |C'|\kappa_g = \dfrac{D}{\partial t}(\dfrac{C'}{|C'|}) \times \dfrac{C'}{|C'|} = \dfrac{1}{|C'|^2} \dfrac{D}{\partial t}C' \times C' \] and thus
+		\[ N\kappa_g = - \dfrac{1}{|C'|^3}\dfrac{D}{\partial t} C' \times C'. \]
+		Comparing $ X_u \times X_v $ terms
+		
+		JOJOEINFÜGEN
+		
+	
+\end{remark}
 
+\begin{corollary}
+	Geodesics can be determined by the induced metric $ \mathrm{I} $ alone.
+\end{corollary}
 
+\begin{example}
+	
+	Geodesics on a circular cylinder are the straight lines after developing onto a plane: circular helices.
+	I.e. \ref{Eq: geodesic} holds for exactly those curves.
+	
+\end{example}
 
+\begin{corollary}
+	
+	Given a point $ (u_0,v_0) \in M $ and a direction $ Y = d_{(u_0,v_0)}X(\pmat{x_0 \\ y_0})  $
+	There exists a unique (maximal) geodesic $ t \mapsto C_Y(t) = X(u(t),v(t)) $ on $ X: M \rightarrow \E^3 $ such that
+		\[ (u(0),v(0)) = (u_0,v_0) \text{ and } (u'(0),v'(0)) = (x_0,y_0) \label{Eq:initial conditions}. \]
+	
+\end{corollary}
+
+\begin{remark}
+	
+	The initial conditions \ref{Eq:initial conditions} say that an initial point and a tangential direction are given on the surface, if $ X(u_0,v_0) $ is a double point \ref{Eq:initial conditions} also specifies which leaf of the surface $ C_Y(t) $ lives on.
+	
+\end{remark}
+
+\begin{proof}
+	
+	We are going to use Picard-Lindelöf.
+	Let $ (w_1,w_2,w_3,w_4) = (u,v,u',v') $. Thus we have the system
+		\[ w_1' = w_3 \]
+		\[ w_2' = w_4 \]
+		And because of \ref{Eq: geodesic}
+		\[ w_3' = -\Gamma_{11}^1w_3^2 - 2 \Gamma_{12}^1 w_3w_4 -\Gamma_{22}^1 w_4^2 \]
+		\[ w_4' = -\Gamma_{11}^2w_3^2 - 2 \Gamma_{12}^2 w_3w_4 -\Gamma_{22}^2 w_4^2. \]
+		So, the initial conditions \ref{Eq:initial conditions} imply that $ (w_1,w_2,w_3,w_4)(0) = (u_0,v_0,x_0,y_0) $ and we can use Picard-Lindelöf theorem by which the result follows.
+	
+\end{proof}
+
+\begin{lemma}
+	
+	$ C_{Ys}(t) = C_Y(st) $ for $ s \in (0,1) $
+	
+\end{lemma}
+
+\begin{proof}
+	
+	Suppose $ C_Y: I \rightarrow \E^3 $ is the geodesic satisfying \ref{Eq:initial conditions}, then (for an interval around $ 0 $)
+		\[ \dfrac{D}{\partial t} (C_Y(st)' = \dfrac{D}{\partial t} C_Y'(st)s = (\dfrac{D}{\partial t} C') (st)s^2 = 0 \] 
+	and also
+		\[ (C_Y(st))'(0) = C_Y'(s0)s = Ys \]
+	while
+		\[ C_Y(S0) = C_Y(0). \]
+	By the uniqueness, $ C_{Ys}(t) = C_Y(st) $ for $ t \in I $
+\end{proof}
