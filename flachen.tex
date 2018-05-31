@@ -247,7 +247,7 @@ y_2
 \end{definition}
 	
 \begin{example}
-	\textbf{Roationsfläche:}
+	\textbf{Rotationsfläche:}
 	Für jede Rotationsfläche
 		\[ (u,v) \mapsto X(u,v) := O + e_1r(u)\cos(v) + e_2 r(u) \sin(v) + e_3h(u) \]
 	ist jede Profilkurve $ v \equiv \mathrm{const} $ der orthogonale Schnitt der Fläche mit der Ebene $ x\sin(v) = y \cos(v) $ der Meridiankurve; die Gaußabbildung erhält man also durch $ \dfrac{\pi}{2} $ Drehung des ETFs (''Einheitstangentialfeldes'') in der Ebene der Kurve 
@@ -438,7 +438,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 \end{example}
 
 \begin{lemma, definition}
-	 Die \emph{zweite Fundamentalform} einer Fläche $ X: M \rightarrow \E^3 $ ist definiert als \[ \mathrm{II} := \skal{dX,dN}, \] wobei $ \mathrm{II}: ((u,v), \pmat{x \\ y},\pmat{\widetilde{x} \\ \widetilde{y}}) \mapsto \skal{d_{(u,v)}X \pmat{x\\y},d_{(u,v)}N \pmat{\widetilde{x}\\\widetilde{y}}}; $
+	 Die \emph{zweite Fundamentalform} einer Fläche $ X: M \rightarrow \E^3 $ ist definiert als \[ \mathrm{II} := -\skal{dX,dN}, \] wobei $ \mathrm{II}: ((u,v), \pmat{x \\ y},\pmat{\widetilde{x} \\ \widetilde{y}}) \mapsto -\skal{d_{(u,v)}X \pmat{x\\y},d_{(u,v)}N \pmat{\widetilde{x}\\\widetilde{y}}}; $
 	 an jedem Punkt $ (u,v) $ erhält man so eine symmetrische Bilinearform 
 	 
 	 \[ \mathrm{II}\big|_{(u,v)}: \R^2 \times \R^2 \rightarrow \R, \quad (\pmat{x_1 \\ y_1},\pmat{x_2 \\ y_2}) \mapsto - \skal{d_{(u,v)}X\pmat{x_1 \\ y_1},d_{(u,v)}N\pmat{x_2 \\ y_2}}. \]
@@ -540,7 +540,7 @@ wobei $ t \mapsto N'^T(t) \in T_tX $ den Tangentialanteil von $ N' $ bezeichnet,
 	und ebenso für  $ \pmat{x \\ y} = \pmat{0 \\ 1} \cong \dfrac{\partial}{\partial v} $, also ist \ref*{Eq:Gamma} ein Spezialfall von \ref*{Eq:Gammaallg}
 	
 	\begin{remark}
-		\textbf{WARUNUNG:} $ \D{u} $ und $ \D v $ sind \emph{Differentialoperatoren} (keine Endomorphismen) - trotzdem benutzen wir Matrizen, um sie zu beschreiben.
+		\textbf{WARNUNG:} $ \D{u} $ und $ \D v $ sind \emph{Differentialoperatoren} (keine Endomorphismen) - trotzdem benutzen wir Matrizen, um sie zu beschreiben.
 	\end{remark}
 
 \begin{lemma, definition}
