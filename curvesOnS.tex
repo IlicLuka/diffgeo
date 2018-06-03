@@ -12,14 +12,14 @@
 		\[ t \mapsto X(u,v+t), t \mapsto X(u+t,v). \]
 \end{example}
 
-\begin{remark} %and Def
+\begin{remark, definition}
 	If $t \mapsto X(u(t),v(t))$ is a curve on a surface $X: M \to \E^3$ than $T_t(X \circ (u,v)) \subset T_{(u(t),v(t))}X$
 	or equivalently, the unit tangent field is always tangential to the surface
 		\[ T= \frac {X_uu' + X_vv'}{\sqrt{Eu'^2 + 2Fu'v' + Gv'^2}}. \]
 	Thus the Gauss map $N$ of $X$ yields a unit normal vectorfield for $X_0(u,v)$ 
 		\[ I \ni t \mapsto N(u(t),v(t)). \]
-	Hence this defines the \emph{natural ribbon} or the curve. The corresponding frame is called the \emph{Darboux frame}.
-\end{remark}
+	Hence this defines the \emph{natural ribbon} of the curve. The corresponding frame is called the \emph{Darboux frame}.
+\end{remark, definition}
 
 \begin{definition}
 	A curve $t \mapsto X(u(t),v(t))$ on a surface $X: M \to \E^3$ is called
@@ -45,7 +45,7 @@
 \begin{definition}
 	Rodriges' equation: The curve $t \mapsto X(u(t),v(t))$ is a curvature line iff 
 		\[ 0 = (dN + \kappa  dX) \pmat{u'\\v'} \]
-	where $\kappa$ is a principle curvature od $X$ at $(u,v)= (u(t),v(t))$ and $dX \pmat{u'\\v'}$ is the corresponding curve direction.
+	where $\kappa$ is a principle curvature of $X$ at $(u,v)= (u(t),v(t))$ and $dX \pmat{u'\\v'}$ is the corresponding curve direction.
 \end{definition}
 
 \begin{proof}
@@ -69,9 +69,9 @@
 	Hence the parameter line of $X$ are curvature lines.
 \end{example}
 
-\begin{definition} (and thm)
+\begin{theorem, definition}
 	$X: M \to \E^3$ is a \emph{curvature line parametrisation} if all parameter lines are curvature lines. Any surface admits locally away form umbilics, a curvature line (re-)parametrisation.
-\end{definition}
+\end{theorem, definition}
 
 \begin{remark}
 	Suppose $X$ is a curvature line parametrisation then $(X_u,X_v)$ diagonalizes the shape operator, cause these are the Eigenvalues,
@@ -95,11 +95,11 @@
 		\[ X' = X_uu' + X_vv', \quad N' = N_uu' + N_vv'. \]
 \end{proof}
 
-\begin{remark}(and def)
+\begin{remark, definition}
 	The normal curvature $\kappa_n$ for a curve on a surface depends only on the tangent direction (and not on $u'', v''$). Thus we also call it the ''normal curvature $\kappa_n$ of a tangent direction''.
-\end{remark}
+\end{remark, definition}
 
-\begin{theorem}(Euler's theorem)
+\begin{theorem}[Euler's theorem]
 	The normal curvatures $\kappa_n$ at a point on a surface satisfy 
 		\[ \min \{ \kappa^+,\kappa^- \} \leq \kappa_n (\theta) = \kappa^+ \cos^2 \theta + \kappa^- \sin^2\theta \leq \max \{\kappa^+,\kappa^- \},  \]
 	where $\kappa^\pm$ are the principle curvatures and $\theta$ is the angle between the tangent direction of $\kappa_n(\theta)$ and the curvature direction of $\kappa^+$.
