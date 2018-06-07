@@ -307,7 +307,7 @@
 \begin{lemma}
 	
 	$ C_{Ys}(t) = C_Y(st) $ for $ s \in (0,1) $
-	
+	\label{lemma:I}
 \end{lemma}
 
 \begin{proof}
@@ -332,7 +332,7 @@
 	If $\varepsilon_{Y_{min}}<1$, then $C_{Y\frac {\varepsilon_min}2} = C_Y(\frac {\varepsilon_min}2 t)$ is defined on $[0,1]$, for all $Y$. let $ U \subset B_{\frac {\varepsilon_min}2}(0)$.
 	\end{remark}
 
-\begin{lemma} (und def)
+\begin{lemma, definition}
 	Given a point $X(u_0,v_0)$ on a surface $X:M \to \E^3$
 		\[ Y \mapsto \exp(Y):= C_Y(1) \]
 		
@@ -340,7 +340,7 @@
 		\[d_0\exp = id_{T_{(u_0,v_0)}X},\]
 	with $d_0= \frac d{dt} \big |_{t=0} $.
 	$\exp$ is called the exponential map of $X$ at $X(u_0,v_0)$.
-\end{lemma}
+\end{lemma, definition}
 
 \begin{proof}
 	$\exp$ is a smooth dependence of solutions of $IVP$s. Now we compute $d_0\exp$ using directional derivatives. Let $Y \in T_{(u_0,v_0)}X$
@@ -364,8 +364,10 @@
 			=C_{e_1 r \cos\theta + e_2 r \sin \theta}(1), \]
 	where $(e_1,e_2)$ form an orthonormal basis of $T_{(0,0)}X$.
 	
-	For fixed $\theta$, $r \mapsto X(r,\theta) = C_{e_1 r \cos\theta + e_2 r \sin \theta}(1) = C_{e_1 \cos\theta + e_2 \sin \theta}(r)$ and $r <1$.
+	For fixed $\theta$, $r \mapsto X(r,\theta) = C_{e_1 r \cos\theta + e_2 r \sin \theta}(1) = C_{e_1 \cos\theta + e_2 \sin \theta}(r)$ and $r \leq1$.
 	So parameter lines $\theta = const$ are geodesic.
+	
+	We let $r \leq 1$ in contrast to the Lemma \ref{lemma:I} cause we expect $[0,1] \subset I$.
 \end{definition}
 
 \begin{remark}
@@ -387,3 +389,45 @@
 	In geodesic polar coordinates $(r,\theta)$ the Gauss curvature is 
 		\[ K= - \frac {(\sqrt{G})_{rr}}{\sqrt G}. \]
 \end{example}
+
+\begin{corollary}
+	Geodesics are locally the shortest distance between two points.
+\end{corollary}
+
+\begin{proof}
+	Let $X: M \to \E^3$ parametrised by geodesic polar coordinates around $X(0,0)$. Let $c(t)= X(r(t),\theta(t))$ be a curve between $X(0,0)$ and $X(r(0),\theta(1))$. Then 
+		\[ \int_0^1 \abs{C'(\tilde t)} \ d\tilde t
+			= \int_0^1 \sqrt{r'^2 + G(r,\theta)\theta'^2}\ d\tilde t
+			\geq \int_0^1 r'\ d\tilde t
+			= r(1). \]
+			
+	Equality holds iff $\theta'=0$ or $\theta = const$.
+	
+	Therefore $C$ is a parameter line of geodesic polar coordinates and thus geodesic (up to reparametrisation of the function $r$).
+\end{proof}
+
+\begin{remark}
+	The surface $\R^2 \setminus \{(0,0)\}$ is an example of why we need locality in the corollary above. Cause there is no shortest distance on that surface between $(1,0)$ and $(-1,0)$.
+\end{remark}
+
+\begin{theorem}[Minding's theorem]
+	Any two surfaces with the same \emph{constant} Gauss curvature are locally isometric, i.e., there exists local parametrisations $X_1$ and $X_2$ such that $I_1=I_2$. 
+\end{theorem}
+
+\begin{proof}
+	For surface $X: M \to \E^3$ parametrised by geodesic polar coordinates around $X(0,0)$ we have
+		\[ I=dr^2+Gd\theta^2 \text{ with }
+			\sqrt G \big|_{r=0} \text{ and } \frac {\partial \sqrt G}{\partial r} \big|_{r=0}=1\]
+	and $K=-\frac {(\sqrt G)_{rr}}{\sqrt G}$.
+	Therefore $\sqrt G_{rr}+K\sqrt G = 0$ and $K$ is constant.
+	Hence we have an initial value problem (for fixed $\theta$)
+		\[ (\sqrt G)_{rr} + K\sqrt G=0, \quad \sqrt G\big|_{r=0}=0, \ \frac {\partial \sqrt G}{\partial r} \big|_{r=0}=1.  \]
+	The unique solution is
+		\[ \sqrt G= \begin{cases}
+			\frac 1{\sqrt K} \sin(\sqrt K r), & K>0\\
+			r, & K=0\\
+			\frac 1{\sqrt{-K}} \sinh(\sqrt{-K}r), & K<0.
+		\end{cases} \]
+	Thus $G$ is determined by $K$ and thus so is $I$. Thus any two surfaces with the same constant Gauss curvature have the same induced metric.
+
+\end{proof}

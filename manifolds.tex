@@ -1,0 +1,77 @@
+\textbf{Motivation:} Some problems occur with our definition of curves and surfaces:
+\begin{itemize}
+	\item The sphere is not a surface because no regular parametrisation  (harry ball theorem)
+	\item The hyperbola is no a surface, because it has two components thus it can not be parametrised by a single regular map on an open interval.
+\end{itemize}
+
+The notion of a submanifold resolves these problems at the expense of imposing other restrictions.
+
+\section{Submanifolds of $\E^n$}
+There are several equivalent characterisations of submanifolds in $\E^n$.
+
+\begin{definition}[1. A submanifols can be locally flattened]
+	$M \subset \E^n$ is called a $k$-dimensional submanifold of $\E^n$ if for all $p \in M$ there exists a diffeomorphism $\phi: U \to \tilde U$, where $U \subset \E^n$ is an open neighbourhood of $p$ and $\tilde U \subset \R^n$ is an open neighbourhood of $0$ such that
+		\[ \phi(M \cap U)= \tilde U \cap (\R^k \times \{0\}), \]
+	where $\R^n = \R^k \oplus \R^{n-k}$.
+\end{definition}
+
+\begin{definition}[2. A submanifold is locally a level set]
+	$M \subset \E^n$ is a $k$-dimensional submanifold of $\E^n$ if for all $p \in M$ there exist open neighbourhood $U \subset \E^n$ of $p$ and a submersion $F. U \to \R^{n-k}$ such that
+		\[ M \cap U = F^{-1}\{0\}. \]
+	Where $dpF: \R^n \to \R^{n-k}$ surjects for all $p \in U$.
+\end{definition}
+
+\begin{remark}
+	In the definition above th is sufficient to require that $dpF: \R^n \to \R^{n-k}$ surjects: if $dpF$ surjects then since $p \mapsto dpF$ is continuous, $dpF$ surjects by the inertia principle on some open neighbourhood $\tilde U \subset U$ of $p$.
+\end{remark}
+
+\begin{definition}[3. A submanifold can be locally parametrised]
+	$M \subset \E^n$ is a $k$-dimensional submanifold of $\E^n$ if for all $p \in M$ there exists an immersion $X: V \to U$ from an open neighbourhood $V \subset \R^k$ of $0$ to an open neighbourhood $U \subset \E^n$ of $p$ such that
+		\[ M \cap U = X(V) \]
+	and $X:V \to M \cap U$ is a homeomorphism (with respect to the induced topology on $M \cap U$).
+	
+	A homeomorphism is continuous and bijective.
+\end{definition}
+
+\begin{remark}
+	\begin{itemize}
+		\item $X$ being an immersion excludes ''kinks'' such as the singularity of the nilparabola.
+		\item $X$ being injective excludes self intersections.
+		\item Continuity of $X^{-1}$ excludes ''T-junctions''.
+	\end{itemize}
+\end{remark}
+
+\begin{proof}
+	Proof of equivalence of these definitions:
+	
+	For $\R^n = \R^k \oplus \R^{n-k}$ we define the submersions
+		\[ \pi_1: \R^k \oplus \R^{n-k} \to \R^k, (x,y) \mapsto x, \]
+		\[ \pi_2: \R^k \oplus \R^{n-k} \to \R^k, (x,y) \mapsto y. \]
+	First we proof $1.$ implies $2.$:
+	
+	Let $F:= \pi_2 \circ \phi: U \to \R^{n-k}$. $F$ is a submersion.
+	
+	Secondly we proof $1.$ implies $3.$:
+	
+	With $V= \pi_1(\tilde U) \subset \R^k$ we can have
+		\[ X:= \phi^{-1}\big|_v: V \to U \]
+	is the necessary map.
+	If you are bored, you can check that this is an homeomorphism.
+	
+	Now we proof $3.$ implies $1.$:
+	
+	Let $X: \R^k \supset V \to \E^n$ parametrisation of $M \cap U = X(V)$. Assume that $X(0)= p$. Let $(t_1, \ldots,t_{n-k})$ be an orthonormal basis of $d_0X(\R^k)^\perp \subset \R^n$. Define
+		\[ C \times \R^{n-k}: (x,y) \mapsto \psi(x,y)= X(x)+ \sum_{i=1}^{n-k} t_iy_i, \quad y=(y_1,\ldots,y_{n-k}). \]
+	Then 
+		\[ d_0\psi(v,w) = \underbrace{d_0X(v)}_{\in d_0X(\R^k)} + \underbrace{\sum_{i=1}^{n-k} t_i w_i}_{\in (d_0X(\R^k))^\perp} = 0 \]
+	iff $w_i=0$ for all $i$ and $v=0$ or $(v,w)=0$. 
+	
+	Then we use the inverse mapping theorem, $\psi$ has a smooth local inverse
+		\[ \phi=(\psi\big|_{\tilde U})^{-1}: \psi(\tilde U) \to \tilde U \]
+	where $\tilde U \subset V \times \R^k$ open neighbourhood of $0$. Without loss of generality, assume that $\psi(\tilde U) \subset U$ (otherwise take the intersection with U).
+	Now, $q \in M \cap \psi(\tilde U)$ implies there exists a $x \in V$ such that $q= X(x)= \psi(x,0) \in \psi(\tilde U)$. On the other hand 
+		\[ (x,0) \in \tilde U \Rightarrow \psi(x,0) = X(x) \in M \]
+	with means that $q=X(x) \in M \cap \psi(\tilde U)$.
+	
+	After replacing $\psi(\tilde U)$ with $U$, then $\phi(U \cap M)= \tilde U \cap (\R^k \times \{0\})$.
+\end{proof}
