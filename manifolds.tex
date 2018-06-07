@@ -1,6 +1,6 @@
 \textbf{Motivation:} Some problems occur with our definition of curves and surfaces:
 \begin{itemize}
-	\item The sphere is not a surface because no regular parametrisation  (harry ball theorem)
+	\item The sphere is not a surface because no regular parametrisation  (harry (Potter? WTF Jojo?) ball theorem)
 	\item The hyperbola is no a surface, because it has two components thus it can not be parametrised by a single regular map on an open interval.
 \end{itemize}
 
@@ -74,4 +74,36 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 	with means that $q=X(x) \in M \cap \psi(\tilde U)$.
 	
 	After replacing $\psi(\tilde U)$ with $U$, then $\phi(U \cap M)= \tilde U \cap (\R^k \times \{0\})$.
-\end{proof}
+	
+	2. $\Rightarrow$ 1. $ F: U \rightarrow \R^{n-k} $ submersion. Let $ t_1, \dots ,t_n $ be an orthonormal basis of $ \R^n $ such that $ t_1,\dots,t_k $ is an orthonormal basis of $\mathrm{ker} d_pF$. Write $  \R^{n} = \skal{e_1,\dots,e_k} \oplus \R^{n-k} $ then $ q \in U \Rightarrow q = p + \sum_{i = 1}^{n}t_iq_i $ and 
+		\[ \phi: U \rightarrow \R^n \quad, \quad \phi(q) = \sum_{i = 1}^{k} e_iq_i + F(q) \]
+		\[d_p\phi (v) = \sum_{i=1}^{k}e_iv_i + d_pF(v) = 0 \text{ for } v = \sum_{i = 1}^{k}t_iv_i\] is equivalent to
+		$d_pF(v) = 0$ and thus $ v \in \mathrm{ker}d_pF $
+		and also to
+		\[ \sum_{i=1}^{k}e_iv_i = 0 \text{ thus } \forall i v_i = 0 \Leftrightarrow v = 0 \] 
+		Thus $ d_p\phi $ is invertable and by the Inverse Mapping Theorem
+			\[ \phi : U \rightarrow \phi(U) \text{ is a diffeomorphism (maybe after shrinking $U$)}. \]
+		Now, $ q \in M \cap U \Leftrightarrow F(q) = 0 \Leftrightarrow \phi(q) \in \phi(U) \cap ( \R^k \times \{0\} ) $.
+		Thus $ \phi(M \cap U) = \phi(U) \cap (R^k \times \{0\}) $
+\end{proof}  
+
+\begin{example}
+	\begin{enumerate} The following are manifolds:
+		\item Plane: $ \pi = \{ p \in \E^3 : \skal{p-O,n} = d \} $
+		$ F : \E^3 \rightarrow \R, F(q) = \skal{p-O,n}-d $ then $ \pi = f^{-1}(\{0\}) $.
+		Also, $ d_pF(v) = \skal{v,n} $ and hence $ d_pF \not \equiv 0 $. Thus $ d_pF $ surjects and $F$ is a submersion.
+		
+		\item Sphere: $ S = \{ p \in \E^3 ~|~ \skal{p-O,p-O} = r^2 \} $ and $ S $ is implicitly given by the function $ F : \E^3 \rightarrow \R, F(p) = \skal{p-O,p-O}-r^2 $. Here $ d_pF(v) = 2 \skal{v,p-O} $ and $ d_pF $ surjects as long as $p \not \equiv 0$ which does not happen in $ S $.
+		$ F\big|_{\E^3 \setminus \{ 0 \} } $ is a submersion.
+		
+		\item  Hyperboloids: $O + e_1x + e_2y + e_3z$ such that
+	 $ F_\pm(O  + e_1x + e_2y + e_3z) = 0 $ where  $ F_\pm(O  + e_1x + e_2y + e_3z) = (\dfrac{x}{a})^2 + (\dfrac{y}{b})^2 +(\dfrac{z}{c})^2 \pm 1 $
+	 $\nabla F = 2(e_1 \dfrac{x}{a^2} + e_2 \dfrac{y}{b^2} + e_3 \dfrac{z}{c^2})$ Then $ \nabla F = 0 \Leftrightarrow (x,y,z) = 0 $. Therefore $ F\big|_{\E^3 \setminus \{0\}} $ is a submersion. $\skal{\nabla F,v}= dF(v)$.
+	\end{enumerate}
+\end{example}
+
+\begin{example}
+	A counterexample is the following \emph{Lemniscate}.
+	$ O + e_1x + e_2y $, where $ x^4 - x^2 + y^2 = 0 $. A regular parametrization is given by $ t \mapsto O + e_1 x(t) + e_2 y(t) = O + e_1 \sin(t) + e_2\sin(t)\cos(t). $ 
+	The curve has a self-intersection at $ (x(t),y(t))=(0,0) $ which is equivalent to $ \forall k \in \mathbb{Z} t = k\pi $. Hence this is not a $ 1$-Dimensional submanifold.
+\end{example}
