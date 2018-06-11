@@ -33,7 +33,7 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 	A homeomorphism is continuous and bijective.
 \end{definition}
 
-\begin{remark}
+\begin{remark} We get the following exlusions:	
 	\begin{itemize}
 		\item $X$ being an immersion excludes ''kinks'' such as the singularity of the nilparabola.
 		\item $X$ being injective excludes self intersections.
@@ -89,16 +89,19 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 
 \begin{example}
 	\begin{enumerate} The following are manifolds:
-		\item Plane: $ \pi = \{ p \in \E^3 : \skal{p-O,n} = d \} $
-		$ F : \E^3 \rightarrow \R, F(q) = \skal{p-O,n}-d $ then $ \pi = f^{-1}(\{0\}) $.
+		\item Plane: $ \pi = \{ p \in \E^3 : \skal{p-O,n} = d \}, $
+		$ F : \E^3 \rightarrow \R, F(q) = \skal{p-O,n}-d $ then $ \pi = F^{-1}(\{0\}) $.
 		Also, $ d_pF(v) = \skal{v,n} $ and hence $ d_pF \not \equiv 0 $. Thus $ d_pF $ surjects and $F$ is a submersion.
 		
 		\item Sphere: $ S = \{ p \in \E^3 ~|~ \skal{p-O,p-O} = r^2 \} $ and $ S $ is implicitly given by the function $ F : \E^3 \rightarrow \R, F(p) = \skal{p-O,p-O}-r^2 $. Here $ d_pF(v) = 2 \skal{v,p-O} $ and $ d_pF $ surjects as long as $p \not \equiv 0$ which does not happen in $ S $.
 		$ F\big|_{\E^3 \setminus \{ 0 \} } $ is a submersion.
 		
 		\item  Hyperboloids: $O + e_1x + e_2y + e_3z$ such that
-	 $ F_\pm(O  + e_1x + e_2y + e_3z) = 0 $ where  $ F_\pm(O  + e_1x + e_2y + e_3z) = (\dfrac{x}{a})^2 + (\dfrac{y}{b})^2 +(\dfrac{z}{c})^2 \pm 1 $
-	 $\nabla F = 2(e_1 \dfrac{x}{a^2} + e_2 \dfrac{y}{b^2} + e_3 \dfrac{z}{c^2})$ Then $ \nabla F = 0 \Leftrightarrow (x,y,z) = 0 $. Therefore $ F\big|_{\E^3 \setminus \{0\}} $ is a submersion. $\skal{\nabla F,v}= dF(v)$.
+	 $ F_\pm(O  + e_1x + e_2y + e_3z) = 0 $ where  
+	 	\[F_\pm(O  + e_1x + e_2y + e_3z) = \left(\dfrac{x}{a}\right)^2 + \left(\dfrac{y}{b}\right)^2 +\left(\dfrac{z}{c}\right)^2 \pm 1 \]
+	 and
+	 	\[ \nabla F = 2\left(e_1 \dfrac{x}{a^2} + e_2 \dfrac{y}{b^2} + e_3 \dfrac{z}{c^2}\right). \]
+	 Then $ \nabla F = 0 \Leftrightarrow (x,y,z) = 0 $. Therefore $ F\big|_{\E^3 \setminus \{0\}} $ is a submersion with $\skal{\nabla F,v}= dF(v)$.
 	\end{enumerate}
 \end{example}
 

@@ -221,7 +221,7 @@
 	Let $ Y(t) = X_u(u(t),v(t))x(t) + X_v(u(t),v(t))y(t) $ be a tangent field along a curve $ t \mapsto C(t) = X(u(t),v(t)). $
 	Compute the covariant derivative
 	\begin{align*}
-		\dfrac{D}{\partial t} 
+		\dfrac{D}{\partial t} Y 
 			&= X_ux' + (\nabla_{\!\!{\partial\over \partial u}} X_u u' + \nabla_{\!\!{\partial\over \partial v}} X_u v')x + X_vy' +  (\nabla_{\!\!{\partial\over \partial u}} X_v u' + \nabla_{\!\!{\partial\over \partial v}} X_v v')y \\[2mm]
 		 &= X_ux' + (X_u\Gamma_{11}^1 u' + X_v\Gamma_{11}^2u' + X_u \Gamma_{21}^1v' + X_v \Gamma_{21}^2v')x \\
 		 &\phantom{=} +  X_vy' + (X_u\Gamma_{12}^1 u' + X_v\Gamma_{12}^2u' + X_u \Gamma_{22}^1v' + X_v \Gamma_{22}^1v')y \\[2mm]
@@ -229,7 +229,7 @@
 	\end{align*}
 	Now, let $ Y = C' = X_u u' + X_v v' $, we get
 		\[ \dfrac{D}{\partial t} C' = X_u(u'' + \Gamma_{11}^1u'^2 + 2 \Gamma_{12}^1 u'v' +\Gamma_{22}^1 v'^2) + X_v(v'' + \Gamma_{11}^2u'^2 + 2\Gamma_{12}^2u'v' + \Gamma_{22}^2v'^2). \]
-	Then we learn that :
+	Then we learn that:
 	
 \begin{definition}
 	\emph{Geodesic Equation:} \label{Eq: geodesic}
