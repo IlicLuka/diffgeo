@@ -110,3 +110,117 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 	$ O + e_1x + e_2y $, where $ x^4 - x^2 + y^2 = 0 $. A regular parametrization is given by $ t \mapsto O + e_1 x(t) + e_2 y(t) = O + e_1 \sin(t) + e_2\sin(t)\cos(t). $ 
 	The curve has a self-intersection at $ (x(t),y(t))=(0,0) $ which is equivalent to $ \forall k \in \mathbb{Z} t = k\pi $. Hence this is not a $ 1$-Dimensional submanifold.
 \end{example}
+
+\begin{definition}
+	The tangent space of a $k$-dimensional submanifold $M \subset \E^n$ of $p \in M$ is the $k$-dimensional subspace
+		\[ T_pM = d_oX(\R^k) \subset \R^n \]
+	where $X: \R^k \supset V  \to \E^n$ is a parametrisation of $M$ around $p=X(o)$.
+\end{definition}
+
+\begin{remark}
+	$T_pM$ is independent of the parametrisation $X$.
+	
+	Let $\tilde X = X_o\mu$ around $p = \tilde X (\tilde o)$ where $\mu: \tilde V \to V $ is a diffeomorphism with $\mu(\tilde o)=o$. Then
+		\[ d_o\tilde X = d_{\tilde o}(X \circ \mu) = (d_oX)\circ d_{\tilde o}\mu. \]
+	Therefore
+		\[ d_{\tilde o}\tilde X(\R^k) = (d_oX)(d_{\tilde o}\mu(\R^k)) = d_oX(\R^k). \]
+\end{remark}
+
+\begin{remark}
+	If we have $M=F^{-1}(\{0\})$ is defined as the level set of a submersion $F: U \to \R^{n-k}$ then 
+		\[ T_pM = \ker d_pF. \]
+		
+	This follows from the following: 
+	$F \circ X=0$ for any parametrisation $X:V \to \E^n$ around $p=X(o)$. Then the chain rule gives us
+		\[ 0 = d_o(F \circ X) = (d_oF)\circ d_oX. \]
+		\[ 0= (d_pF)\circ (d_oX(\R^k)) = (d_pF)(T_pM). \]
+	Therefore $T_pM \subset \ker d_pF$. But since $F$ is a submersion $\dim (\ker d_pF)=k$ and $\dim(T_pM)=k$.
+\end{remark}
+
+\begin{example}
+	Lets consider a set of orthogonal maps 
+		\[ O(3)=\{ A \in GL(3): AA^T = id \}
+		= \{ A \in GL(3): F(A)=0 \} \]
+	where $F: GL(3) \to Sym(3), F(A) = AA^T-id$. $ Sym(3) $ is a $6$-dimensional vector space.
+	
+		\[ d_AF: End(\R^3) \to Sym(3), d_AF(B) = BA^T + AB^T. \]
+	This surjects since any element of $Sym(3)$ can be written as $Y+Y^T$ so let $B=YA$. Hence $F$ is a submersion and $O(3)$ is a $3$-dimensional submanifold of $End(\R^3) \approx M_{3 \times 3}$.
+		\[ d_AF(B) = 0 \quad \Longleftrightarrow \quad
+			BA^T + AB^T=0 \quad\Longleftrightarrow\quad
+			BA^T \in \square(3), \]
+	where $\square(3)$ is the skew-symmetric-endomorphisms. Therefore
+		\[ T_AO(3) = \{ B \in GL(3)= End(\R^3) | BA^T \in \square(3) \} \]
+	with is $3$-dimensional and
+		\[ T_ASO(3) = T_AO(3), \quad A \in SO(3). \]
+	
+	This is an example of a Lie-group
+\end{example}
+
+\begin{exercise}
+	Think about GL($n$) and $SL(3)$.
+\end{exercise}
+
+Fun-fact:
+	\[ End(\R^n) = Sym(n) \oplus \square(n). \]
+	
+\subsection{Functions on submanifolds}
+
+Perviosly functions, vector fields etc. were defined on open sets of affine spaces, where notions of differentiability makes sense.
+Now we want to consider functions on domains that are submanifolds of $\E^n$ To do this we define derivatives so that the chain rule holds.
+
+\begin{definition}
+	A function $\phi: M \to \E$ on a submanifold $M \subset \R^n$ is said to be differentiable at $p \in M$ with derivative
+		\[ d_p\phi := d_0(\phi \circ X) \circ (d_oX)^{-1} : T_pM \to \R  \]
+	uf $\phi_oX : \R^k \supset V \to \E$ is differentiable at $o$ for some local parametrisation $X: V \to M$ of $M$ around $p$ with $X(o)=p$.
+\end{definition}
+
+\begin{remark}
+	This definition makes sense as it does not depend on our choice of parametrisation $X$.
+	
+	Let $\tilde X= X \circ \psi$ is a reparametrisation at $p \in M$ for some diffeomorphism $\psi$ then $\phi \circ\tilde X = \phi  \circ  X\circ\psi$ is differentiable as soon as $\phi \circ X$ is differentiable. Moreover, if we assume $\psi(o)=o$ then 
+		\[ d_o(\phi \circ \tilde X) \circ (d_o\tilde X)^{-1}
+			= d_o(\phi \circ X \circ \psi) \circ (d_o(X \circ \psi))^{-1}
+			 \]
+		\[ = d_o(\phi \circ X) \circ d_o\psi \circ (d_o\psi)^{-1} \circ (d_oX)^{-1}
+		= d_o(\phi \circ X)  \circ (d_oX)^{-1}. \]
+	This definition can be easily generalised to $\E^n$-valued maps and thus to maps between submanifolds.
+\end{remark}
+
+\begin{remark}
+	Suppose that $\Phi: \E^n \to \E$ is differentiable and $M$ is a submanifold of $\E^n$. Thus $\phi:= \Phi \big|_M :M \to \E$ is differentiable with
+		\[ d_p\phi = d_p\Phi \big|_{T_pM} : T_pM \to \R, \quad p \in M. \] 
+	
+	Let $X: V \to M$ be a parametrisation of $M$ around $p=X(o)$, then $\phi \circ X = \Phi \circ X$ is differentiable and for $\xi = d_oX(x)$ then
+		\[ d_p\phi(\xi) = d_o(\phi \circ X) \circ (d_oX)^{-1}(\xi)
+			= d_0(\Phi \circ X)(x) = (d_{X(o)} \Phi) \circ d_oX(x)
+			= d_p\Phi(\xi). \]  
+\end{remark}
+
+\begin{definition}
+	Let $\phi: M \to \E$ be differentiable. Then the gradient of $\phi$ at $p \in M$ is the unique vector field $\grad \phi(p) \in T_pM$ with
+		\[ d_p\phi(\xi) = \skal{\xi, \grad \phi(p)}, \quad \forall \xi \in T_pM. \]
+	Since  $d_p\phi : T_pM \to \R $ , $d_p \phi \in (T_pM)^*$, with Riesz-Fischer $\exists!$ vector $v \in T_pM$ such that $d_p\phi= \skal{.,v}$
+\end{definition}
+
+\begin{example}
+	Suppose $\R^2 \supset V \in (u,v) \mapsto X(u,v) \in \E^3$ is a parametrised surface with $I= Edu^2 + 2Fdudv + Gdv^2$. Let
+		\[ X_u^*:= \frac 1{EG-F^2}(GX_u-FX_v), \quad
+			X_v^*:= \frac 1{EG-F^2} (-FX_u +EX_v) \in T_{(u,v)}X. \]
+	Cause
+		\[ \skal{X_u^*,X_u} = \skal{X_v^*,X_v}=1, \quad
+			\skal{X_u^*,X_v} = \skal{X_v^*,X_u} =0 \]
+	$X_u^*,X_v^*$ is a dual basis. 
+	
+	Now let $\phi : M= X(V) \to \E$ be a differentiable function and define $\psi := \phi \circ X$. Then $\xi = d_{(u,v)} X(x)  \in T_{X(u,v)}M$ and
+		\[ \skal{\grad \phi(X(u,v)), \xi} = d_{X(u,v)}\phi(\xi) = (d_{(u,v)}\psi)(x). \]
+	Thus 
+		\[\skal{ \grad \phi \circ X, X_u} = \psi_u, \quad \skal{ \grad \phi \circ X, X_v} = \psi_v.\]
+		
+	Hence 
+		\[ \grad \phi \circ X = X_u^*\psi_u + X_v^*\psi_v
+			= \frac {G\psi_u - F\psi_v}{EG-F^2}X_u + \frac {E\psi_v - F\psi_u}{EG-F^2}X_v, \]
+	where
+		\[ \grad \phi \circ X = V \to TM. \]
+\end{example}
+	
+
