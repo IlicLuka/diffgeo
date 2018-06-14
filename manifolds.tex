@@ -224,3 +224,56 @@ Now we want to consider functions on domains that are submanifolds of $\E^n$ To 
 \end{example}
 	
 
+Now we know how to differentiate functions on submanifolds : we can find analogues of notions such as I \& II, shape operator, covariant derivative.
+
+\begin{definition}
+	Let $  \xi $ be a tangential verctor field, i.e., $ \xi : M \rightarrow \R^n $ such that $ \forall p \in M(\xi(p) \in T_pM) $. Let $ \eta \in T_pM $. Then 	
+		\[ \nabla_\eta \xi \big|_p = (d_p\xi(\eta))^T = (d_o(\xi_oX)(y))^T \]
+	where $ X: V \rightarrow \E^n $ is a local parametrisation of $ M $ at $ p $ with $ p = X(o) $ and $ d_oX(y) = \eta $. As usual $ (\dots)^T $ denotes the tangential partm i.i., the orthogonal projection $ \R^n \rightarrow T_pM $. $ \nabla $ is called the \emph{Levi-Civita connection}.
+\end{definition}
+
+\begin{remark}
+	In case of parametrised surfaces $ X: V \rightarrow \E^3 $, $ M = X(V) $. Then $ Y:= xi : V \rightarrow \E^3 $ tangential vector field in the sense of chaper 2.
+		\[ \nabla_\eta \xi = \nabla_yY \quad d_{(u,v)}X(y) = \eta \quad X(u,v) = p \] 
+\end{remark}
+
+This yields a notion of second derivatives on surfaces:
+
+\begin{definition}
+	
+	The \emph{Hessian} of $ \phi: M \rightarrow \E $ at $ p \in M $
+		\[ T_pM \times T_pM \ni (\xi,\eta) \mapsto (hess \phi)\big|_p(\xi,\eta) = \skal{\eta,\nabla_\eta \mathrm{grad}\phi\big|_p } \]
+	is a symmetric tensor.
+	
+\end{definition}
+
+\begin{proof}
+	Exercise/technical.
+\end{proof}
+
+\begin{remark}
+	
+	The Hessian is the covariant derivative of $ d\phi: M \times TM \rightarrow \R $, $ \xi,\eta: M \rightarrow TM $
+		\[ hess\phi(\xi,\eta) = d(d\phi(\eta)(\xi)-d\phi(\nabla_\xi\eta) = ''(\nabla_\xi d\phi)(\eta)'' \]	
+\end{remark}
+
+The hessian depends on the covariant derivative, hence on the induced metric,not just on the differentiable structure on M.
+
+\begin{lemma}[Poincaré Lemma]
+	A tangential vector field $ \xi: M \rightarrow \R^n $ has a local potential, i.e., locally $ \xi = \mathrm{grad}\phi $, if and only if	
+		\[ (\nu,\eta) \mapsto \skal{\eta, \nabla_\nu \xi} \] is symmetric.
+\end{lemma}
+
+\begin{proof}
+	
+	We saw in the Lemma above that symmetrie of $ (\nu,\eta) \mapsto \skal{\eta,\nabla:\nu \xi} $ is a necessary condition for $ \xi = \mathrm{grad}\phi. $
+	For sufficiency, let $ X: V \rightarrow M \cap U $ be a local parametrisation. Let $ \xi_1, \dots, \xi_k : M \rightarrow \R^k$ be a tangential v.f. such that $ \xi_i \circ X = \dfrac{\partial X}{\partial x_i} = dX(\dfrac{\partial}{\partial x_i}) $.
+	Then given $ \xi: M \rightarrow \R^n $ we seek a function $ \psi: V\rightarrow \R $ such that $ \dfrac{\partial \psi}{\partial x_i} = \skal{\xi_i, \xi} \circ X $ . Then
+		\[ \dfrac{\partial}{\partial x_i}(\skal{\xi_i, \xi} \circ X) = \skal{ \dfrac{\partial}{\partial x_i}(\xi:j \circ X), \xi \circ X}+ \skal{\xi_j \circ X, \dfrac{\partial}{\partial x_i}(\xi \circ X)} \] then by the Leibniz rule:
+		$\ddots$
+	
+	LHS is symmetric as soon as $ \skal{ \xi_j, \nabla_{\xi_i} \xi} $ is.
+	(N.B. $ \nabla_{\xi_i}\xi_i $ because $ \nabla $ is ''torsion free''.)
+	By Poincaré's Lemma $ \exists \psi: V \rightarrow \R $ such that $ \dfrac{\partial \psi}{\partial x_i}= \skal{\xi_i,\xi} \circ X $.
+	Now define $ \phi = \psi \circ X^{-1}: X(v) \rightarrow \R $. Check that $ \xi = \mathrm{grad}\phi $.
+\end{proof}
