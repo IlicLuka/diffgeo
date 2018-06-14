@@ -270,7 +270,8 @@ The hessian depends on the covariant derivative, hence on the induced metric,not
 	For sufficiency, let $ X: V \rightarrow M \cap U $ be a local parametrisation. Let $ \xi_1, \dots, \xi_k : M \rightarrow \R^k$ be a tangential v.f. such that $ \xi_i \circ X = \dfrac{\partial X}{\partial x_i} = dX(\dfrac{\partial}{\partial x_i}) $.
 	Then given $ \xi: M \rightarrow \R^n $ we seek a function $ \psi: V\rightarrow \R $ such that $ \dfrac{\partial \psi}{\partial x_i} = \skal{\xi_i, \xi} \circ X $ . Then
 		\[ \dfrac{\partial}{\partial x_i}(\skal{\xi_i, \xi} \circ X) = \skal{ \dfrac{\partial}{\partial x_i}(\xi:j \circ X), \xi \circ X}+ \skal{\xi_j \circ X, \dfrac{\partial}{\partial x_i}(\xi \circ X)} \] then by the Leibniz rule:
-		$\ddots$
+		\[ =\skal{\D{x_i} (\xi_j \circ X), \xi \circ X} + \skal{\xi_j \circ X,\D{x_i} (\xi \circ X)}
+		= \left[ \skal{\D{\xi_i}\xi_j , \xi} + \skal{\xi_j, \D{\xi_i}\xi} \right]\circ X \]
 	
 	LHS is symmetric as soon as $ \skal{ \xi_j, \nabla_{\xi_i} \xi} $ is.
 	(N.B. $ \nabla_{\xi_i}\xi_i $ because $ \nabla $ is ''torsion free''.)
