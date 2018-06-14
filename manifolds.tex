@@ -139,17 +139,17 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 
 \begin{example}
 	Lets consider a set of orthogonal maps 
-		\[ O(3)=\{ A \in GL(3): AA^T = id \}
-		= \{ A \in GL(3): F(A)=0 \} \]
-	where $F: GL(3) \to Sym(3), F(A) = AA^T-id$. $ Sym(3) $ is a $6$-dimensional vector space.
+		\[ O(3)=\{ A \in \mathrm{GL}(3): AA^T = id \}
+		= \{ A \in \mathrm{GL}(3): F(A)=0 \} \]
+	where $F: \mathrm{GL}(3) \to \mathrm{Sym}(3), F(A) = AA^T-id$. $ \mathrm{Sym}(3) $ is a $6$-dimensional vector space.
 	
-		\[ d_AF: End(\R^3) \to Sym(3), d_AF(B) = BA^T + AB^T. \]
-	This surjects since any element of $Sym(3)$ can be written as $Y+Y^T$ so let $B=YA$. Hence $F$ is a submersion and $O(3)$ is a $3$-dimensional submanifold of $End(\R^3) \approx M_{3 \times 3}$.
+		\[ d_AF: \mathrm{End}(\R^3) \to \mathrm{Sym}(3), d_AF(B) = BA^T + AB^T. \]
+	This surjects since any element of $\mathrm{Sym}(3)$ can be written as $Y+Y^T$ so let $B=YA$. Hence $F$ is a submersion and $O(3)$ is a $3$-dimensional submanifold of $\mathrm{End}(\R^3) \approx M_{3 \times 3}$.
 		\[ d_AF(B) = 0 \quad \Longleftrightarrow \quad
 			BA^T + AB^T=0 \quad\Longleftrightarrow\quad
 			BA^T \in \square(3), \]
 	where $\square(3)$ is the skew-symmetric-endomorphisms. Therefore
-		\[ T_AO(3) = \{ B \in GL(3)= End(\R^3) | BA^T \in \square(3) \} \]
+		\[ T_AO(3) = \{ B \in \mathrm{GL}(3)= \mathrm{End}(\R^3) | BA^T \in \square(3) \} \]
 	with is $3$-dimensional and
 		\[ T_ASO(3) = T_AO(3), \quad A \in SO(3). \]
 	
@@ -157,21 +157,21 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 \end{example}
 
 \begin{exercise}
-	Think about GL($n$) and $SL(3)$.
+	Think about $\mathrm{GL}(n)$ and SL$(3)$.
 \end{exercise}
 
 Fun-fact:
-	\[ End(\R^n) = Sym(n) \oplus \square(n). \]
+	\[ \mathrm{End}(\R^n) = \mathrm{Sym}(n) \oplus \square(n). \]
 	
 \subsection{Functions on submanifolds}
 
 Perviosly functions, vector fields etc. were defined on open sets of affine spaces, where notions of differentiability makes sense.
-Now we want to consider functions on domains that are submanifolds of $\E^n$ To do this we define derivatives so that the chain rule holds.
+Now we want to consider functions on domains that are submanifolds of $\E^n$. To do this we define derivatives so that the chain rule holds.
 
 \begin{definition}
 	A function $\phi: M \to \E$ on a submanifold $M \subset \R^n$ is said to be differentiable at $p \in M$ with derivative
 		\[ d_p\phi := d_0(\phi \circ X) \circ (d_oX)^{-1} : T_pM \to \R  \]
-	uf $\phi_oX : \R^k \supset V \to \E$ is differentiable at $o$ for some local parametrisation $X: V \to M$ of $M$ around $p$ with $X(o)=p$.
+	if $\phi_oX : \R^k \supset V \to \E$ is differentiable at $o$ for some local parametrisation $X: V \to M$ of $M$ around $p$ with $X(o)=p$.
 \end{definition}
 
 \begin{remark}
@@ -242,7 +242,7 @@ This yields a notion of second derivatives on surfaces:
 \begin{definition}
 	
 	The \emph{Hessian} of $ \phi: M \rightarrow \E $ at $ p \in M $
-		\[ T_pM \times T_pM \ni (\xi,\eta) \mapsto (hess \phi)\big|_p(\xi,\eta) = \skal{\eta,\nabla_\eta \mathrm{grad}\phi\big|_p } \]
+		\[ T_pM \times T_pM \ni (\xi,\eta) \mapsto (\mathrm{hess} \phi)\big|_p(\xi,\eta) = \skal{\eta,\nabla_\eta \mathrm{grad}\phi\big|_p } \]
 	is a symmetric tensor.
 	
 \end{definition}
@@ -254,10 +254,10 @@ This yields a notion of second derivatives on surfaces:
 \begin{remark}
 	
 	The Hessian is the covariant derivative of $ d\phi: M \times TM \rightarrow \R $, $ \xi,\eta: M \rightarrow TM $
-		\[ hess\phi(\xi,\eta) = d(d\phi(\eta)(\xi)-d\phi(\nabla_\xi\eta) = ''(\nabla_\xi d\phi)(\eta)'' \]	
+		\[ \mathrm{hess}\phi(\xi,\eta) = d(d\phi(\eta)(\xi)-d\phi(\nabla_\xi\eta) = ''(\nabla_\xi d\phi)(\eta)'' \]	
 \end{remark}
 
-The hessian depends on the covariant derivative, hence on the induced metric,not just on the differentiable structure on M.
+The Hessian depends on the covariant derivative, hence on the induced metric,not just on the differentiable structure on M.
 
 \begin{lemma}[Poincaré Lemma]
 	A tangential vector field $ \xi: M \rightarrow \R^n $ has a local potential, i.e., locally $ \xi = \mathrm{grad}\phi $, if and only if	
