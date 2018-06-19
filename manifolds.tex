@@ -16,7 +16,7 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 \end{definition}
 
 \begin{definition}[2. A submanifold is locally a level set]
-	$M \subset \E^n$ is a $k$-dimensional submanifold of $\E^n$ if for all $p \in M$ there exist open neighbourhood $U \subset \E^n$ of $p$ and a submersion $F. U \to \R^{n-k}$ such that
+	$M \subset \E^n$ is a $k$-dimensional submanifold of $\E^n$ if for all $p \in M$ there exist open neighbourhood $U \subset \E^n$ of $p$ and a submersion $F: U \to \R^{n-k}$ such that
 		\[ M \cap U = F^{-1}\{0\}. \]
 	Where $dpF: \R^n \to \R^{n-k}$ surjects for all $p \in U$.
 \end{definition}
@@ -46,7 +46,7 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 	
 	For $\R^n = \R^k \oplus \R^{n-k}$ we define the submersions
 		\[ \pi_1: \R^k \oplus \R^{n-k} \to \R^k, (x,y) \mapsto x, \]
-		\[ \pi_2: \R^k \oplus \R^{n-k} \to \R^k, (x,y) \mapsto y. \]
+		\[ \pi_2: \R^k \oplus \R^{n-k} \to \R^{n-k}, (x,y) \mapsto y. \]
 	First we proof $1.$ implies $2.$:
 	
 	Let $F:= \pi_2 \circ \phi: U \to \R^{n-k}$. $F$ is a submersion.
@@ -138,7 +138,7 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 \end{remark}
 
 \begin{example}
-	Lets consider a set of orthogonal maps 
+	Lets consider the set of orthogonal maps 
 		\[ O(3)=\{ A \in \mathrm{GL}(3): AA^T = id \}
 		= \{ A \in \mathrm{GL}(3): F(A)=0 \} \]
 	where $F: \mathrm{GL}(3) \to \mathrm{Sym}(3), F(A) = AA^T-id$. $ \mathrm{Sym}(3) $ is a $6$-dimensional vector space.
