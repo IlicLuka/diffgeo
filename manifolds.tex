@@ -442,7 +442,17 @@ However, we obtain a \emph{local flow}.
 	\end{itemize}
 \end{remark}
 
-\vdots Jojo einfüüüüügen.
+\begin{definition}
+	Thus with the Lie bracket as multiplication, the vector space of smooth vector fields is a \emph{Lie algebra}. This defines a Lie algebra.
+\end{definition}
+
+\begin{remark}
+	We saw in the above proof that $[\xi_i,\xi_j]=0$. ww know from a previous lemma that
+	\[ \nabla_{\xi_i} \xi_j - \nabla_{\xi_j}\xi_i = 0 \]
+	for $\nabla$ the Levi-Civita connection. One can deduce that
+	\[ [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi  \] 
+	for all vector fields $\xi,\eta$ on $M$. This property of $\nabla$ is known as ''torsion free''.
+\end{remark}
 
 \begin{definition}
 	
@@ -451,7 +461,14 @@ However, we obtain a \emph{local flow}.
 \end{definition}
 
 \begin{example}
-	Not all vector fields commute. $ M = X(V) $, $ X: \R^2 \supseteq V \rightarrow \E^3 $ parametrized surface. Let $ \xi_i:V \rightarrow \R^, \xi_i\circ X = \frac{\partial X}{\partial x_i}. $ Let $ Y = \xi_1 + a\xi_2 $ where $ a $ satisfies $ a\circ X = \phi_1(x) = x_1 $. Then $ [\xi,Y] = [\xi_1,\xi_1] + [\xi_1,a\xi_2] = (\xi_1a)\xi_2 $
-		\[ (\xi_1 a) \circ X = (da(\xi_1))\circ X = d(a \circ X) \circ (dX^{-1})(\xi_1).   \]
+	Not all vector fields commute. $ M = X(V) $, $ X: \R^2 \supseteq V \rightarrow \E^3 $ parametrized surface. Let $ \xi_i:V \rightarrow \R^, \xi_i\circ X = \frac{\partial X}{\partial x_i}. $ Let $ Y = \xi_1 + a\xi_2 $ where $ a $ satisfies $ a\circ X = \phi_1(x) = x_1 $. Since 
+		\[ [\xi_1, a\xi_2]\varphi
+		= \xi_1(a\xi_2 \varphi)- a\xi_2(\xi_1\varphi)
+		= (\xi_1 a)\xi_2\varphi + a\xi_2(\xi_1\varphi) - a\xi_2(\xi_1\varphi)
+		= (\xi_1 a)\xi_2\varphi \]
+	we get 
+		\[ [\xi_1,Y] = [\xi_1,\xi_1] + [\xi_1,a\xi_2] = (\xi_1a)\xi_2 \]
+	and 
+		\[ (\xi_1 a) \circ X = (da(\xi_1))\circ X = d(a \circ X) \circ (dX^{-1})(\xi_1) = \frac {\partial \pi_1}{\partial x_1} = 1.   \]
 	Hence, $ [\xi_1,Y] = \xi_2 \neq 0 $.
 \end{example}
