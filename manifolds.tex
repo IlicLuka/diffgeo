@@ -368,7 +368,7 @@ The flow for some fixed $p= O+e_1u +e_2v$ is
 	\[ \Phi_t(p): (-1-u, 1-u) \ni t \mapsto O+e_1(u+t)+e_2 v. \]
 Therefore we cannot obtain a $1$-parameter group of diffeomorphisms $M \to M$.
 
-However, we obtain a \emph{local flow}
+However, we obtain a \emph{local flow}.
 	
 \begin{remark}
 	In general, the maximal flow $\Phi : W \to M$ is a local flow, i.e., There exists an open neighbourhood $(-\varepsilon , \varepsilon) \times U \subset M$ of $(0,p)$ for any point $p \in M$ such that
@@ -387,3 +387,71 @@ However, we obtain a \emph{local flow}
 		i.e., $C$ is the integral curve of $\xi$ through $\Phi_t(q)$. Hence by uniqueness $C(s)=\Phi_s\circ \Phi_t(q)$.
 	\end{enumerate}
 \end{proof}
+
+\begin{remark}
+	
+	$ \xi: M \rightarrow \R^n $ is a tangential vector field and let $ \phi : M \rightarrow \R $ be a differentiable function. Then we define a new function
+		\[ \xi\phi: M \rightarrow \R, \quad p \mapsto (\xi\phi)(p) := (d_p\phi)(\xi(p)). \]
+	Thus, we can think of a vector field $ \xi $ as a differential operator yielding a directional derivative of $ \phi $ at each point. In particular, $ \phi \mapsto \xi\phi $ is linear and the Leibniz-rule
+		\[ \xi(\phi\psi) = (\xi\phi)\psi + \phi(\xi\psi) \]
+	holds.
+	In abstract definition of manifolds, vector fields are often characterized in this way.
+	
+\end{remark}
+
+\begin{lemma}
+	If ($ (\xi\phi)(p) = 0 $ for all functions $ \phi: M \rightarrow\R $ then $ \xi(p) = 0 $
+\end{lemma}
+\begin{proof}
+	
+	Let $ X : V \rightarrow M $ be a local parametrization of $ M $ around $ p = X(o) $.
+	Consider the ''coordinate functions'':
+		\[ \phi_i = \pi_i \circ X^{-1}: X(v) \rightarrow \R \]
+	where $ \pi_i:\R^k \rightarrow \R, \quad (y_1, \dots, y_k)^t \mapsto y_i $.
+	We use these as test functions: Let  $ y = (y_1, \dots, y_k)^ \in \R^k $ such that $ \xi(p) = d_oX(y). $ Then $ (\xi\phi_i)(p) = (d_o\phi_i)(\xi(p))= d_o(\phi_i \circ X)(d_oX)^{-1}(d_oX(y)) = d_o\pi_i(y) = y_i $. This holds for all $ i $ thus $ y = 0 \Rightarrow \xi(p) = 0 $.
+	
+\end{proof}
+
+\begin{lemma, definition}
+	
+	Let $ \circ, \eta $ ne smooth vector fields on $ M $. Then there is exactly one vetor field $ [\xi,\eta] $ on $ M $ such that, for every smooth function $ \varphi:M \rightarrow \R, $
+		\[ [\xi,\eta]\varphi = \xi(\eta\varphi)-\eta(\xi\varphi). \]
+	$ [\xi,\eta] $ is called the \emph{Lie bracket of $ \xi $ and $ \eta $}.
+	
+\end{lemma, definition}
+
+\begin{proof}
+	
+	Let $ X: V \rightarrow M $ be a parametrisation of $ M $ around $ p $. Let $ \xi_i $ be a vector field such that $ \xi_i \circ X = \frac{\partial X}{\partial x_i}. $ Thus 
+		\[ (\xi_i \phi) \circ X = (d\phi)(\xi_i) = d(\phi_oX) \circ dX^{-1}(\xi_i \circ X) = d(\phi \circ X)(\frac{\partial}{\partial x_i}) = \frac{\partial}{\partial x_i}(\phi \circ X). \]
+	 Then
+	 	\[ (\xi_i(\xi_j \phi) - \xi_j(\xi_i \phi)) \circ X = \frac{\partial}{\partial x_i}(\xi_j\phi \circ X) - \frac{\partial}{\partial x_j}(\xi_i\phi \circ X) = \frac{\partial}{\partial x_i}(\frac{\partial(\phi \circ X)}{\partial x_j} - \frac{\partial}{\partial x_j}\frac{\partial(\phi \circ X)}{\partial x_i}) = 0 \]
+	since mixed partial derivatives commute.
+	
+	$ \{ \xi_1(p), \dots, \xi_k(p) \} $ for a basis for $ T_pM, \forall p \in M $ Write $ \xi = \sum_{i =1}^{k} \alpha_i \xi_i $ and $ \eta = \sum_{i=1}^{k}\beta_i \xi_i $ for some differentiable functions $ \alpha_i,\beta_i $. Now, by the Leibniz rule
+		\[ \xi(\eta \phi) - \eta(\xi \phi) = \sum_{i =1}^{k} \sum_{j =1}^{k} (\alpha_j ( \xi_j \beta_i) - \beta_j(\xi_j\alpha_i))(\xi_i\phi_i). \]
+	Thus with $ [\xi,\eta] := \sum_{j =1}^{k} (\alpha_j ( \xi_j \beta_i) - \beta_j(\xi_j\alpha_i))\xi_i $ we have that 
+		\[ [\xi,\eta]\phi = \xi(\eta\phi)-\eta[\xi\phi] \] for all functions $ \phi: M \rightarrow \R $. By the previous lemma, this is the unique vector field with this property.
+\end{proof}
+
+\begin{remark}
+	Properties of Lie bracket:
+	\begin{itemize}
+		\item skew symmetric: $ [\xi,\eta] = - [\eta,\xi] $ and
+		\item Jacobi identity: $ [\xi, [\eta,\zeta]] + [\zeta,[\xi,\eta]] + [\eta,[\zeta,\xi]] = 0 $.
+	\end{itemize}
+\end{remark}
+
+\vdots Jojo einfüüüüügen.
+
+\begin{definition}
+	
+	Two vector fields $ \xi, \eta $ \emph{commute} if $ [\xi,\eta] = 0 $.
+	
+\end{definition}
+
+\begin{example}
+	Not all vector fields commute. $ M = X(V) $, $ X: \R^2 \supseteq V \rightarrow \E^3 $ parametrized surface. Let $ \xi_i:V \rightarrow \R^, \xi_i\circ X = \frac{\partial X}{\partial x_i}. $ Let $ Y = \xi_1 + a\xi_2 $ where $ a $ satisfies $ a\circ X = \phi_1(x) = x_1 $. Then $ [\xi,Y] = [\xi_1,\xi_1] + [\xi_1,a\xi_2] = (\xi_1a)\xi_2 $
+		\[ (\xi_1 a) \circ X = (da(\xi_1))\circ X = d(a \circ X) \circ (dX^{-1})(\xi_1).   \]
+	Hence, $ [\xi_1,Y] = \xi_2 \neq 0 $.
+\end{example}
