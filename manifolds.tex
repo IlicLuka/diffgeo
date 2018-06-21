@@ -228,8 +228,8 @@ Now we know how to differentiate functions on submanifolds : we can find analogu
 
 \begin{definition}
 	Let $  \xi $ be a tangential verctor field, i.e., $ \xi : M \rightarrow \R^n $ such that $ \forall p \in M(\xi(p) \in T_pM) $. Let $ \eta \in T_pM $. Then 	
-		\[ \nabla_\eta \xi \big|_p = (d_p\xi(\eta))^T = (d_o(\xi_oX)(y))^T \]
-	where $ X: V \rightarrow \E^n $ is a local parametrisation of $ M $ at $ p $ with $ p = X(o) $ and $ d_oX(y) = \eta $. As usual $ (\dots)^T $ denotes the tangential partm i.i., the orthogonal projection $ \R^n \rightarrow T_pM $. $ \nabla $ is called the \emph{Levi-Civita connection}.
+		\[ \nabla_\eta \xi \big|_p = (d_p\xi(\eta))^T = (d_o(\xi \circ X)(y))^T \]
+	where $ X: V \rightarrow \E^n $ is a local parametrisation of $ M $ at $ p $ with $ p = X(o) $ and $ d_oX(y) = \eta $. As usual $ (\dots)^T $ denotes the tangential part, i.e., the orthogonal projection $ \R^n \rightarrow T_pM $. $ \nabla $ is called the \emph{Levi-Civita connection}.
 \end{definition}
 
 \begin{remark}
@@ -266,7 +266,7 @@ The Hessian depends on the covariant derivative, hence on the induced metric,not
 
 \begin{proof}
 	
-	We saw in the Lemma above that symmetrie of $ (\nu,\eta) \mapsto \skal{\eta,\nabla:\nu \xi} $ is a necessary condition for $ \xi = \mathrm{grad}\phi. $
+	We saw in the Lemma above that symmetry of $ (\nu,\eta) \mapsto \skal{\eta,\nabla:\nu \xi} $ is a necessary condition for $ \xi = \mathrm{grad}\phi. $
 	For sufficiency, let $ X: V \rightarrow M \cap U $ be a local parametrisation. Let $ \xi_1, \dots, \xi_k : M \rightarrow \R^k$ be a tangential v.f. such that $ \xi_i \circ X = \dfrac{\partial X}{\partial x_i} = dX(\dfrac{\partial}{\partial x_i}) $.
 	Then given $ \xi: M \rightarrow \R^n $ we seek a function $ \psi: V\rightarrow \R $ such that $ \dfrac{\partial \psi}{\partial x_i} = \skal{\xi_i, \xi} \circ X $ . Then
 		\[ \dfrac{\partial}{\partial x_i}(\skal{\xi_i, \xi} \circ X) = \skal{ \dfrac{\partial}{\partial x_i}(\xi:j \circ X), \xi \circ X}+ \skal{\xi_j \circ X, \dfrac{\partial}{\partial x_i}(\xi \circ X)} \] then by the Leibniz rule:
@@ -277,4 +277,113 @@ The Hessian depends on the covariant derivative, hence on the induced metric,not
 	(N.B. $ \nabla_{\xi_i}\xi_i $ because $ \nabla $ is ''torsion free''.)
 	By Poincaré's Lemma $ \exists \psi: V \rightarrow \R $ such that $ \dfrac{\partial \psi}{\partial x_i}= \skal{\xi_i,\xi} \circ X $.
 	Now define $ \phi = \psi \circ X^{-1}: X(v) \rightarrow \R $. Check that $ \xi = \mathrm{grad}\phi $.
+\end{proof}
+
+\begin{lemma}
+	Suppose that $X: \R^n \supset V \to \E^n$ is a local parametrisation of $M \subset \E^n$. Then
+		\[ \nabla_{\xi_i}\xi_j - \nabla_{\xi_j}\xi_i=0, \]
+	where $\xi_i,\xi_j$ are vector fields so that $\xi_i \circ X = \frac{\partial X}{\partial x_i} , \xi_j \circ X = \frac{\partial X}{\partial x_j}=dX\left( \frac \partial{\partial x_j} \right)$.
+\end{lemma}
+
+\begin{proof}
+	\[ \left( \nabla_{\xi_i}\xi_j \right) \circ X = \left( d\xi_j (\xi_i)\circ X \right)^T
+		= \left( d(\xi_j \circ X)dX^{-1} ( \xi_i \circ X) \right)^T\]
+	\[ = \left( d\left( \frac{\partial X}{\partial x_j}\right)  \left( \frac \partial {\partial x_i}\right)\right)^T = \left( \frac {\partial^2 X}{\partial x_j \partial x_i}   \right)^T. \]
+	similarly 
+		\[ \left( \nabla_{\xi_j}\xi_i \right) \circ X = \left( \frac {\partial^2 X}{\partial x_i \partial x_j}   \right)^T . \]
+	Since Schwarz the mixed partial derivatives commute, nothing is left to proof.
+\end{proof}
+
+\subsection{Vector fields and flows}
+
+\begin{definition}
+	Let $\xi : M \to \R^n$ be a (tangential) vector field on a $k$-dimensional submanifold $M \subset \E^n$. A curve $C: I \to M$ on an open interval $I \subset \R$ is called an \emph{integral curve of $\xi$} if
+		\[ C' = \xi \circ C. \]
+	It is maximal if it cannot be extended as an integral curve.
+\end{definition}
+
+\begin{remark}
+	We do not require regularity. For example we could have $\xi=0$. Then all integral curves are constant.
+\end{remark}
+
+\begin{lemma}
+	Through any point $p \in M$ passes a unique maximal integral curve of a vector field $\xi$.
+\end{lemma}
+
+\begin{proof}
+	Let $X: V \to M$ be a local parametrisation of $M$ around $X(o)=p \in M$ and write $\xi \circ X = dX(y)$, i.e.,
+		\[ \xi \circ X(\tilde o) = d_{\tilde o} X(y(\tilde o)) \]
+	for all $\tilde o \in V$ and $y : V \to \R^k$.
+	
+	The ansatz $C= X \circ \gamma$ yields
+		\[ C' = \xi \circ C  \]
+	iff
+		\[ dX \circ \gamma' = dX(y \circ \gamma). \]
+	Since $d_{\tilde o}X$ is an isomorphism for all $\tilde o \in V$, this holds for all $\gamma' = y \circ \gamma$. Then by applying Picard-Lindelöf then the initial-value-problem (IVP) 
+		\[ \gamma' = y \circ \gamma, \qquad \gamma(0)=o \]
+	has a solution $\gamma: J \to V$ on some open interval $J \subset \R$ with $0 \in J$. This is unique up to extension.
+\end{proof}
+
+The max integral curves of a vector field $\xi$ can be assembled into a single map.
+
+\begin{theorem, definition}
+	Give a smooth tangential vector field $\xi$ on a submanifold $M$. There exists an unique smooth map called its \emph{maximal flow}
+		\[ \Phi : W \to M, \quad (t,p) \mapsto \Phi_t(p) \]
+	on an open neighbourhood $W$ of $\{0\}\times M \subset \R\times M$ so that 
+	\begin{enumerate}
+		\item $\Phi_0=id$
+		\item $I_p:= \{ t| (t,p) \in W \}$ is an open interval containing $0$ for all $p \in M$
+		\item $I_p \ni t \mapsto \Phi_i (p)$ is the maximal integral curve of $\xi$ through $p$.
+	\end{enumerate}
+\end{theorem, definition}
+
+\begin{proof}
+	1),2) and 3) uniquely define $\Phi$.
+	
+	Check that $W=\bigcup_{p \in M } I_p \times \{p\}$ is an open subset of $\R \times M$ and  that $\Phi$ is smooth. The smoothness dependence on the initial conditions. 
+\end{proof}
+
+\begin{remark, definition}
+	If $M \subset \E^n$ is compact (closed and bounded) or more generally, $\xi$ is compactly supported on $M$, i.e., there exists a compact $V \subset M$ such that $\xi |_{M \setminus V}=0$, then
+		\[ W=\R \times M, \text{ anf} \Phi_{s+t} = \Phi_s \circ \Phi_t. \]
+	Moreover $\Phi_t : M \to M$ is a diffeomorphism for any fixed $t \in \R$ and thus $\Phi: \R \times M \to M$ defines a $1$-parameter group of diffeomorphisms. This is a subgroup of the group of diffeomorphisms from $M$ to $M$ and is often called \emph{flow}.
+\end{remark, definition}
+
+\begin{example}
+	Let $M = \{ p \in \E^3 : \skal{p-O,p-O} =1 \}$ be the unit sphere centred around $O$. Define $\xi(p)= e_3 \times (p-O)$. This resembles the rotation of the earth.
+	
+	If we write $p=O+ e_1x+e_2y+e_3z$ then 
+		\[ \xi(p)=-e_1y + e_2x \]
+	and 
+		\[ \Phi_t(p)=e_1(x\cos t -y\sin t) + e_2 (x \sin t + y \cos t) + e_3z. \]
+\end{example}
+
+\begin{remark}
+	(c.f., $C_t(s)$ in Clairaut's theorem) resembles the flow $\Phi_t(C(s))$ on a surface of revolution.
+\end{remark}
+
+WARNING: In the case $\xi$ is not compactly supported there may not be an $\varepsilon>0$ such that $W \supset (-\varepsilon,\varepsilon) \times M$. For example, with
+	\[ M= \{ O+e_1u + e_2v : \abs{u}<1 \} \subset \E^2 \text{ and } \xi = \pmat{1\\0}. \]
+The flow for some fixed $p= O+e_1u +e_2v$ is 
+	\[ \Phi_t(p): (-1-u, 1-u) \ni t \mapsto O+e_1(u+t)+e_2 v. \]
+Therefore we cannot obtain a $1$-parameter group of diffeomorphisms $M \to M$.
+
+However, we obtain a \emph{local flow}
+	
+\begin{remark}
+	In general, the maximal flow $\Phi : W \to M$ is a local flow, i.e., There exists an open neighbourhood $(-\varepsilon , \varepsilon) \times U \subset M$ of $(0,p)$ for any point $p \in M$ such that
+	\begin{enumerate}
+		\item $\Phi_t |_{U}: U \to \Phi_t(U)$ is a diffeomorphism for all $t \in (-\varepsilon,\varepsilon)$
+		\item $\Phi_{s+t}(q) = (\Phi_s \circ \Phi_t)(q)$ wherever $q \in U$ and $s,t,a+t \in (-\varepsilon,\varepsilon)$
+	\end{enumerate}
+\end{remark} 
+
+\begin{proof}
+	\begin{enumerate}
+		\item Fix $p \in M$. Since $W \subset \R \times M$ there exists an open neighbourhood $U$ of $p$ and an $\varepsilon>0$ such that $(-\varepsilon,\varepsilon) \times U \subset E$ (box topology). Since $\Phi_0 |_{U} = id_U$ is a diffeomorphism, by inertia, $\Phi_t|_U$ is a diffeomorphism for all $t \in (-\varepsilon,\varepsilon)$. Perhaps after shrinking.
+		
+		\item Suppose $s \mapsto C(s)= \Phi_{s+t}(q)$ for a fixed $t$. Then 
+		\[ C'(s) = \xi \circ C(s)\text{ and } C(0)=\Phi_t(q) \in M, \]
+		i.e., $C$ is the integral curve of $\xi$ through $\Phi_t(q)$. Hence by uniqueness $C(s)=\Phi_s\circ \Phi_t(q)$.
+	\end{enumerate}
 \end{proof}
