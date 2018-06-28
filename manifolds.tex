@@ -602,15 +602,72 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 			
 \end{proof}
 
-Hence there exists a local parametrisation $X: \R^2 \supset V \to M$ such that
+
+\begin{corollary}
+	A surface of constant mean curvature ($ H \equiv const. $) $ M \subseteq \E^3 $ admits (away from umbilics) local conformal curvature line coordinates.
+\end{corollary}
+
+\begin{proof}
+	
+	Let $ (\xi,\eta) $ be a principal orthonormal local basis field (around umbilics these  may not exist.) Then 
+		\[ \s \xi = \kappa^+\xi, \quad \s \eta = \kappa^-\eta \]
+		with $ \kappa^pm = H \pm e^{-2 \phi} $ for some function $ \phi: M \rightarrow \R $.
+	Then 
+		\[ [ e^\phi \xi, e^\phi \eta ] =  e^{-2\phi}[\xi,\eta] + 2e^{-2\phi}((\xi \phi)\eta - (\eta\phi)\xi. \]
+	By the above Lemma
+		\[ [\xi,\eta] = - \dfrac{1}{2e^{-2\phi}}[(\eta e^{-2\phi})ßxi + (-\xi e^{-2\phi})\eta] = - \dfrac{1}{2} e^{2\phi}[ -2e^{-2\phi}(\eta \phi)\xi + 2e^{-2\phi}(\xi \phi) \eta ] = (\eta \phi)\xi - (\xi \phi)\eta. \]
+	Hence, $ [ e^\phi \xi , e^\phi \eta ] = 0 $.	
+	
+	
+	Hence there exists a local parametrisation $X: \R^2 \supset V \to M$ such that
 	\[ e^\varphi \xi \circ X= \p Xu, \text{ and } e^\varphi \eta \circ X = \p Xv. \]
-Therefore $X_u$ and $X_v$ are eigendirections of $\s$, hence $(u,v)$ are curvature line coordinates. Moreover
+	Therefore $X_u$ and $X_v$ are eigendirections of $\s$, hence $(u,v)$ are curvature line coordinates. Moreover
 	\[ \skal{X_u, X_v} = e^{2\varphi} \skal{\xi \circ X , \eta \circ X} = 0 \]
-and
+	and
 	\[ \abs{X_u} = \abs{X_v} = e^\varphi. \]
-Hence $I= e^{2\varphi} (du^2,dv^2)$ and $(u,v)$ are conformal.
+	Hence $I= e^{2\varphi} (du^2,dv^2)$ and $(u,v)$ are conformal.
+\end{proof}
 
 \begin{corollary}
 	A surface of constant Gauss curvature admits local curvature line coordinates such that for a suitable function $\omega$
-		\[ I= \cos^2 \omega du^2 + \sin^2\omega xdv^2. \] 
+	\[ I= \cos^2 \omega du^2 + \sin^2\omega xdv^2. \] 
 \end{corollary}
+
+\begin{proof}
+	Since $K= \kappa^+\kappa^- = -c^2$ for some non-zero $c \in \R$, we may write $\kappa^+ = c \tan \omega$ and $\kappa^- = -c \cot \omega$ for some function $\omega: M \to \left( 0,\frac \pi 2 \right)$. Now for a principle orthonormal local basis field $(\xi,\eta)$
+		\[ [\cos \omega \xi , \sin \omega\eta] = \cos\omega\sin\omega[\xi,\eta]	+ \cos^2 \omega(\xi\omega)\eta + \sin^2\omega(\eta\omega)\xi.  \] 
+	Using the previous lemma
+		\[ [\xi,\eta] = -\tan \omega(\eta\omega)\xi- \cot\omega(\xi\omega)\eta. \]
+	Hence, 
+		\[ [\xi,\eta]=0 \]
+	and thus there exists a local parametrisation $X: B \to M$ such that
+		\[ \cos\omega\xi\circ X = \p Xu \text{ and } \sin\omega\eta \circ X = \p Xv. \]
+	Since $\xi,\eta$ are principle vector fields, $\p Xu$ and $\p Xv$ are eigendirections of $\s$. Hence $(u,v)$ are curvature line coordinates. Moreover
+		\[ I= \cos^2 \omega du^2 + \sin^2\omega xdv^2. \] 
+\end{proof}
+
+\begin{corollary}
+	Any surface of constant negative Gauss curvature admits locally \emph{asymptotic Chebyshev nets}, i.e., parametrisations such that the parameter lines are asymptotic and arc-length parametrised.
+\end{corollary}
+
+\begin{proof}
+	Following from the proof above define two vector fields
+		\[ \xi^\pm = \cos \omega\xi \pm \sin\omega\eta. \]
+	Then $\abs{\xi^\pm}^2=1$ and $\s \xi^\pi \perp \xi^\pm$, cause
+		\[ \s \xi^\pm = \cos\omega \s \xi \pm \sin\omega \s \eta
+			= \cos\omega c \tan \omega \xi - \sin\omega c \cot\omega \eta
+				= c(\sin\omega\xi - \cos\omega\eta) \perp \xi^\pm. \]
+	Therefore
+		\[ II(\xi^\pm, \xi^\pm) = \skal{\xi^\pm, \s\xi^\pm} = 0 \]
+	hence $\xi^\pm$ are asymptotic directions and
+		\[ [\xi^+ , \xi^-] = [\cos\omega\xi, \cos\omega\xi]- [\cos\omega\xi,\sin\omega\eta] + [\sin\omega\eta,\cos\omega\xi] - [\sin\omega\eta,\sin\omega\eta]=0. \]
+	Hence there exists a $X: V \to M$ local parametrisation such tthat $\xi^+ \circ X = \p Xu$ and $\xi^- \circ X = \p Xv$.
+\end{proof}
+
+\begin{remark}
+	As mentioned earlier, every surface $M \subset \E^2$ can be (away form umbilic) parametrised by curvature line coordinates. This is not true for
+	\begin{itemize}
+		\item surface in higher codimension, 2 dimensional submanifolds of $\ell^n$ for $n\geq 4$.
+		\item hypersufaces, $k$ dimensional submanifolds of $\E^{n+1}$ for $k\geq 3$.
+	\end{itemize}
+\end{remark}
