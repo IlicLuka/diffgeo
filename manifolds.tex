@@ -601,3 +601,20 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 	
 			
 \end{proof}
+
+\begin{corollary}
+	A surface of constant mean curvature ($ H \equiv const. $) $ M \subseteq \E^3 $ admits (away from umbilics) local conformal curvature line coordinates.
+\end{corollary}
+
+\begin{proof}
+	
+	Let $ (\xi,\eta) $ be a principal orthonormal local basis field (around umbilics these  may not exist.) Then 
+		\[ \s \xi = \kappa^+\xi, \quad \s \eta = \kappa^-\eta \]
+		with $ \kappa^pm = H \pm e^{-2 \phi} $ for some function $ \phi: M \rightarrow \R $.
+	Then 
+		\[ [ e^\phi \xi, e^\phi \eta ] =  e^{-2\phi}[\xi,\eta] + 2e^{-2\phi}((\xi \phi)\eta - (\eta\phi)\xi. \]
+	By the above Lemma
+		\[ [\xi,\eta] = - \dfrac{1}{2e^{-2\phi}}[(\eta e^{-2\phi})ßxi + (-\xi e^{-2\phi})\eta] = - \dfrac{1}{2} e^{2\phi}[ -2e^{-2\phi}(\eta \phi)\xi + 2e^{-2\phi}(\xi \phi) \eta ] = (\eta \phi)\xi - (\xi \phi)\eta. \]
+	Hence, $ [ e^\phi \xi , e^\phi \eta ] = 0 $.	
+	
+\end{proof}
