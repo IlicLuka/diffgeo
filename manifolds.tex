@@ -565,7 +565,7 @@ Suppose $ M \subseteq \E^3 $ is a $ 2-$dimensional submanifold. Suppose that $ M
 
 \begin{lemma}
 	If $ [\xi,\eta]=a\xi - b\eta $ for some functions $ a,b:M \rightarrow \R $ for an orthonormal basis field $ (\xi,\eta) $, then
-		\[ \nabla_\xi \xi = - b \eta, \quad \nabla_\xi \eta = a\xi, \quad \nabla_\eta \xi =  b\eta, \quad \nabla_\eta \eta = - a\xi \]
+		\[ \nabla_\xi \xi = - a\eta, \quad \nabla_\xi \eta = a\xi, \quad \nabla_\eta \xi =  b\eta, \quad \nabla_\eta \eta = - b\xi \]
 \end{lemma}
 
 \begin{proof}
@@ -590,19 +590,8 @@ Suppose $ M \subseteq \E^3 $ is a $ 2-$dimensional submanifold. Suppose that $ M
 	Thus 
 	\[ \nabla_\xi \xi = \alpha \eta, \quad \nabla_\eta \eta = \beta \xi, \quad \nabla_\eta \xi =  -\beta\eta, \quad \nabla_\xi \eta = -\alpha \xi. \]
 	But we also know that $ \nabla $ is torsion free, i.e.,
-	\[ \alpha \xi - \beta \eta  = [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi = - \alpha\xi + \beta \eta. \]
+	\[ a \xi - b \eta  = [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi = - \alpha\xi + \beta \eta. \]
 	Thus $ -a = +  \alpha$ and $ \beta = -b $.
-	
-	But this gives us a different result then the lemma predicted.
-	
-	\textbf{Old version:}
-		\[\skal{\nabla_\xi \xi,\xi} = \dfrac{1}{2} d_\xi\skal{\xi,\xi} = 0 \]
-	Similarly, $ \skal{\nabla_\eta \xi,\eta} + \skal{\xi,\nabla_\eta \eta} = 0  $ and $ \skal{\nabla_\eta \eta,\eta} = 0 $.
-	Thus 
-		\[ \nabla_\xi \xi = \alpha \eta, \quad \nabla_\xi \eta = -\alpha \xi + \beta \eta, \quad \nabla_\eta \xi =  \gamma\xi - \delta \eta, \quad \nabla_\eta \eta = \delta \xi. \]
-	But we also know that $ \nabla $ is torsion free, i.e.,
-		\[ \alpha \xi - \beta \eta  = [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi = (\gamma - \alpha)\xi + (\beta + \delta)\eta = - \alpha \xi + \delta \eta. \]
-	Thus $ -a = +  \alpha, \delta = -b $
 		 	
 \end{proof}
 
