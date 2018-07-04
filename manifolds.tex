@@ -61,7 +61,7 @@ There are several equivalent characterisations of submanifolds in $\E^n$.
 	Now we proof $3.$ implies $1.$:
 	
 	Let $X: \R^k \supset V \to \E^n$ parametrisation of $M \cap U = X(V)$. Assume that $X(0)= p$. Let $(t_1, \ldots,t_{n-k})$ be an orthonormal basis of $d_0X(\R^k)^\perp \subset \R^n$. Define
-		\[ C \times \R^{n-k}: (x,y) \mapsto \psi(x,y)= X(x)+ \sum_{i=1}^{n-k} t_iy_i, \quad y=(y_1,\ldots,y_{n-k}). \]
+		\[ \psi: V \times \R^{n-k} \to \E^n, (x,y) \mapsto \psi(x,y)= X(x)+ \sum_{i=1}^{n-k} t_iy_i, \quad y=(y_1,\ldots,y_{n-k}). \]
 	Then 
 		\[ d_0\psi(v,w) = \underbrace{d_0X(v)}_{\in d_0X(\R^k)} + \underbrace{\sum_{i=1}^{n-k} t_i w_i}_{\in (d_0X(\R^k))^\perp} = 0 \]
 	iff $w_i=0$ for all $i$ and $v=0$ or $(v,w)=0$. 
@@ -233,7 +233,7 @@ Now we know how to differentiate functions on submanifolds : we can find analogu
 \end{definition}
 
 \begin{remark}
-	In case of parametrised surfaces $ X: V \rightarrow \E^3 $, $ M = X(V) $. Then $ Y:= xi : V \rightarrow \E^3 $ tangential vector field in the sense of chaper 2.
+	In case of parametrised surfaces $ X: V \rightarrow \E^3 $, $ M = X(V) $. Then $ Y:= \xi : V \rightarrow \E^3 $ tangential vector field in the sense of chaper 2.
 		\[ \nabla_\eta \xi = \nabla_yY \quad d_{(u,v)}X(y) = \eta \quad X(u,v) = p \] 
 \end{remark}
 
@@ -242,7 +242,7 @@ This yields a notion of second derivatives on surfaces:
 \begin{definition}
 	
 	The \emph{Hessian} of $ \phi: M \rightarrow \E $ at $ p \in M $
-		\[ T_pM \times T_pM \ni (\xi,\eta) \mapsto (\mathrm{hess} \phi)\big|_p(\xi,\eta) = \skal{\eta,\nabla_\eta \mathrm{grad}\phi\big|_p } \]
+		\[ T_pM \times T_pM \ni (\xi,\eta) \mapsto (\mathrm{hess} \phi)\big|_p(\xi,\eta) = \skal{\eta,\nabla_\xi \mathrm{grad}\phi\big|_p } \]
 	is a symmetric tensor.
 	
 \end{definition}
@@ -345,7 +345,7 @@ The max integral curves of a vector field $\xi$ can be assembled into a single m
 
 \begin{remark, definition}
 	If $M \subset \E^n$ is compact (closed and bounded) or more generally, $\xi$ is compactly supported on $M$, i.e., there exists a compact $V \subset M$ such that $\xi |_{M \setminus V}=0$, then
-		\[ W=\R \times M, \text{ anf} \Phi_{s+t} = \Phi_s \circ \Phi_t. \]
+		\[ W=\R \times M, \quad\text{ and }\quad \Phi_{s+t} = \Phi_s \circ \Phi_t. \]
 	Moreover $\Phi_t : M \to M$ is a diffeomorphism for any fixed $t \in \R$ and thus $\Phi: \R \times M \to M$ defines a $1$-parameter group of diffeomorphisms. This is a subgroup of the group of diffeomorphisms from $M$ to $M$ and is often called \emph{flow}.
 \end{remark, definition}
 
@@ -400,7 +400,7 @@ However, we obtain a \emph{local flow}.
 \end{remark}
 
 \begin{lemma}
-	If ($ (\xi\phi)(p) = 0 $ for all functions $ \phi: M \rightarrow\R $ then $ \xi(p) = 0 $
+	If $ (\xi\phi)(p) = 0 $ for all functions $ \phi: M \rightarrow\R $ then $ \xi(p) = 0 $
 \end{lemma}
 \begin{proof}
 	
@@ -414,7 +414,7 @@ However, we obtain a \emph{local flow}.
 
 \begin{lemma, definition}
 	
-	Let $ \xi, \eta $ be smooth vector fields on $ M $. Then there is exactly one vetor field $ [\xi,\eta] $ on $ M $ such that, for every smooth function $ \varphi:M \rightarrow \R, $
+	Let $ \xi, \eta $ be smooth vector fields on $ M $. Then there is exactly one tangential vector field $ [\xi,\eta] $ on $ M $ such that, for every smooth function $ \varphi:M \rightarrow \R, $
 		\[ [\xi,\eta]\varphi = \xi(\eta\varphi)-\eta(\xi\varphi). \]
 	$ [\xi,\eta] $ is called the \emph{Lie bracket of $ \xi $ and $ \eta $}.
 	
@@ -423,12 +423,15 @@ However, we obtain a \emph{local flow}.
 \begin{proof}
 	
 	Let $ X: V \rightarrow M $ be a parametrisation of $ M $ around $ p $. Let $ \xi_i $ be a vector field such that $ \xi_i \circ X = \frac{\partial X}{\partial x_i}. $ Thus 
-		\[ (\xi_i \phi) \circ X = (d\phi)(\xi_i) = d(\phi_oX) \circ dX^{-1}(\xi_i \circ X) = d(\phi \circ X)(\frac{\partial}{\partial x_i}) = \frac{\partial}{\partial x_i}(\phi \circ X). \]
+		\[ (\xi_i \phi) \circ X = (d\phi)(\xi_i) = d(\phi_oX) \circ dX^{-1}(\xi_i \circ X) = d(\phi \circ X)\left(\frac{\partial}{\partial x_i}\right) = \frac{\partial}{\partial x_i}(\phi \circ X). \]
 	 Then
-	 	\[ (\xi_i(\xi_j \phi) - \xi_j(\xi_i \phi)) \circ X = \frac{\partial}{\partial x_i}(\xi_j\phi \circ X) - \frac{\partial}{\partial x_j}(\xi_i\phi \circ X) = \frac{\partial}{\partial x_i}(\frac{\partial(\phi \circ X)}{\partial x_j} - \frac{\partial}{\partial x_j}\frac{\partial(\phi \circ X)}{\partial x_i}) = 0 \]
+	 	\[ (\xi_i(\xi_j \phi) - \xi_j(\xi_i \phi)) \circ X 
+	 		= \frac{\partial}{\partial x_i}(\xi_j\phi \circ X) - \frac{\partial}{\partial x_j}(\xi_i\phi \circ X) 
+	 		= \frac{\partial}{\partial x_i}\frac{\partial(\phi \circ X)}{\partial x_j} - \frac{\partial}{\partial x_j}\frac{\partial(\phi \circ X)}{\partial x_i} 
+	 		= 0 \]
 	since mixed partial derivatives commute.
 	
-	$ \{ \xi_1(p), \dots, \xi_k(p) \} $ for a basis for $ T_pM, \forall p \in M $ Write $ \xi = \sum_{i =1}^{k} \alpha_i \xi_i $ and $ \eta = \sum_{i=1}^{k}\beta_i \xi_i $ for some differentiable functions $ \alpha_i,\beta_i $. Now, by the Leibniz rule
+	Therefore $ \{ \xi_1(p), \dots, \xi_k(p) \} $ form a basis for $ T_pM, \forall p \in M $. Write $ \xi = \sum_{i =1}^{k} \alpha_i \xi_i $ and $ \eta = \sum_{i=1}^{k}\beta_i \xi_i $ for some differentiable functions $ \alpha_i,\beta_i $. Now, by the Leibniz rule
 		\[ \xi(\eta \phi) - \eta(\xi \phi) = \sum_{i =1}^{k} \sum_{j =1}^{k} (\alpha_j ( \xi_j \beta_i) - \beta_j(\xi_j\alpha_i))(\xi_i\phi_i). \]
 	Thus with $ [\xi,\eta] := \sum_{j =1}^{k} (\alpha_j ( \xi_j \beta_i) - \beta_j(\xi_j\alpha_i))\xi_i $ we have that 
 		\[ [\xi,\eta]\phi = \xi(\eta\phi)-\eta[\xi\phi] \] for all functions $ \phi: M \rightarrow \R $. By the previous lemma, this is the unique vector field with this property.
@@ -447,9 +450,9 @@ However, we obtain a \emph{local flow}.
 \end{definition}
 
 \begin{remark}
-	We saw in the above proof that $[\xi_i,\xi_j]=0$. ww know from a previous lemma that
+	We saw in the above proof that $[\xi_i,\xi_j]=0$. We know from a previous lemma that
 	\[ \nabla_{\xi_i} \xi_j - \nabla_{\xi_j}\xi_i = 0 \]
-	for $\nabla$ the Levi-Civita connection. One can deduce that
+	for the Levi-Civita connection $\nabla$. One can deduce that
 	\[ [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi  \] 
 	for all vector fields $\xi,\eta$ on $M$. This property of $\nabla$ is known as ''torsion free''.
 \end{remark}
@@ -500,9 +503,9 @@ exercise for the reader.
 
 \begin{theorem, definition}
 	
-	Let $ \xi_i \quad i = 1, \dots, R $ be pairwise commuting vector fields, i.e. $ [\xi_i,\xi_j]= 0 $ \text{whenever} $ i \neq j $ on a $ k- $ dimensional submanifold $ M $ that are linearly independent at every point $ p \in M $. Then there exists a local parametrisation $ X : \R^k \supseteq V \rightarrow M $ around each point $ p \in M $ such that 
+	Let $ \xi_i \quad i = 1, \dots, k $ be pairwise commuting vector fields, i.e. $ [\xi_i,\xi_j]= 0 $ \text{whenever} $ i \neq j $ on a $ k-$dimensional submanifold $ M $ that are linearly independent at every point $ p \in M $. Then there exists a local parametrisation $ X : \R^k \supseteq V \rightarrow M $ around each point $ p \in M $ such that 
 		\[ \xi_i \circ X = \dfrac{\partial X}{\partial x_i}\quad \text{ for } i = 1, \dots, k \]
-	$ \xi_q, \dots, \xi_k $ is called the \emph{Gaussian basis field of $ X $}.
+	$ \xi_1, \dots, \xi_k $ is called the \emph{Gaussian basis field of $ X $}.
 	
 \end{theorem, definition}
 
@@ -527,28 +530,28 @@ exercise for the reader.
 \subsection{Surfaces revisited}
 
 We shall now return to surfaces in $ \E^3 $ and re-investigate their geometry from the perspective of manifolds.
-Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $ M $ is \emph{orientable}, i.e., $ \exists \nu: M \rightarrow S^2 $ submanifold, such that $ \forall p \in M ~ \nu(p) \perp T_pM $. Then $ \nu $ is called \emph{a Gauss map } of $ M $ . Note that a surface admits two Gauss maps and a choice of one of them -- this equips $ M $ with an \emph{orientation} and makes $ M $ an \emph{orientable submanifold}.
+Suppose $ M \subseteq \E^3 $ is a $ 2-$dimensional submanifold. Suppose that $ M $ is \emph{orientable} submanifold, i.e., $ \exists \nu: M \rightarrow S^2 $ such that $ \forall p \in M ~ \nu(p) \perp T_pM $. Then $ \nu $ is called \emph{a Gauss map } of $ M $ . Note that a surface admits two Gauss maps and a choice of one of them -- this equips $ M $ with an \emph{orientation} and makes $ M $ an \emph{orientable submanifold}.
 
 \begin{definition}
 	
 	The \emph{shape operator} of $ (M,\nu) $ is given by	
-		\[ \s := -d\nu \quad \s(p):T_pM \rightarrow T_pM  \]
+		\[ \s_p := -d_p\nu:T_pM \rightarrow T_pM . \]
 	
 	
 \end{definition}
 
 \begin{remark}
 	If $ X:V \rightarrow M $ is a local parametrisation of $ M $ around $ X(u,v)=p \in M $ and $ N:= \nu \circ X $ then 
-		\[ \s_p = -d_p\nu = - d_{(u,v)}(\nu \circ X)(d_{(u,v)X})^{-1} = -d_{(u,v)}N \circ (d_{(u,v)}X)^{-1}. \]
+		\[ \s_p = -d_p\nu = - d_{(u,v)}(\nu \circ X)(d_{(u,v)}X)^{-1} = -d_{(u,v)}N \circ (d_{(u,v)}X)^{-1}. \]
 	Thus it yields our previous definition of the shape operator. Hence, the principal, mean and Gauss curvatures of $ (M,\nu) $ are the eigenvalues, $ \frac{1}{2} \mathrm{trace} $ and the determinant of $ \s $ respectively.
 \end{remark}
 
 \begin{definition}
 	
-	Two vector fields $ \xi,\eta $ on $ M $ are called a \emph{local basis field} around $ p \in M $ if $ \forall q \in U ~ \mathrm{span}\{ \eta(q), \xi(q) \} = T_qM$, where $ U $ is an open neighborhood around $ p \in M $.
-	$ (\xi,\eta) $ is called:
+	Two vector fields $ \xi,\eta $ on $ M $ are called a \emph{local basis field} around $ p \in M $ if $ \forall q \in U ~ \mathrm{span}\{ \eta(q), \xi(q) \} = T_qM$, where $ U $ is an open neighbourhood around $ p \in M $.
+	A local basis $ (\xi,\eta) $ is called:
 	\begin{itemize}
-		\item \emph{orthnormal} if $ \skal{\xi,\eta} = 0, |\xi|^2 = |\eta|^2 = 1 $ on $ U $.
+		\item \emph{orthonormal} if $ \skal{\xi,\eta} = 0, |\xi|^2 = |\eta|^2 = 1 $ on $ U $.
 		\item \emph{principal} if $ \s\xi = \kappa^+\xi, \s\eta = \kappa^-\eta $ on $ U $.
 	\end{itemize} 
 	
@@ -567,11 +570,33 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 
 \begin{proof}
 	
-	$ \nabla $ is a ''metric connection'' so that 
+	The Levi-Civita-connection $ \nabla $ is a ''metric connection'' so that 
 		\[ d_\xi\skal{\eta_1,\eta_2} = \skal{\nabla_\xi \eta_1,\eta_2} +\skal{\eta_1,\nabla_\xi \eta_2}. \]
-	Now 
+	Now we get
+	\begin{align*}
+		\skal{\nabla_\xi \xi,\xi} = \dfrac{1}{2} d_\xi\skal{\xi,\xi} = 0 
+			&&& \Longrightarrow &&& \nabla_\xi\xi = \alpha\eta\\
+		\skal{\nabla_\eta \eta,\eta} = \dfrac{1}{2} d_\eta\skal{\eta,\eta} = 0 
+			&&& \Longrightarrow &&& \nabla_\eta \eta  = \beta \xi \\
+		\skal{\nabla_\eta \xi, \xi} = \frac 12 d_\eta \skal{\xi,\xi} = 0 
+			&&& \Longrightarrow &&& \nabla_\eta \xi  = \gamma \eta \\
+		\skal{\nabla_\xi \eta, \eta} = \frac 12 d_\xi \skal{\eta,\eta} = 0 
+			&&& \Longrightarrow &&& \nabla_\xi \eta  = \delta \xi \\[1mm]
+		\skal{\nabla_\xi \eta,\xi} + \skal{\eta,\nabla_\xi \xi} = d_\xi\skal{\eta,\xi} = 0
+			&&& \Longrightarrow &&&  \delta =- \alpha \\[2mm]
+		\skal{\nabla_\eta \xi,\eta} + \skal{\xi,\nabla_\eta \eta} = d_\eta\skal{\xi,\eta} = 0
+			&&& \Longrightarrow &&&  \gamma =- \beta. \\
+	\end{align*}
+	Thus 
+	\[ \nabla_\xi \xi = \alpha \eta, \quad \nabla_\eta \eta = \beta \xi, \quad \nabla_\eta \xi =  -\beta\eta, \quad \nabla_\xi \eta = -\alpha \xi. \]
+	But we also know that $ \nabla $ is torsion free, i.e.,
+	\[ \alpha \xi - \beta \eta  = [\xi,\eta] = \nabla_\xi \eta - \nabla_\eta \xi = - \alpha\xi + \beta \eta. \]
+	Thus $ -a = +  \alpha$ and $ \beta = -b $.
+	
+	But this gives us a different result then the lemma predicted.
+	
+	\textbf{Old version:}
 		\[\skal{\nabla_\xi \xi,\xi} = \dfrac{1}{2} d_\xi\skal{\xi,\xi} = 0 \]
-		\[\skal{\nabla_\xi \eta,\xi} + \skal{\eta,\nabla_\xi \xi} = d_\xi\skal{\eta,\xi} = 0 \]
 	Similarly, $ \skal{\nabla_\eta \xi,\eta} + \skal{\xi,\nabla_\eta \eta} = 0  $ and $ \skal{\nabla_\eta \eta,\eta} = 0 $.
 	Thus 
 		\[ \nabla_\xi \xi = \alpha \eta, \quad \nabla_\xi \eta = -\alpha \xi + \beta \eta, \quad \nabla_\eta \xi =  \gamma\xi - \delta \eta, \quad \nabla_\eta \eta = \delta \xi. \]
@@ -591,12 +616,12 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 \begin{proof}
 	
 	Write $ [\xi,\eta] = a\xi - b\eta $ as above. By the Codazzi equations
-		\[ 0 = (\nabla_\xi \s)\eta - (\nabla_\eta \s) \xi = \nabla_\xi(\s\eta) - \s\nabla_xi \eta - \nabla_\eta(\s\xi) - \s\nabla_eta \xi  \]
+		\[ 0 = (\nabla_\xi \s)\eta - (\nabla_\eta \s) \xi = \nabla_\xi(\s\eta) - \s\nabla_\xi \eta - \nabla_\eta(\s\xi) - \s\nabla_\eta \xi  \]
 		\[ = \nabla_\xi(\kappa- \eta) - a \s \xi - \nabla_\eta(\kappa^+\xi) + b\s\eta \]
 		\[ = (\xi\kappa^-) \eta + \kappa^-a\xi -a\kappa^+\xi - (\eta\kappa^+)\xi - \kappa^+b\eta + b \kappa^-\eta. \]
 	By collecting the terms
-		\[ 0 = [ (\kappa^- \kappa^+)a - (\eta\kappa^+) ]\xi + [ \xi \kappa^- - b(\kappa^+ - \kappa^-) ] \eta \]
-		\[ \Rightarrow a = \dfrac{\eta \kappa^+}{\kappa^+ - \kappa^-}, \quad b= \dfrac{xi \kappa^-}{\kappa^+ - \kappa^-}. \]
+		\[ 0 = [ (\kappa^- -\kappa^+)a - (\eta\kappa^+) ]\xi + [ \xi \kappa^- - b(\kappa^+ - \kappa^-) ] \eta \]
+		\[ \Rightarrow a = \dfrac{\eta \kappa^+}{\kappa^+ - \kappa^-}, \quad b= \dfrac{\xi \kappa^-}{\kappa^+ - \kappa^-}. \]
 	We would like to show that there exists curvature line coordinates on a surface away from umbilic points. This requires finding functions $ \lambda,\mu: M \rightarrow \R $ such that $ [ \lambda\xi,\mu\eta ] = 0 $ and  then applying the last theorem of the last section to $ \xi_1 = \lambda\xi, \xi_2 = \mu \eta $. This is not a trivial problem so we just consider some special cases.
 	
 			
@@ -615,7 +640,7 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 	Then 
 		\[ [ e^\phi \xi, e^\phi \eta ] =  e^{-2\phi}[\xi,\eta] + 2e^{-2\phi}((\xi \phi)\eta - (\eta\phi)\xi. \]
 	By the above Lemma
-		\[ [\xi,\eta] = - \dfrac{1}{2e^{-2\phi}}[(\eta e^{-2\phi})ßxi + (-\xi e^{-2\phi})\eta] = - \dfrac{1}{2} e^{2\phi}[ -2e^{-2\phi}(\eta \phi)\xi + 2e^{-2\phi}(\xi \phi) \eta ] = (\eta \phi)\xi - (\xi \phi)\eta. \]
+		\[ [\xi,\eta] = - \dfrac{1}{2e^{-2\phi}}\left[(\eta e^{-2\phi})\xi + (-\xi e^{-2\phi})\eta\right] = - \dfrac{1}{2} e^{2\phi}[ -2e^{-2\phi}(\eta \phi)\xi + 2e^{-2\phi}(\xi \phi) \eta ] = (\eta \phi)\xi - (\xi \phi)\eta. \]
 	Hence, $ [ e^\phi \xi , e^\phi \eta ] = 0 $.	
 	
 	
@@ -629,7 +654,7 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 \end{proof}
 
 \begin{corollary}
-	A surface of constant Gauss curvature admits local curvature line coordinates such that for a suitable function $\omega$
+	A surface of constant negative Gauss curvature admits local curvature line coordinates such that for a suitable function $\omega$
 	\[ I= \cos^2 \omega du^2 + \sin^2\omega xdv^2. \] 
 \end{corollary}
 
@@ -653,7 +678,7 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 \begin{proof}
 	Following from the proof above define two vector fields
 		\[ \xi^\pm = \cos \omega\xi \pm \sin\omega\eta. \]
-	Then $\abs{\xi^\pm}^2=1$ and $\s \xi^\pi \perp \xi^\pm$, cause
+	Then $\abs{\xi^\pm}^2=1$ and $\s \xi^\pm \perp \xi^\pm$, cause
 		\[ \s \xi^\pm = \cos\omega \s \xi \pm \sin\omega \s \eta
 			= \cos\omega c \tan \omega \xi - \sin\omega c \cot\omega \eta
 				= c(\sin\omega\xi - \cos\omega\eta) \perp \xi^\pm. \]
@@ -661,7 +686,7 @@ Suppose $ M \subseteq \E^3 $ is a $ 2- $ dimensional submanifold. Suppose that $
 		\[ II(\xi^\pm, \xi^\pm) = \skal{\xi^\pm, \s\xi^\pm} = 0 \]
 	hence $\xi^\pm$ are asymptotic directions and
 		\[ [\xi^+ , \xi^-] = [\cos\omega\xi, \cos\omega\xi]- [\cos\omega\xi,\sin\omega\eta] + [\sin\omega\eta,\cos\omega\xi] - [\sin\omega\eta,\sin\omega\eta]=0. \]
-	Hence there exists a $X: V \to M$ local parametrisation such tthat $\xi^+ \circ X = \p Xu$ and $\xi^- \circ X = \p Xv$.
+	Hence there exists a $X: V \to M$ local parametrisation such that $\xi^+ \circ X = \p Xu$ and $\xi^- \circ X = \p Xv$.
 \end{proof}
 
 \begin{remark}
