@@ -616,6 +616,22 @@ Suppose $ M \subseteq \E^3 $ is a $ 2-$dimensional submanifold. Suppose that $ M
 			
 \end{proof}
 
+\begin{remark}
+	In the above proof we used the Codazzi-equation
+		\[ (\nabla_\xi \s)\eta - (\nabla_\eta \s) \xi. \]
+	Therefore we need a parametrisation $X$ of $M$ such that $X_u=\xi$ and $X_v=\eta$.
+	
+	Let $\tilde X(\tilde u,\tilde v)$ be a parametrisation of $M$. Since $\tilde X_{\tilde u}$ and $ \tilde X_{\tilde v}$ form a basis of $T_pM$ there exist $a_u,b_u,a_v,b_v$ such that
+		\[ \xi=a_u \tilde X_{\tilde u} + b_u\tilde X_{\tilde v}\quad \text{ and }\quad
+			\eta=a_v \tilde X_{\tilde u} + b_v\tilde X_{\tilde v}. \]
+	$\xi,\eta$ form a basis of $T_pM$ as well, so the transformation
+		\[ (\tilde u, \tilde v) \mapsto (a_u\tilde u+b_u\tilde v, a_v\tilde u + b_v\tilde v) \]
+	is bijective and thus a diffeomorphism.
+	
+	Therefore
+		\[ X(u,v) := \tilde X(a_u\tilde u+b_u\tilde v, a_v\tilde u + b_v\tilde v) \]
+	is a parametrisation of $X$ with the wished properties.
+\end{remark}
 
 \begin{corollary}
 	A surface of constant mean curvature ($ H \equiv const. $) $ M \subseteq \E^3 $ admits (away from umbilics) local conformal curvature line coordinates.
